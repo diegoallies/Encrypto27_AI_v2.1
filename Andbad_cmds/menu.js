@@ -113,19 +113,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
         await zk.sendMessage(dest, {
             image: { url: lien },
             caption: infoMsg + menuMsg + asciiArt + `\n\n📢 [Join Our Channel](${channelLink})`,
-            footer: "Powered by ENCRYPTO-27",
-            contextInfo: {
-                forwardingScore: 2, // Simulate forwarded message
-                isForwarded: true,  // Set as forwarded message
-                externalAdReply: {
-                    title: "Join Our Channel",
-                    body: "Stay updated with the latest news!",
-                    mediaType: 2, // 2 for link preview
-                    thumbnail: lien, // Thumbnail for the link preview
-                    mediaUrl: channelLink,
-                    sourceUrl: channelLink
-                }
-            }
+            footer: "Powered by ENCRYPTO-27"
         }, { quoted: ms });
 
         // Send the audio message
