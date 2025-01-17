@@ -110,18 +110,28 @@ https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M
     let lien = mybotpic();
 
     try {
-        // Send the image with the caption and menu as a forwarded message
+        // Send the image with the caption and menu as a forwarded message with contextInfo
         await zk.sendMessage(dest, {
             image: { url: lien },
             caption: infoMsg + menuMsg + asciiArt,
             footer: "Powered by ENCRYPTO-27",
             isForwarded: true, // Mark message as forwarded
+            contextInfo: {
+                mentionedJid: [ms.sender],
+                forwardingScore: 1000,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: "120363304325601080@newsletter",
+                    newsletterName: "『 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 ᴍᴅ 』",
+                    serverMessageId: 0x8f
+                }
+            }
         }, { quoted: ms });
 
         // Send the audio message
         await zk.sendMessage(dest, {
             audio: { url: "https://raw.githubusercontent.com/diegoallies/Dataaudio/main/Intro.mp3" },
-            mimetype: "audio/mpeg",
+            mimetype: "audio/mp4",
             ptt: true,
         }, { quoted: ms });
     } catch (e) {
