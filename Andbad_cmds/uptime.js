@@ -1,137 +1,75 @@
-const { zokou } = require('rk/zokou');
-const moment = require('moment-timezone');
-const { getBuffer } = require('rk/dl/Func');
-const { default: axios } = require('axios');
-const speed = require('performance-now');
-
-// API key directly added in the code
-const weatherApiKey = 'YOUR_API_KEY_HERE';
-
-const uptimeToReadable = function (uptimeInSeconds) {
-    const days = Math.floor(uptimeInSeconds / (24 * 60 * 60));
-    const hours = Math.floor((uptimeInSeconds % (24 * 60 * 60)) / (60 * 60));
-    const minutes = Math.floor((uptimeInSeconds % (60 * 60)) / 60);
-    const seconds = Math.floor(uptimeInSeconds % 60);
-
-    let result = '';
-    if (days > 0) result += `${days}d `;
-    if (hours > 0) result += `${hours}h `;
-    if (minutes > 0) result += `${minutes}m `;
-    result += `${seconds}s`;
-
-    return result;
+const {
+  zokou
+} = require("../framework/zokou");
+const {
+  getBuffer
+} = require("../framework/dl/Function");
+const speed = require("performance-now");
+const runtime = function (_0x10e989) {
+  _0x10e989 = Number(_0x10e989);
+  var _0x3030ed = Math.floor(_0x10e989 / 86400);
+  var _0x5cc980 = Math.floor(_0x10e989 % 86400 / 3600);
+  var _0x5e4c25 = Math.floor(_0x10e989 % 3600 / 60);
+  var _0x2493b6 = Math.floor(_0x10e989 % 60);
+  var _0x18371c = _0x3030ed > 0 ? _0x3030ed + (_0x3030ed == 1 ? " day, " : " d, ") : '';
+  var _0x405b92 = _0x5cc980 > 0 ? _0x5cc980 + (_0x5cc980 == 1 ? " hour, " : " h, ") : '';
+  var _0xb1d8c1 = _0x5e4c25 > 0 ? _0x5e4c25 + (_0x5e4c25 == 1 ? " minute, " : " m, ") : '';
+  var _0x4ee62c = _0x2493b6 > 0 ? _0x2493b6 + (_0x2493b6 == 1 ? " second" : " s") : '';
+  return _0x18371c + _0x405b92 + _0xb1d8c1 + _0x4ee62c;
 };
-
-const getPerformanceMetrics = () => {
-    const currentTime = speed();
-    const executionTime = (speed() - currentTime).toFixed(3);
-    return executionTime;
-};
-
+let timestamp = speed();
+let flashspeed = (speed() - timestamp).toFixed(4);
 zokou({
-    nomCom: 'uptime',
-    desc: 'Returns the uptime of the bot in a readable format.',
-    Categorie: 'Utility',
-    reaction: '📡',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    const uptime = process.uptime();
-    const uptimeStr = uptimeToReadable(uptime);
-    await repondre(`${arg} Bot has been up for: ${uptimeStr}`);
+  'nomCom': "ping",
+  'desc': "To check ping",
+  'Categorie': "General",
+  'reaction': '📡',
+  'fromMe': "true"
+}, async (_0x1c57c2, _0x592785, _0x282835) => {
+  const {
+    ms: _0x177695,
+    arg: _0x402724,
+    repondre: _0x2c0d2b
+  } = _0x282835;
+  await _0x2c0d2b("*📡 ENCRYPTED SPEED :" + flashspeed + " MS* ");
 });
-
 zokou({
-    nomCom: 'performance',
-    desc: 'Shows bot performance metrics.',
-    Categorie: 'Utility',
-    reaction: '📊',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    const executionTime = getPerformanceMetrics();
-    await repondre(`${arg} Bot performance execution time: ${executionTime} seconds`);
+  'nomCom': "uptime",
+  'desc': "To check runtime",
+  'Categorie': "General",
+  'reaction': '🎭',
+  'fromMe': "true"
+}, async (_0x42052a, _0x2cadb5, _0x100e6b) => {
+  const {
+    ms: _0x419b36,
+    arg: _0x3e4682,
+    repondre: _0x24712f
+  } = _0x100e6b;
+  await _0x24712f("*_Uptime of ENCRYPTO AI is: " + runtime(process.uptime()) + '_*');
 });
-
 zokou({
-    nomCom: 'screenshot',
-    desc: 'Takes a screenshot of the current state of the bot or page.',
-    Categorie: 'General',
-    reaction: '📸',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    await repondre(`Taking a screenshot for ${arg}...`);
-    // Logic to capture a screenshot would be here
-});
-
-zokou({
-    nomCom: 'link',
-    desc: 'Sends a URL link as a response.',
-    Categorie: 'General',
-    reaction: '🔗',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    await repondre(`Here is the link: ${arg}`);
-});
-
-zokou({
-    nomCom: 'fetch',
-    desc: 'Fetches the content from a URL and sends it back.',
-    Categorie: 'Utility',
-    reaction: '🔍',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    try {
-        const response = await axios.get(arg);
-        await repondre(`Fetched content from: ${arg}\nContent: ${response.data}`);
-    } catch (error) {
-        await repondre(`Error fetching the URL: ${error.message}`);
-    }
-});
-
-zokou({
-    nomCom: 'image',
-    desc: 'Returns an image from a given search term.',
-    Categorie: 'General',
-    reaction: '🖼️',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    const searchTerm = arg || 'random image';
-    const imageUrl = `https://source.unsplash.com/800x600/?${searchTerm}`;
-    await repondre(`Here is a ${searchTerm} image: ${imageUrl}`);
-});
-
-zokou({
-    nomCom: 'time',
-    desc: 'Returns the current time in a specific timezone.',
-    Categorie: 'Utility',
-    reaction: '⏰',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    const timezone = arg || 'UTC';
-    const currentTime = moment().tz(timezone).format('YYYY-MM-DD HH:mm:ss');
-    await repondre(`Current time in ${timezone}: ${currentTime}`);
-});
-
-zokou({
-    nomCom: 'weather',
-    desc: 'Returns the current weather for a given location.',
-    Categorie: 'Utility',
-    reaction: '🌤️',
-    fromMe: true
-}, async (_from, _to, _message) => {
-    const { arg, repondre } = _message;
-    try {
-        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${arg}&appid=${weatherApiKey}`);
-        const weatherData = weatherResponse.data;
-        const weatherInfo = `Weather in ${arg}:\n${weatherData.weather[0].description}\nTemperature: ${(weatherData.main.temp - 273.15).toFixed(2)}°C`;
-        await repondre(weatherInfo);
-    } catch (error) {
-        await repondre(`Error fetching weather data: ${error.message}`);
-    }
+  'nomCom': 'ss',
+  'desc': "screenshots website",
+  'Categorie': "General",
+  'reaction': '🎥',
+  'fromMe': "true"
+}, async (_0xb9d834, _0x90a7c0, _0xc17ce9) => {
+  const {
+    ms: _0xbfd4ce,
+    arg: _0x101ab2,
+    repondre: _0x4aea14
+  } = _0xc17ce9;
+  if (!_0x101ab2 || _0x101ab2.length === 0) {
+    return _0x4aea14("provide a link...");
+  }
+  const _0x2afa0b = _0x101ab2.join(" ");
+  let _0x10a198 = "https://api.maher-zubair.tech/misc/sstab?url=" + _0x2afa0b + "&dimension=720x720";
+  let _0x67c929 = await getBuffer(_0x10a198);
+  await _0x90a7c0.sendMessage(_0xb9d834, {
+    'image': _0x67c929
+  }, {
+    'caption': "*Powered by ENCRYPTO AI*"
+  }, {
+    'quoted': _0xbfd4ce
+  });
 });
