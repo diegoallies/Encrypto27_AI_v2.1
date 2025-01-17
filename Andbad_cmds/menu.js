@@ -25,16 +25,15 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     });
 
     moment.tz.setDefault('Etc/GMT');
-
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
     // Text message formatting
     let infoMsg = `
 ╭─────────────────────────────────────────────╮
-│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
+│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │   💻 *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*                    │
-│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
+│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │   𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │
 ╰─────────────────────────────────────────────╯
 
@@ -88,57 +87,45 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
          | |        
        @#####@      
      (###   ###)-.  
-   .(###     ###) \ 
+   .(###     ###) \\ 
   /  (###   ###)   )
  (=-  .@#####@|_--"  
- /\    \_|l|_/ (\    
-(=-\     |l|    /   
- \  \.___|l|___/    
- /\      |_|   /    
-(=-\._________/\    
- \             /    
-   \._________/     
+ /\\    \\_|l|_/ (\\    
+(=-\\     |l|    /   
+ \\  \\.___|l|___/    
+ /\\      |_|   /    
+(=-\\._________/\\    
+ \\             /    
+   \\._________/     
      #  ----  #     
      #   __   #       
-     \########/      
+     \\########/      
          V
              V
            V
-`;
-    
-    var lien = mybotpic();
 
-    if (lien.match(/\.(mp4|gif)$/i)) {
-        try {
-            zk.sendMessage(dest, {
-                video: { url: lien },
-                caption: infoMsg + menuMsg + asciiArt,
-                footer: "I am *DUDAS*, creator of 𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸",
-                gifPlayback: true,
-                contextInfo: { isForwarded: true } // Added isForwarded here
-            }, { quoted: ms });
-        }
-        catch (e) {
-            console.log("🥵🥵 Menu error " + e);
-            repondre("🥵🥵 Menu error " + e);
-        }
-    }
-    // Check for .jpeg or .png
-    else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
-        try {
-            zk.sendMessage(dest, {
-                image: { url: lien },
-                caption: infoMsg + menuMsg + asciiArt,
-                footer: "I am *msela-chui-v2*, creator of msela-chui Tech",
-                contextInfo: { isForwarded: true } // Added isForwarded here
-            }, { quoted: ms });
-        }
-        catch (e) {
-            console.log("🥵🥵 Menu error " + e);
-            repondre("🥵🥵 Menu error " + e);
-        }
-    }
-    else {
-        repondre(infoMsg + menuMsg + asciiArt);
+https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M
+`;
+
+    let lien = mybotpic();
+
+    try {
+        // Send the image with the caption and menu as a forwarded message
+        await zk.sendMessage(dest, {
+            image: { url: lien },
+            caption: infoMsg + menuMsg + asciiArt,
+            footer: "Powered by ENCRYPTO-27",
+            isForwarded: true, // Mark message as forwarded
+        }, { quoted: ms });
+
+        // Send the audio message
+        await zk.sendMessage(dest, {
+            audio: { url: "https://raw.githubusercontent.com/diegoallies/Dataaudio/main/Intro.mp3" },
+            mimetype: "audio/mpeg",
+            ptt: true,
+        }, { quoted: ms });
+    } catch (e) {
+        console.log("Error sending menu:", e);
+        repondre("🥵 Error generating menu: " + e.message);
     }
 });
