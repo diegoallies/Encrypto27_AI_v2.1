@@ -855,11 +855,11 @@ ${metadata.desc}`;
                 if((conf.DP).toLowerCase() === 'yes') {     
                 let cmsg = `
 ╔════◇
-║ 『KYPHER-XMD CONNECTED』
+║ 『ENCRYPTO-27 AI CONNECTED』
 ║    Prefix : [ ${prefixe} ]
 ║    Mode :${md}
 ║    Total Commands : ${evt.cm.length}︎
-║    SUPPORT KYPHER_TCH 
+║     𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍℕ𝕆𝕃𝕆𝔾𝕀𝔼𝕊 
 ╚════════════════╝`;
                 await zk.sendMessage(zk.user.id, { text: cmsg });
                 }
