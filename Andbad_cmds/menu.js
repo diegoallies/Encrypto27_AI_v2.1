@@ -110,7 +110,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     let channelLink = "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M";
 
     try {
-        // Send the image with the caption, menu, ASCII art, and channel link in one message with a "view channel" button
+        // Send the message with the image, menu, ASCII art, and channel link
         const buttonMessage = {
             image: { url: lien },
             caption: infoMsg + menuMsg + asciiArt,
@@ -124,7 +124,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
             ]
         };
 
-        // Send the interactive message
+        // Send the message
         await zk.sendMessage(dest, buttonMessage, { quoted: ms });
 
         // Send the audio message separately
