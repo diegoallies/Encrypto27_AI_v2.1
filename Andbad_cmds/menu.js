@@ -35,8 +35,8 @@ const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
 ╭──────────────────────╮  
-│        🚀  *KYPHER_XMD*       │  
-│  𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_TECH_SUPPORT_ 𒆜𓊉  │  
+│        🚀  *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*       │  
+│  𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍℕ𝕆𝕃𝕆𝔾𝕀𝔼𝕊 𒆜𓊉  │  
 ╰──────────────────────╯  
 
 ╭━━━━━❰ *AVAILABLE MENUS* ❱━━━╮  
@@ -52,7 +52,7 @@ const date = moment().format('DD/MM/YYYY');
 
 📌 _*Type the command to proceed.*_  
 ════════════════════════  
-💡 _*𝚾_𝚳_𝐃*_  
+💡 _*𝔼_𝔸_𝕀*_  
 ════════════════════════\n`;
 
 let menuMsg = `
@@ -70,7 +70,7 @@ let menuMsg = `
 ╰────────────···▸▸ \n`
     }
 
-    menuMsg += `> 𝚩𝚯𝚻 𝐂𝚪𝚵𝚫𝚻𝚵𝐃 𝚩𝐘 𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉
+    menuMsg += `> 𝚩𝚯𝚻 𝐂𝚪𝚵𝚫𝚻𝚵𝐃 𝚩𝐘 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽_𒆜𓊉
 `;
 
    var lien = mybotpic();
