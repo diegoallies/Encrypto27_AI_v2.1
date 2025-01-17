@@ -47,7 +47,7 @@ const date = moment().format('DD/MM/YYYY');
 ┃ ❒  🔌 ▸ *PLUGINS*  : ${cm.length}   
 ┃ ❒  💾 ▸ *RAM*      : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}    
 ┃ ❒  🖥️  ▸ *SAVER*    : ${os.platform()}         
-┃ ❒  🎨 ▸ *THEME*    : _𝐊𝐘𝚸𝚮𝚵𝚪_TECH_SUPPORT_𒆜    
+┃ ❒  🎨 ▸ *THEME*    : 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝔸𝕀 𝔹𝕆𝕋    
 ╰━━━━━━━━━━━━━━━━━━━━━━━━╯ 
 
 📌 _*Type the command to proceed.*_  
