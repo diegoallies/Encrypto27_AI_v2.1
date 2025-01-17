@@ -105,18 +105,19 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
            V
 `;
 
-    let lien = await mybotpic();
+    // URL for the bot image and channel link
+    let lien = mybotpic();
     let channelLink = "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M";
 
     try {
-        // Send the image with the caption, menu, and channel link
+        // Send the image with the caption, menu, ASCII art, and channel link in one message
         await zk.sendMessage(dest, {
             image: { url: lien },
-            caption: infoMsg + menuMsg + asciiArt + `\n\n📢 [Join Our Channel](${channelLink})`,
-            footer: "Powered by ENCRYPTO-27"
+            caption: infoMsg + menuMsg + asciiArt + "\n\n> Join our channel here: " + channelLink,
+            footer: "Powered by ENCRYPTO-27",
         }, { quoted: ms });
 
-        // Send the audio message
+        // Send the audio message (still separate to avoid issues)
         await zk.sendMessage(dest, {
             audio: { url: "https://raw.githubusercontent.com/diegoallies/Dataaudio/main/Intro.mp3" },
             mimetype: "audio/mpeg",
