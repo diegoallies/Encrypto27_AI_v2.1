@@ -29,20 +29,13 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
-    // WhatsApp channel link as a heading
-    const channelHeading = `
-╭─────────────────────────────────────────────╮
-│ 💬 *Join our WhatsApp Channel:*             
-│ 👉 [Click Here](https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M) 
-╰─────────────────────────────────────────────╯\n`;
-
-    // Text message formatting
+    // Main menu content
     let infoMsg = `
 ╭─────────────────────────────────────────────╮
 │   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │   💻 *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*                    │
 │   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
-│   𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │
+│   𓊈𒆜 𝔼ℕℂℝ𝕐ℙℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │
 ╰─────────────────────────────────────────────╯
 
 ╭━━━━━━━━━━━━━━━━━━━━━❰ *AVAILABLE MENUS* ❱━━━━━━━━━━━━━━━━━╮
@@ -86,8 +79,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     }
 
     menuMsg += `
-> █████ Created by 𝙴𝚖𝚎𝚛𝚐𝚎𝚗𝚌𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽_𒆜𓊉
-`;
+> █████ Created by 𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘-27 Team.`;
 
     let asciiArt = `
           ^         
@@ -116,12 +108,26 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
     try {
         if (lien.match(/\.(mp4|gif)$/i)) {
-            await zk.sendMessage(dest, { video: { url: lien }, caption: channelHeading + infoMsg + menuMsg + asciiArt, footer: "I am *DUDAS*, creator of 𝙴𝚗𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸", gifPlayback: true }, { quoted: ms });
+            await zk.sendMessage(dest, { video: { url: lien }, caption: infoMsg + menuMsg + asciiArt, footer: "I am *DUDAS*, creator of 𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸", gifPlayback: true }, { quoted: ms });
         } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
-            await zk.sendMessage(dest, { image: { url: lien }, caption: channelHeading + infoMsg + menuMsg + asciiArt, footer: "I am *msela-chui-v2*, creator of msela-chui Tech" }, { quoted: ms });
+            await zk.sendMessage(dest, { image: { url: lien }, caption: infoMsg + menuMsg + asciiArt, footer: "I am *msela-chui-v2*, creator of msela-chui Tech" }, { quoted: ms });
         } else {
-            await repondre(channelHeading + infoMsg + menuMsg + asciiArt);
+            await repondre(infoMsg + menuMsg + asciiArt);
         }
+
+        // Add WhatsApp Channel
+        await zk.sendMessage(dest, {
+            text: "Join our official channel for updates: [Click Here](https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M)",
+            contextInfo: {
+                externalAdReply: {
+                    title: "Visit Channel",
+                    body: "Official Updates",
+                    mediaType: 3,
+                    thumbnailUrl: "https://i.ibb.co/hx0rGm5/Encrypto.webp",
+                    sourceUrl: "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M"
+                }
+            }
+        }, { quoted: ms });
 
         // Adding audio message
         await zk.sendMessage(dest, {
