@@ -79,7 +79,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 
         // Send the audio message
         await zk.sendMessage(dest, {
-            audio: { url: "/mnt/data/Intro_converted.mp3" },
+            audio: { url: "https://github.com/diegoallies/Dataaudio/blob/main/Intro.mp3" },
             mimetype: "audio/mp4",
             ptt: true,
         }, { quoted: ms });
