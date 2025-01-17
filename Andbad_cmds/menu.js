@@ -29,6 +29,13 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
+    // WhatsApp channel link as a heading
+    const channelHeading = `
+╭─────────────────────────────────────────────╮
+│ 💬 *Join our WhatsApp Channel:*             
+│ 👉 [Click Here](https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M) 
+╰─────────────────────────────────────────────╯\n`;
+
     // Text message formatting
     let infoMsg = `
 ╭─────────────────────────────────────────────╮
@@ -82,7 +89,6 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 > █████ Created by 𝙴𝚖𝚎𝚛𝚐𝚎𝚗𝚌𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽_𒆜𓊉
 `;
 
-    // ASCII art of a person smoking on a laptop, placed at the end of the message
     let asciiArt = `
           ^         
          | |        
@@ -105,29 +111,27 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
              V
            V
 `;
-    
+
     var lien = mybotpic();
 
-    if (lien.match(/\.(mp4|gif)$/i)) {
-        try {
-            zk.sendMessage(dest, { video: { url: lien }, caption: infoMsg + menuMsg + asciiArt, footer: "I am *DUDAS*, creator of 𝙴𝚗𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸", gifPlayback: true }, { quoted: ms });
+    try {
+        if (lien.match(/\.(mp4|gif)$/i)) {
+            await zk.sendMessage(dest, { video: { url: lien }, caption: channelHeading + infoMsg + menuMsg + asciiArt, footer: "I am *DUDAS*, creator of 𝙴𝚗𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸", gifPlayback: true }, { quoted: ms });
+        } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
+            await zk.sendMessage(dest, { image: { url: lien }, caption: channelHeading + infoMsg + menuMsg + asciiArt, footer: "I am *msela-chui-v2*, creator of msela-chui Tech" }, { quoted: ms });
+        } else {
+            await repondre(channelHeading + infoMsg + menuMsg + asciiArt);
         }
-        catch (e) {
-            console.log("🥵🥵 Menu error " + e);
-            repondre("🥵🥵 Menu error " + e);
-        }
-    }
-    // Check for .jpeg or .png
-    else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
-        try {
-            zk.sendMessage(dest, { image: { url: lien }, caption: infoMsg + menuMsg + asciiArt, footer: "I am *msela-chui-v2*, creator of msela-chui Tech" }, { quoted: ms });
-        }
-        catch (e) {
-            console.log("🥵🥵 Menu error " + e);
-            repondre("🥵🥵 Menu error " + e);
-        }
-    }
-    else {
-        repondre(infoMsg + menuMsg + asciiArt);
+
+        // Adding audio message
+        await zk.sendMessage(dest, {
+            audio: { url: "https://github.com/mrfrank-ofc/SUBZERO-MD-DATABASE/raw/refs/heads/main/audios/subzero-yali.mp3" },
+            mimetype: "audio/mp4",
+            ptt: true
+        }, { quoted: ms });
+
+    } catch (e) {
+        console.log("🥵🥵 Menu error " + e);
+        repondre("🥵🥵 Menu error " + e);
     }
 });
