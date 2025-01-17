@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",  // Added the start script for Heroku
     "test": "node index.js",
     "s": "node index.js",
     "bmwmd": "pm2 start index.js --attach",
