@@ -108,7 +108,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     let channelLink = "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M";
 
     let messageOptions = {
-        caption: infoMsg + `\n\n📢 [View Channel](${channelLink})`,
+        caption: infoMsg + menuMsg + asciiArt + `\n\n📢 [View Channel](${channelLink})`,
         footer: "Powered by ENCRYPTO-27",
         contextInfo: {
             externalAdReply: {
