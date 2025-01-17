@@ -41,10 +41,10 @@ const date = moment().format('DD/MM/YYYY');
 │❒⁠⁠⁠⁠│▸ *GROUP* 
 │❒⁠⁠⁠⁠│▸ *REPO*
 │❒⁠⁠⁠⁠╰──────────────
-│❒⁠⁠⁠⁠│▸ *CHANNEL* :  https://whatsapp.com/channel/0029VanspvdLtOj55DG0t82Y
-│❒⁠⁠⁠⁠│▸ *GROUP* : https://chat.whatsapp.com/BO1RVKMAatT7QldEGMvhYd
-│❒⁠⁠⁠⁠│▸ *REPO* : https://github.com/KYPHER26/KYPHER_XMD
-│❒⁠⁠⁠⁠│▸ *YTUBE* : https://www.youtube.com/@Kypher_tech
+│❒⁠⁠⁠⁠│▸ *CHANNEL* :  https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M
+│❒⁠⁠⁠⁠│▸ *GROUP* : https://chat.whatsapp.com/LCtHWrdzZPFCKScqV9yhzY
+│❒⁠⁠⁠⁠│▸ *REPO* : https://github.com/diegoallies/Encrypto27_AI_v2.1/
+│❒⁠⁠⁠⁠│
 │❒⁠⁠⁠⁠╰──────────────
 ╰──────────────────\n─
   `;

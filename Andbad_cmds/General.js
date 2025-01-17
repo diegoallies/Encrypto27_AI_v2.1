@@ -118,10 +118,10 @@ zokou({ nomCom: "support", categorie: "General" }, async (dest, zk, commandeOpti
     // Delay before sending the support message
     await delay(1500); // 1.5 second delay
 
-    repondre("THANK YOU FOR CHOOSING KYPHER_XMD, HERE ARE OUR SUPPORTIVE CHANNEL\n\n ☉ CHANNEL LINK IS HERE ☉ \n\n❒⁠⁠⁠⁠[https://whatsapp.com/channel/0029VanspvdLtOj55DG0t82Y]");
+    repondre("THANK YOU FOR CHOOSING ENCRYPTO AI, HERE ARE OUR SUPPORTIVE CHANNEL\n\n ☉ CHANNEL LINK IS HERE ☉ \n\n❒⁠⁠⁠⁠[https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M]");
     
     // Delay before sending another support message
     await delay(1000); // 1 second delay
 
-    await zk.sendMessage(auteurMessage, { text: `THANK YOU FOR CHOOSING KYPHER_XMD, MAKE SURE YOU FOLLOW THESE CHANNELS.\n\n https://whatsapp.com/channel/0029VanspvdLtOj55DG0t82Y ` }, { quoted: ms });
+    await zk.sendMessage(auteurMessage, { text: `THANK YOU FOR CHOOSING ENCRYPTO AI, MAKE SURE YOU FOLLOW THESE CHANNELS.\n\n https://chat.whatsapp.com/LCtHWrdzZPFCKScqV9yhzY ` }, { quoted: ms });
 });

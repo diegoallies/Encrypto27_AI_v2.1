@@ -19,7 +19,7 @@ const{repondre,ms,dev,superUser}=com;
 
   const {exec}=require("child_process")
 
-    repondre("KYPHER_XMD bot Restarting ⏳");
+    repondre("Encrypto-27 bot Restarting ⏳");
 
   exec("pm2 restart all");
   

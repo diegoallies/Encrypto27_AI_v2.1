@@ -34,18 +34,17 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
-POWERED BY KYPHER_XMD CREATORS
+POWERED BY ENCRYPTO27 
 ╭─────────────────
 │❒⁠⁠⁠⁠╭─────────────
 │❒⁠⁠⁠⁠│▸ *THIS ARE KYPHER GROUP LINKS* 
 │❒⁠⁠⁠⁠│▸ *CHANNELS* 
 │❒⁠⁠⁠⁠│▸ *GROUPS*
 │❒⁠⁠⁠⁠╰──────────────
-│❒⁠⁠⁠⁠│▸ *CHANNEL* :  https://whatsapp.com/channel/0029VajQn6YF1YlPE0XgBC2m
-│❒⁠⁠⁠⁠│▸ *CHANNEL* :  https://whatsapp.com/channel/0029VanspvdLtOj55DG0t82Y
+│❒⁠⁠⁠⁠│▸ *CHANNEL* :  https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M
 │❒⁠⁠⁠⁠│▸
 │❒⁠⁠⁠⁠│▸ 
-│❒⁠⁠⁠⁠│▸ GROUP: https://chat.whatsapp.com/BO1RVKMAatT7QldEGMvhYd
+│❒⁠⁠⁠⁠│▸ GROUP: https://chat.whatsapp.com/CA7bhs9XrzB5iywo7mCqaV
 │❒⁠⁠⁠⁠│▸
 │❒⁠⁠⁠⁠│
 │❒⁠⁠⁠⁠│▸          ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_TECH_SUPPORT𒆜𓊉 ✞
@@ -58,7 +57,7 @@ POWERED BY KYPHER_XMD CREATORS
   `;
     
 let menuMsg = `
-     MADE EASY BY ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞
+     MADE EASY BY ✞𓊈𒆜 𝙳𝚄𝙳𝙰𝚂 𒆜𓊉 ✞
 
 ❒────────────────────❒`;
 
