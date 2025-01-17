@@ -35,7 +35,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 │   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │   💻 *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*                    │
 │   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
-│   𓊈𒆜 𝔼ℕℂℝ𝕐ℙℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │
+│   𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │
 ╰─────────────────────────────────────────────╯
 
 ╭━━━━━━━━━━━━━━━━━━━━━❰ *AVAILABLE MENUS* ❱━━━━━━━━━━━━━━━━━╮
@@ -107,31 +107,24 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     var lien = mybotpic();
 
     try {
-        if (lien.match(/\.(mp4|gif)$/i)) {
-            await zk.sendMessage(dest, { video: { url: lien }, caption: infoMsg + menuMsg + asciiArt, footer: "I am *DUDAS*, creator of 𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸", gifPlayback: true }, { quoted: ms });
-        } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
-            await zk.sendMessage(dest, { image: { url: lien }, caption: infoMsg + menuMsg + asciiArt, footer: "I am *msela-chui-v2*, creator of msela-chui Tech" }, { quoted: ms });
-        } else {
-            await repondre(infoMsg + menuMsg + asciiArt);
-        }
-
-        // Add WhatsApp Channel
         await zk.sendMessage(dest, {
-            text: "Join our official channel for updates: [Click Here](https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M)",
+            text: infoMsg + menuMsg + asciiArt + "\nJoin our channel for updates: [Click Here](https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M)",
             contextInfo: {
                 externalAdReply: {
-                    title: "Visit Channel",
-                    body: "Official Updates",
+                    title: "Join Our Channel",
+                    body: "Stay Updated with Encrypto-27",
                     mediaType: 3,
                     thumbnailUrl: "https://i.ibb.co/hx0rGm5/Encrypto.webp",
                     sourceUrl: "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M"
-                }
+                },
+                forwardingScore: 999,
+                isForwarded: true
             }
         }, { quoted: ms });
 
         // Adding audio message
         await zk.sendMessage(dest, {
-            audio: { url: "https://github.com/mrfrank-ofc/SUBZERO-MD-DATABASE/raw/refs/heads/main/audios/subzero-yali.mp3" },
+            audio: { url: "https://github.com/diegoallies/Dataaudio/blob/main/Intro.mp3" },
             mimetype: "audio/mp4",
             ptt: true
         }, { quoted: ms });
