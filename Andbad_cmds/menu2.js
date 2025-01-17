@@ -32,7 +32,7 @@ const temps = moment().format('HH:mm:ss');
 const date = moment().format('DD/MM/YYYY');
 
   let infoMsg =  `
-╭────《《𝐊𝐘𝚸𝚮𝚵𝚪_𝚾𝚳𝐃》》────
+╭────《《  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟  》》────
 ┴  ╭─────────────
 │❒⁠⁠⁠⁠│ *ADMIN* : ${s.OWNER_NAME}
 │❒│⁠⁠⁠⁠ *CALENDER* : ${date}
@@ -43,11 +43,11 @@ const date = moment().format('DD/MM/YYYY');
 │❒│⁠⁠⁠⁠ *CHROME* : ${os.platform()}
 │❒│⁠⁠⁠⁠ *THEME* : *ANDBADTHEME*
 ┬  ╰──────────────
-╰─── ··《《𝐊𝐘𝚸𝚮𝚵𝚪_𝚾𝚳𝐃》》··──\n`;
+╰─── ··《《           𝙳𝚄𝙳𝙰𝚂          》》··──\n`;
     
 let menuMsg = `
  ─────────
-  𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_TECH_SUPPORT𒆜𓊉
+  𓊈𒆜𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ𒆜𓊉
  ─────────
 
 
@@ -66,7 +66,7 @@ let menuMsg = `
 
     menuMsg += `
 
-|⏣𝚩𝚯𝚻 𝐂𝚪𝚵𝚫𝚻𝚵𝐃 𝚩𝐘_𝐊𝐘𝚸𝚮𝚵𝚪_ ✞
+|⏣ 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍℕ𝕆𝕃𝕆𝔾𝕀𝔼𝕊 ✞
 *❒⁠⁠⁠⁠—————————— ❒⁠⁠⁠⁠——————————❒⁠⁠⁠⁠*
 `;
 

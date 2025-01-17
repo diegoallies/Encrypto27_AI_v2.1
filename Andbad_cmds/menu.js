@@ -36,7 +36,7 @@ const date = moment().format('DD/MM/YYYY');
   let infoMsg =  `
 ╭──────────────────────╮  
 │        🚀  *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*       │  
-│  𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍℕ𝕆𝕃𝕆𝔾𝕀𝔼𝕊 𒆜𓊉  │  
+│  𓊈𒆜   𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉  │  
 ╰──────────────────────╯  
 
 ╭━━━━━❰ *AVAILABLE MENUS* ❱━━━╮  
@@ -47,7 +47,7 @@ const date = moment().format('DD/MM/YYYY');
 ┃ ❒  🔌 ▸ *PLUGINS*  : ${cm.length}   
 ┃ ❒  💾 ▸ *RAM*      : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}    
 ┃ ❒  🖥️  ▸ *SAVER*    : ${os.platform()}         
-┃ ❒  🎨 ▸ *THEME*    : 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝔸𝕀 𝔹𝕆𝕋    
+┃ ❒  🎨 ▸ *THEME*    : 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝔸𝕀    
 ╰━━━━━━━━━━━━━━━━━━━━━━━━╯ 
 
 📌 _*Type the command to proceed.*_  
@@ -77,7 +77,7 @@ let menuMsg = `
 
    if (lien.match(/\.(mp4|gif)$/i)) {
     try {
-        zk.sendMessage(dest, { video: { url: lien }, caption:infoMsg + menuMsg, footer: "Je suis *K Y P H E R*, déveloper 𝐊 𝐘 𝚸 𝚮 𝚵 𝚪-𝚻 𝚵 𝐂 𝚮" , gifPlayback : true }, { quoted: ms });
+        zk.sendMessage(dest, { video: { url: lien }, caption:infoMsg + menuMsg, footer: "Je suis *DUDAS*, déveloper 𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸" , gifPlayback : true }, { quoted: ms });
     }
     catch (e) {
         console.log("🥵🥵 Menu erreur " + e);

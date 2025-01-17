@@ -39,20 +39,18 @@ const date = moment().format('DD/MM/YYYY');
 ╚════════════════╝  
   
 📢 *CHANNEL*  
-➤ https://whatsapp.com/channel/0029VanspvdLtOj55DG0t82Y  
+➤ https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M  
   
 👥 *GROUP*  
-➤ https://chat.whatsapp.com/BO1RVKMAatT7QldEGMvhYd  
+➤ https://chat.whatsapp.com/CA7bhs9XrzB5iywo7mCqaV  
   
 💻 *REPO*  
-➤ https://github.com/KYPHER26/KYPHER_XMD  
+➤ https://github.com/diegoallies/Encrypto27_AI_v2.1/  
   
-▶️ *YOUTUBE*  
-➤ https://www.youtube.com/@Kypher_tech  
   
 ═════════════════════  
 🎨 *DESIGNED BY*  
-✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞  
+✞𓊈𒆜   𝙳𝚄𝙳𝙰𝚂   𒆜𓊉 ✞  
 ═════════════════════  
   
 🔔 *Stay Connected!*  
@@ -65,7 +63,7 @@ const date = moment().format('DD/MM/YYYY');
   `;
     
 let menuMsg = `
-     BOT CREATED BY ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞
+     BOT CREATED BY ✞𓊈𒆜 𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𒆜𓊉 ✞
 
 ❒────────────────────❒`;
 

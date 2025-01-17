@@ -43,7 +43,7 @@ const date = moment().format('DD/MM/YYYY');
  ${message}
  
  
- *KYPHER26*`
+ *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*`
 
  if (lien.match(/\.(mp4|gif)$/i)) {
     try {
@@ -71,14 +71,14 @@ else {
 }
 
     } else {
-        if(!superUser) { repondre("*KYPHER_XMD IS ALIVE FOR A LIFE TIME*") ; return};
+        if(!superUser) { repondre("*DUDAS AI IS ALIVE FOR A LIFE TIME*") ; return};
 
-      await   repondre("KYPHER_XMD IS ALIVE AT THE MOMMENT DEPLOY IT NOW AND ENJOY");
-         repondre("don't do fake thinks :)")
+      await   repondre("DUDAS AI IS ALIVE AT THE MOMENT DEPLOY IT NOW AND ENJOY");
+         repondre("Why do you ask ?? 🙃 :)")
      }
  } else {
 
-    if(!superUser) { repondre ("KYPHER_XMD ONLY") ; return};
+    if(!superUser) { repondre ("Only Dudas can ask me such questions 👀 ") ; return};
 
   
     const texte = arg.join(' ').split(';')[0];
