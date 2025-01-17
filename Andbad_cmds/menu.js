@@ -78,7 +78,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     }
 
     menuMsg += `
-> █████ Created by 𝙴𝚖𝚎𝚛𝚐𝚎𝚗𝚌𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽_𒆜𓊉
+> █████ Created by 𝙴𝚖𝚎𝚛𝚐𝚎𝚗𝚌𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚡𝚝𝚘𝟸𝟽_𒆜𓊉
 `;
 
     // ASCII art of a person smoking on a laptop, placed at the end of the message
@@ -110,14 +110,24 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     let channelLink = "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M";
 
     try {
-        // Send the image with the caption, menu, ASCII art, and channel link in one message
-        await zk.sendMessage(dest, {
+        // Send the image with the caption, menu, ASCII art, and channel link in one message with a "view channel" button
+        const buttonMessage = {
             image: { url: lien },
-            caption: infoMsg + menuMsg + asciiArt + "\n\n> Join our channel here: " + channelLink,
+            caption: infoMsg + menuMsg + asciiArt,
             footer: "Powered by ENCRYPTO-27",
-        }, { quoted: ms });
+            buttons: [
+                {
+                    buttonId: "view_channel", 
+                    buttonText: { displayText: "Join Channel" },
+                    type: 1
+                }
+            ]
+        };
 
-        // Send the audio message (still separate to avoid issues)
+        // Send the interactive message
+        await zk.sendMessage(dest, buttonMessage, { quoted: ms });
+
+        // Send the audio message separately
         await zk.sendMessage(dest, {
             audio: { url: "https://raw.githubusercontent.com/diegoallies/Dataaudio/main/Intro.mp3" },
             mimetype: "audio/mpeg",
