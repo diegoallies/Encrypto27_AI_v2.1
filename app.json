@@ -1,9 +1,9 @@
 {
-  "name":"KYPHER_XMD",
-  "description":"Deploy now your bot, KYPHER_XMD was developed by KYPHER himself.Make sure you fill all valuables to avoid bot from sleeping. ",
+  "name":"ENCRYPTO AI",
+  "description":"Deploy now your bot, ENCRYPTO27 AI was developed by Dudas himself.Make sure you fill all valuables to avoid bot from sleeping. ",
   "keywords":["bot","node","baileys","whatsapp"],
-  "logo":"https://files.catbox.moe/l6e183.jpeg",
-  "repository":"https://github.com/KYPHER26/KYPHER_XMD",
+  "logo":"https://i.ibb.co/hx0rGm5/Encrypto.webp",
+  "repository":"",
   "succes_url":"/",
   "stack":"container",
   "env":{
@@ -42,7 +42,7 @@
      "BOT_MENU_LINKS" : {
     
       "description":"add one or many link for your bot menu  ; eg : url1,url2,url3.....",
-      "value":"https://files.catbox.moe/kwi2pa.jpg",
+      "value":"https://i.ibb.co/Q9yd9tR/IMG-20250117-WA0097.jpg",
       "required":false
        
      },
