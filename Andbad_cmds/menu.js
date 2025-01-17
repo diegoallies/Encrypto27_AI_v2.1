@@ -53,34 +53,72 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 💡 _*𝔼_𝔸_𝕀_*  
 ═══════════════════════════════\n`;
 
-    let channelLink = "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M";
+    let menuMsg = `
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+███████████
 
-    let messageOptions = {
-        caption: infoMsg + `\n\n📢 [View Channel](${channelLink})`,
-        footer: "Powered by ENCRYPTO-27",
-        contextInfo: {
-            forwardingScore: 999,
-            isForwarded: true,
-            mentionedJid: [],
-            forwardingScore: 999,
-            forwardedNewsletterMessageInfo: {
-                newsletterJid: "120363304325601080@newsletter",
-                newsletterName: "𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 W.A Channel",
-            },
-        },
-    };
+*COMMANDS*${readmore}             
+
+███████████
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+`;
+
+    for (const cat in coms) {
+        menuMsg += `
+╭━━❯ *${cat}* ❯━━━━━━━━━━━━━━━━━
+│ ⚡️  ▪️ Commands in ${cat}
+│ ─────────────────────────
+`;
+        for (const cmd of coms[cat]) {
+            menuMsg += `
+│ ➕  ▪️ ${cmd}`;
+        }
+        menuMsg += `
+╰────────────────────────···▸▸\n`;
+    }
+
+    menuMsg += `
+> █████ Created by 𝙴𝚖𝚎𝚛𝚐𝚎𝚗𝚌𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽_𒆜𓊉
+`;
+
+    // ASCII art of a person smoking on a laptop, placed at the end of the message
+    let asciiArt = `
+          ^         
+         | |        
+       @#####@      
+     (###   ###)-.  
+   .(###     ###) \\ 
+  /  (###   ###)   )
+ (=-  .@#####@|_--"  
+ /\\    \\_|l|_/ (\\    
+(=-\\     |l|    /   
+ \\  \\.___|l|___/    
+ /\\      |_|   /    
+(=-\\._________/\\    
+ \\             /    
+   \\._________/     
+     #  ----  #     
+     #   __   #       
+     \\########/      
+         V
+             V
+           V
+`;
+
+    let lien = mybotpic();
 
     try {
-        // Send the image with the caption and channel button
+        // Send the image with the caption and menu
         await zk.sendMessage(dest, {
-            image: { url: mybotpic() },
-            ...messageOptions,
+            image: { url: lien },
+            caption: infoMsg + menuMsg + asciiArt,
+            footer: "Powered by ENCRYPTO-27",
         }, { quoted: ms });
 
         // Send the audio message
         await zk.sendMessage(dest, {
-            audio: { url: "https://github.com/diegoallies/Dataaudio/blob/main/Intro.mp3" },
-            mimetype: "audio/mp4",
+            audio: { url: "https://raw.githubusercontent.com/diegoallies/Dataaudio/main/Intro.mp3" },
+            mimetype: "audio/mpeg",
             ptt: true,
         }, { quoted: ms });
     } catch (e) {
