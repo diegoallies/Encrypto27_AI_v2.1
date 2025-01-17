@@ -121,7 +121,7 @@ https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: "120363304325601080@newsletter",
+                    newsletterJid: "27679291800@s.whatsapp.net",
                     newsletterName: "『 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 ᴍᴅ 』",
                     serverMessageId: 143
                 }
