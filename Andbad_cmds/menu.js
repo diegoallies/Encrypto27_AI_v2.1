@@ -25,16 +25,15 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
     });
 
     moment.tz.setDefault('Etc/GMT');
-
     const temps = moment().format('HH:mm:ss');
     const date = moment().format('DD/MM/YYYY');
 
-    // Main menu content
+    // Text message formatting
     let infoMsg = `
 ╭─────────────────────────────────────────────╮
-│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
+│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │   💻 *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*                    │
-│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
+│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│
 │   𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │
 ╰─────────────────────────────────────────────╯
 
@@ -54,83 +53,38 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 💡 _*𝔼_𝔸_𝕀_*  
 ═══════════════════════════════\n`;
 
-    let menuMsg = `
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-███████████
+    let channelLink = "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M";
 
-*COMMANDS*${readmore}             
-
-███████████
-▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
-`;
-
-    for (const cat in coms) {
-        menuMsg += `
-╭━━❯ *${cat}* ❯━━━━━━━━━━━━━━━━━
-│ ⚡️  ▪️ Commands in ${cat}
-│ ─────────────────────────
-`;
-        for (const cmd of coms[cat]) {
-            menuMsg += `
-│ ➕  ▪️ ${cmd}`;
-        }
-        menuMsg += `
-╰────────────────────────···▸▸\n`;
-    }
-
-    menuMsg += `
-> █████ Created by 𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘-27 Team.`;
-
-    let asciiArt = `
-          ^         
-         | |        
-       @#####@      
-     (###   ###)-.  
-   .(###     ###) \ 
-  /  (###   ###)   )
- (=-  .@#####@|_--"  
- /\    \_|l|_/ (\    
-(=-\     |l|    /   
- \  \.___|l|___/    
- /\      |_|   /    
-(=-\._________/\    
- \             /    
-   \._________/     
-     #  ----  #     
-     #   __   #       
-     \########/      
-         V
-             V
-           V
-`;
-
-    var lien = mybotpic();
+    let messageOptions = {
+        caption: infoMsg + `\n\n📢 [View Channel](${channelLink})`,
+        footer: "Powered by ENCRYPTO-27",
+        contextInfo: {
+            forwardingScore: 999,
+            isForwarded: true,
+            mentionedJid: [],
+            forwardingScore: 999,
+            forwardedNewsletterMessageInfo: {
+                newsletterJid: "120363304325601080@newsletter",
+                newsletterName: "𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 W.A Channel",
+            },
+        },
+    };
 
     try {
+        // Send the image with the caption and channel button
         await zk.sendMessage(dest, {
-            text: infoMsg + menuMsg + asciiArt + "\nJoin our channel for updates: [Click Here](https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M)",
-            contextInfo: {
-                externalAdReply: {
-                    title: "Join Our Channel",
-                    body: "Stay Updated with Encrypto-27",
-                    mediaType: 3,
-                    thumbnailUrl: "https://i.ibb.co/hx0rGm5/Encrypto.webp",
-                    sourceUrl: "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M"
-                },
-                forwardingScore: 999,
-                isForwarded: true
-            }
+            image: { url: mybotpic() },
+            ...messageOptions,
         }, { quoted: ms });
 
-        // Adding audio message
+        // Send the audio message
         await zk.sendMessage(dest, {
-            audio: { url: "https://github.com/diegoallies/Dataaudio/blob/main/Intro.mp3" },
+            audio: { url: "/mnt/data/Intro_converted.mp3" },
             mimetype: "audio/mp4",
-            ptt: true
+            ptt: true,
         }, { quoted: ms });
-
     } catch (e) {
-        console.log("🥵🥵 Menu error " + e);
-        repondre("🥵🥵 Menu error " + e);
+        console.log("Error sending menu:", e);
+        repondre("🥵 Error generating menu: " + e.message);
     }
 });
