@@ -3,7 +3,7 @@ WhatsApp Bot Created by ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞
 
 ### ➕ EASY COMMUNICATION ➕
 
-![KYPHER_XMD Banner](https://files.catbox.moe/kwi2pa.jpg)
+![KYPHER_XMD Banner](https://i.ibb.co/Q9yd9tR/IMG-20250117-WA0097.jpg)
 
 ---
 
