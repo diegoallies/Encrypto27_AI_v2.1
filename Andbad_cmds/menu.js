@@ -103,18 +103,29 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
          V
              V
            V
-
-https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M
 `;
 
-    let lien = mybotpic();
+    let lien = await mybotpic();
+    let channelLink = "https://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M";
 
     try {
-        // Send the image with the caption and menu
+        // Send the image with the caption, menu, and channel link
         await zk.sendMessage(dest, {
             image: { url: lien },
-            caption: infoMsg + menuMsg + asciiArt,
+            caption: infoMsg + menuMsg + asciiArt + `\n\n📢 [Join Our Channel](${channelLink})`,
             footer: "Powered by ENCRYPTO-27",
+            contextInfo: {
+                forwardingScore: 2, // Simulate forwarded message
+                isForwarded: true,  // Set as forwarded message
+                externalAdReply: {
+                    title: "Join Our Channel",
+                    body: "Stay updated with the latest news!",
+                    mediaType: 2, // 2 for link preview
+                    thumbnail: lien, // Thumbnail for the link preview
+                    mediaUrl: channelLink,
+                    sourceUrl: channelLink
+                }
+            }
         }, { quoted: ms });
 
         // Send the audio message
