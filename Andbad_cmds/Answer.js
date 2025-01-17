@@ -266,7 +266,7 @@ zokou({
   } = _0x2c2713;
   try {
     if (!_0xea7c04 || _0xea7c04.length === 0x0) {
-      return _0x5e569a("Hello am *FLASH-MD.* an AI developed by ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞.\n\n What help can I offer you today?");
+      return _0x5e569a("Hello am *FLASH-MD.* an AI developed by ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞.\n\n What help can I offer you today?");
     }
     const _0x1a05b7 = _0xea7c04.join(" ");
     const _0x1665a8 = await fetch('https://widipe.com/gemini?text=' + _0x1a05b7);
@@ -333,7 +333,7 @@ zokou({
                   'text': _0x17c283
                 }),
                 'footer': proto.Message.InteractiveMessage.Footer.create({
-                  'text': "> *POWERED BY ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞*"
+                  'text': "> *POWERED BY ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞*"
                 }),
                 'header': proto.Message.InteractiveMessage.Header.create({
                   'title': '',
@@ -420,7 +420,7 @@ zokou({
     'image': {
       'url': _0x16084b
     },
-    'caption': "*POWERED BY ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞*"
+    'caption': "*POWERED BY ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞*"
   };
   return await _0x1dbc66.sendMessage(_0x22529c, _0x1870da, {
     'quoted': _0x22b058
@@ -443,7 +443,7 @@ zokou({
     'image': {
       'url': _0x37756c
     },
-    'caption': "*POWERED BY ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞*"
+    'caption': "*POWERED BY ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞*"
   };
   return await _0x517574.sendMessage(_0x46a77f, _0x2df8b4, {
     'quoted': _0x121316
@@ -906,7 +906,7 @@ zokou({
               'text': _0x5013c0
             }),
             'footer': proto.Message.InteractiveMessage.Footer.create({
-              'text': "> *POWERED BY ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞*"
+              'text': "> *POWERED BY ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞*"
             }),
             'header': proto.Message.InteractiveMessage.Header.create({
               'title': '',

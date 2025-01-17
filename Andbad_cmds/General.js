@@ -71,7 +71,7 @@ zokou({ nomCom: "dev", categorie: "General", reaction: "🎣" }, async (dest, zk
     const { ms, mybotpic } = commandeOptions;
 
     const devs = [
-        { nom: "✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞", numero: "255760266629" },
+        { nom: "✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞", numero: "255760266629" },
         { nom: "᚛𝚳𝚪 𝚫𝚴𝐃𝚩𝚫𝐃᚜", numero: "255783394967" },
         { nom: "Lazack md", numero: "255734980103" },
         // Add other developers here

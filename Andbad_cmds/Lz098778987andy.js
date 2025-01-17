@@ -26,7 +26,7 @@ zokou({
         'image': {
           'url': _0x30b168.thumbnail
         },
-        'caption': "YOUTUBE SEARCH\n\n ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞"
+        'caption': "YOUTUBE SEARCH\n\n ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞"
       };
       await _0x5baae4.sendMessage(_0x5949b0, _0x26a944, {
         'quoted': _0x5983ad
@@ -72,7 +72,7 @@ zokou({
         'image': {
           'url': _0x3eec13.thumbnail
         },
-        'caption': "YOUTUBE SEARCH\n\n ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞"
+        'caption': "YOUTUBE SEARCH\n\n ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞"
       };
       await _0x58c8b7.sendMessage(_0x59ddf5, _0x369750, {
         'quoted': _0x1676d0
@@ -123,7 +123,7 @@ zokou({
           'image': {
             'url': _0x42b788.thumbnail
           },
-          'caption': "YOUTUBE SEARCH\n\n ✞𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_𒆜𓊉 ✞"
+          'caption': "YOUTUBE SEARCH\n\n ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞"
         };
         await _0x3d387a.sendMessage(_0x5af0bd, _0x4301f2, {
           'quoted': _0x29402c
