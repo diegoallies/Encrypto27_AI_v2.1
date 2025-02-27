@@ -10,14 +10,23 @@ const s = require("../set");
 // Récupérez l'URL de la base de données de la variable s.MONGODB_URI
 const dbUrl = s.MONGODB_URI ? s.MONGODB_URI : "mongodb://localhost:27017/mydatabase";
 
-// Connexion à MongoDB
-mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("Connexion à MongoDB réussie.");
+const mongoose = require('mongoose');
+
+// MongoDB URI
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+
+// Check if already connected
+if (mongoose.connection.readyState === 0) {
+  // Not connected, attempt to connect
+  mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   })
-  .catch((error) => {
-    console.error("Erreur lors de la connexion à MongoDB:", error);
-  });
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+} else {
+  console.log("✅ MongoDB is already connected");
+}
 
 // Schéma de la collection events
 const eventSchema = new mongoose.Schema({

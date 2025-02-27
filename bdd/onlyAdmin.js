@@ -1,14 +1,23 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-// Connect to MongoDB
+const mongoose = require('mongoose');
+
+// MongoDB URI
 const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
-mongoose.connect(mongoURI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+
+// Check if already connected
+if (mongoose.connection.readyState === 0) {
+  // Not connected, attempt to connect
+  mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("✅ Connected to MongoDB"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
+} else {
+  console.log("✅ MongoDB is already connected");
+}
 
 // Define the Schema for "onlyAdmin"
 const onlyAdminSchema = new mongoose.Schema({

@@ -4,11 +4,23 @@ const mongoose = require('mongoose');
 // Get the MongoDB URI from environment or use a default one
 const dbUrl = s.DATABASE_URL || 'mongodb://localhost:27017/mydb';
 
-// Connect to MongoDB
-mongoose.connect(dbUrl, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+const mongoose = require('mongoose');
+
+// MongoDB URI
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+
+// Check if already connected
+if (mongoose.connection.readyState === 0) {
+  // Not connected, attempt to connect
+  mongoose.connect(mongoURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+} else {
+  console.log("✅ MongoDB is already connected");
+}
 
 const themeSchema = new mongoose.Schema({
   choix: { type: String, required: true },
