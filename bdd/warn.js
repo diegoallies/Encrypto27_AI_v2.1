@@ -10,8 +10,6 @@ const s = require("../set");
 // Récupérez l'URL de la base de données de la variable s.MONGODB_URI
 const dbUrl = s.MONGODB_URI ? s.MONGODB_URI : "mongodb://localhost:27017/mydatabase";
 
-const mongoose = require('mongoose');
-
 // MongoDB URI
 const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
 
