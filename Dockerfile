@@ -21,4 +21,5 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["npm", "run" , "index.js"]
+CMD ["node", "index.js"]
+
