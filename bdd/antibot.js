@@ -1,7 +1,6 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-
 // MongoDB URI
 const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
 
@@ -17,7 +16,6 @@ if (mongoose.connection.readyState === 0) {
 } else {
   console.log("✅ MongoDB is already connected");
 }
-catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 // Define Schema for 'antibot'
 const antibotSchema = new mongoose.Schema({
