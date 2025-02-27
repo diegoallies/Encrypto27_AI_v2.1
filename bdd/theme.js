@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 // Get the MongoDB URI from environment or use a default one
 const dbUrl = s.DATABASE_URL || 'mongodb://localhost:27017/mydb';
 
-const mongoose = require('mongoose');
 
 // MongoDB URI
 const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
