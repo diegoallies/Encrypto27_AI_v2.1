@@ -8,25 +8,27 @@ zokou({ nomCom: "yts", categorie: "Search", reaction: "✋" }, async (dest, zk, 
   const { ms, repondre, arg } = commandeOptions;
   const query = arg.join(" ");
 
-  if (!query[0]) {
-    repondre("what do you want");
-    return;
+  if (!query) {
+    return repondre("What do you want to search for?");
   }
 
   try {
     const info = await yts(query);
-    const resultat = info.videos;
+    const results = info.videos.slice(0, 10); // Only take top 10 results
 
     let captions = "";
-    for (let i = 0; i < 10; i++) {
-      captions += `----------------\nTitle: ${resultat[i].title}\nTime : ${resultat[i].timestamp}\nUrl: ${resultat[i].url}\n`;
+    for (let i = 0; i < results.length; i++) {
+      captions += `----------------\nTitle: ${results[i].title}\nTime: ${results[i].timestamp}\nUrl: ${results[i].url}\n`;
     }
-    captions += "\n======\n*powered*";
+    captions += "\n======\n*powered by yt-search*";
 
-    // repondre(captions)
-    zk.sendMessage(dest, { image: { url: resultat[0].thumbnail }, caption: captions }, { quoted: ms });
+    // Send video search results as a message with the thumbnail of the first video
+    zk.sendMessage(dest, { 
+      image: { url: results[0].thumbnail }, 
+      caption: captions 
+    }, { quoted: ms });
   } catch (error) {
-    repondre("Erreur lors de la procédure : " + error);
+    repondre("An error occurred during the search: " + error.message);
   }
 });
 
@@ -38,57 +40,39 @@ zokou({
   const { arg, ms, repondre } = commandeOptions;
 
   if (!arg[0]) {
-    repondre("insert a youtube link");
-    return;
+    return repondre("Please provide a YouTube link.");
   }
 
   const topo = arg.join(" ");
   try {
-    /* const search = await yts(topo);
-    const videos = search.videos;
-
-    if (videos && videos.length > 0 && videos[0]) {
-      const Element = videos[0];
-
-      let InfoMess = {
-        image: { url: videos[0].thumbnail },
-        caption: `*nom de la vidéo :* _${Element.title}_
-*Durée :* _${Element.timestamp}_
-*Lien :* _${Element.url}_
-_*En cours de téléchargement...*_\n\n`
-      };
-
-      zk.sendMessage(origineMessage, InfoMess, { quoted: ms });
-    */
-
-    // Obtenir les informations de la vidéo à partir du lien YouTube
+    // Get video information from YouTube URL
     const videoInfo = await ytdl.getInfo(topo);
-    // Format vidéo avec la meilleure qualité disponible
+    // Choose the best format available
     const format = ytdl.chooseFormat(videoInfo.formats, { quality: '18' });
-    // Télécharger la vidéo
+
+    // Download the video stream
     const videoStream = ytdl.downloadFromInfo(videoInfo, { format });
 
-    // Nom du fichier local pour sauvegarder la vidéo
-    const filename = 'video.mp4';
-
-    // Écrire le flux vidéo dans un fichier local
+    // Save the video locally
+    const filename = './video.mp4';
     const fileStream = fs.createWriteStream(filename);
     videoStream.pipe(fileStream);
 
     fileStream.on('finish', () => {
-      // Envoi du fichier vidéo en utilisant l'URL du fichier local
-      zk.sendMessage(origineMessage, { video: { url: `./${filename}` }, caption: "Powered*", gifPlayback: false }, { quoted: ms });
-
+      // Send the video file once it has been downloaded
+      zk.sendMessage(origineMessage, { 
+        video: { url: filename }, 
+        caption: "Powered by yt-download" 
+      }, { quoted: ms });
     });
 
     fileStream.on('error', (error) => {
-      console.error('Erreur lors de l\'écriture du fichier vidéo :', error);
-      repondre('Une erreur est survenue lors de l\'écriture du fichier vidéo.');
+      console.error('Error while writing the video file:', error);
+      repondre('An error occurred while downloading the video.');
     });
-
   } catch (error) {
-    console.error('Erreur lors de la recherche ou du téléchargement de la vidéo :', error);
-    repondre('Une erreur est survenue lors de la recherche ou du téléchargement de la vidéo.' + error);
+    console.error('Error while searching or downloading the video:', error);
+    repondre('An error occurred while processing the video download.');
   }
 });
 
@@ -100,35 +84,34 @@ zokou({
   const { ms, repondre, arg } = commandeOptions;
 
   if (!arg[0]) {
-    repondre("Insert a youtube link");
-    return;
+    return repondre("Please provide a YouTube link.");
   }
 
   try {
-    let topo = arg.join(" ");
-
+    const topo = arg.join(" ");
+    // Get audio stream from YouTube link
     const audioStream = ytdl(topo, { filter: 'audioonly', quality: 'highestaudio' });
 
-    // Nom du fichier local pour sauvegarder le fichier audio
-    const filename = 'audio.mp3';
-
-    // Écrire le flux audio dans un fichier local
+    // Save the audio locally
+    const filename = './audio.mp3';
     const fileStream = fs.createWriteStream(filename);
     audioStream.pipe(fileStream);
 
     fileStream.on('finish', () => {
-      // Envoi du fichier audio en utilisant l'URL du fichier local
-      zk.sendMessage(origineMessage, { audio: { url: `./${filename}` }, mimetype: 'audio/mp4' }, { quoted: ms, ptt: false });
-      console.log("Envoi du fichier audio terminé !");
+      // Send the audio file once it has been downloaded
+      zk.sendMessage(origineMessage, { 
+        audio: { url: filename }, 
+        mimetype: 'audio/mp4' 
+      }, { quoted: ms, ptt: false });
     });
 
     fileStream.on('error', (error) => {
-      console.error('Erreur lors de l\'écriture du fichier audio :', error);
-      repondre('Une erreur est survenue lors de l\'écriture du fichier audio.');
+      console.error('Error while writing the audio file:', error);
+      repondre('An error occurred while downloading the audio.');
     });
 
   } catch (error) {
-    console.error('Erreur lors de la recherche ou du téléchargement de la vidéo :', error);
-    repondre('Une erreur est survenue lors de la recherche ou du téléchargement de la vidéo.');
+    console.error('Error while searching or downloading the audio:', error);
+    repondre('An error occurred while processing the audio download.');
   }
 });

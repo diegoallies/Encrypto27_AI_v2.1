@@ -1,27 +1,31 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
 
-
-
 // MongoDB URI
 const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
 
 // Check if already connected
-if (mongoose.connection.readyState === 0) {
-  // Not connected, attempt to connect
-  mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
-} else {
-  console.log("✅ MongoDB is already connected");
-}
+const connectToDatabase = async () => {
+  try {
+    if (mongoose.connection.readyState === 0) {
+      // Not connected, attempt to connect
+      await mongoose.connect(mongoURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 5000, // Increase connection timeout
+      });
+      console.log("✅ Connected to MongoDB");
+    } else {
+      console.log("✅ MongoDB is already connected");
+    }
+  } catch (err) {
+    console.error("❌ MongoDB connection error:", err);
+  }
+};
 
 // Define the Schema for "onlyAdmin"
 const onlyAdminSchema = new mongoose.Schema({
-  groupeJid: { type: String, required: true, unique: true }
+  groupeJid: { type: String, required: true, unique: true },
 });
 
 // Create the Model
@@ -71,19 +75,24 @@ const removeGroupFromOnlyAdminList = async (groupeJid) => {
 
 // Example of initialization: check if the "onlyAdmin" collection has any documents
 const initializeCollection = async () => {
-  const count = await OnlyAdmin.countDocuments();
-  if (count === 0) {
-    console.log("La collection 'onlyAdmin' est vide.");
-  } else {
-    console.log(`La collection 'onlyAdmin' contient ${count} groupes.`);
+  try {
+    const count = await OnlyAdmin.countDocuments();
+    if (count === 0) {
+      console.log("La collection 'onlyAdmin' est vide.");
+    } else {
+      console.log(`La collection 'onlyAdmin' contient ${count} groupes.`);
+    }
+  } catch (error) {
+    console.error("❌ Erreur lors de l'initialisation de la collection onlyAdmin :", error);
   }
 };
 
-// Run the initialization check
+// Initialize connection and collection check
+connectToDatabase();
 initializeCollection();
 
 module.exports = {
   addGroupToOnlyAdminList,
   isGroupOnlyAdmin,
-  removeGroupFromOnlyAdminList
+  removeGroupFromOnlyAdminList,
 };
