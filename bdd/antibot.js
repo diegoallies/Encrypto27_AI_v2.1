@@ -17,7 +17,7 @@ if (mongoose.connection.readyState === 0) {
 } else {
   console.log("✅ MongoDB is already connected");
 }
-atch((err) => console.error("❌ MongoDB Connection Error:", err));
+catch((err) => console.error("❌ MongoDB Connection Error:", err));
 
 // Define Schema for 'antibot'
 const antibotSchema = new mongoose.Schema({
