@@ -1,94 +1,80 @@
-// Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
+const mongoose = require("mongoose");
 
-const { Pool } = require("pg");
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
-const s = require("../set");
+// Define the Schema for "onlyAdmin"
+const onlyAdminSchema = new mongoose.Schema({
+  groupeJid: { type: String, required: true, unique: true }
+});
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-};
+// Create the Model
+const OnlyAdmin = mongoose.model("OnlyAdmin", onlyAdminSchema);
 
-// Créez une pool de connexions PostgreSQL
-const pool = new Pool(proConfig);
-
-// Fonction pour créer la table "onlyAdmin"
-const creerTableOnlyAdmin = async () => {
+// Function to add a group to the "onlyAdmin" list
+const addGroupToOnlyAdminList = async (groupeJid) => {
   try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS onlyAdmin (
-        groupeJid text PRIMARY KEY
-      );
-    `);
-    console.log("La table 'onlyAdmin' a été créée avec succès.");
-  } catch (e) {
-    console.error("Une erreur est survenue lors de la création de la table 'onlyAdmin':", e);
-  }
-};
+    const existingGroup = await OnlyAdmin.findOne({ groupeJid });
+    if (existingGroup) {
+      console.log(`Groupe JID ${groupeJid} déjà présent dans la liste des groupes onlyAdmin.`);
+      return;
+    }
 
-// Appelez la méthode pour créer la table "onlyAdmin"
-creerTableOnlyAdmin();
-
-// Fonction pour ajouter un groupe à la liste des groupes autorisés uniquement aux administrateurs
-async function addGroupToOnlyAdminList(groupeJid) {
-  const client = await pool.connect();
-  try {
-    // Insérez le groupe dans la table "onlyAdmin"
-    const query = "INSERT INTO onlyAdmin (groupeJid) VALUES ($1)";
-    const values = [groupeJid];
-
-    await client.query(query, values);
+    const newGroup = new OnlyAdmin({ groupeJid });
+    await newGroup.save();
     console.log(`Groupe JID ${groupeJid} ajouté à la liste des groupes onlyAdmin.`);
   } catch (error) {
-    console.error("Erreur lors de l'ajout du groupe onlyAdmin :", error);
-  } finally {
-    client.release();
+    console.error("❌ Erreur lors de l'ajout du groupe onlyAdmin :", error);
   }
-}
+};
 
-// Fonction pour vérifier si un groupe est autorisé uniquement aux administrateurs
-async function isGroupOnlyAdmin(groupeJid) {
-  const client = await pool.connect();
+// Function to check if a group is in the "onlyAdmin" list
+const isGroupOnlyAdmin = async (groupeJid) => {
   try {
-    // Vérifiez si le groupe existe dans la table "onlyAdmin"
-    const query = "SELECT EXISTS (SELECT 1 FROM onlyAdmin WHERE groupeJid = $1)";
-    const values = [groupeJid];
-
-    const result = await client.query(query, values);
-    return result.rows[0].exists;
+    const group = await OnlyAdmin.findOne({ groupeJid });
+    return group !== null; // If found, return true; otherwise, false
   } catch (error) {
-    console.error("Erreur lors de la vérification du groupe onlyAdmin :", error);
+    console.error("❌ Erreur lors de la vérification du groupe onlyAdmin :", error);
     return false;
-  } finally {
-    client.release();
   }
-}
+};
 
-// Fonction pour supprimer un groupe de la liste des groupes onlyAdmin
-async function removeGroupFromOnlyAdminList(groupeJid) {
-  const client = await pool.connect();
+// Function to remove a group from the "onlyAdmin" list
+const removeGroupFromOnlyAdminList = async (groupeJid) => {
   try {
-    // Supprimez le groupe de la table "onlyAdmin"
-    const query = "DELETE FROM onlyAdmin WHERE groupeJid = $1";
-    const values = [groupeJid];
-
-    await client.query(query, values);
-    console.log(`Groupe JID ${groupeJid} supprimé de la liste des groupes onlyAdmin.`);
+    const result = await OnlyAdmin.deleteOne({ groupeJid });
+    if (result.deletedCount > 0) {
+      console.log(`Groupe JID ${groupeJid} supprimé de la liste des groupes onlyAdmin.`);
+    } else {
+      console.log(`Aucun groupe avec JID ${groupeJid} trouvé dans la liste onlyAdmin.`);
+    }
   } catch (error) {
-    console.error("Erreur lors de la suppression du groupe onlyAdmin :", error);
-  } finally {
-    client.release();
+    console.error("❌ Erreur lors de la suppression du groupe onlyAdmin :", error);
   }
-}
+};
+
+// Example of initialization: check if the "onlyAdmin" collection has any documents
+const initializeCollection = async () => {
+  const count = await OnlyAdmin.countDocuments();
+  if (count === 0) {
+    console.log("La collection 'onlyAdmin' est vide.");
+  } else {
+    console.log(`La collection 'onlyAdmin' contient ${count} groupes.`);
+  }
+};
+
+// Run the initialization check
+initializeCollection();
 
 module.exports = {
   addGroupToOnlyAdminList,
   isGroupOnlyAdmin,
-  removeGroupFromOnlyAdminList,
+  removeGroupFromOnlyAdminList
 };

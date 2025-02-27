@@ -1,95 +1,62 @@
-// Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
+const mongoose = require("mongoose");
 
-const { Pool } = require("pg");
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
-const s = require("../set");
+// Define the Schema for "banUser"
+const banUserSchema = new mongoose.Schema({
+  jid: { type: String, required: true, unique: true },
+});
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-};
+// Create the Model
+const BanUser = mongoose.model("BanUser", banUserSchema);
 
-// Créez une pool de connexions PostgreSQL
-const pool = new Pool(proConfig);
-
-// Vous pouvez maintenant utiliser 'pool' pour interagir avec votre base de données PostgreSQL.
-const creerTableBanUser = async () => {
+// Function to add a user to the ban list
+const addUserToBanList = async (jid) => {
   try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS banUser (
-        jid text PRIMARY KEY
-      );
-    `);
-    console.log("La table 'banUser' a été créée avec succès.");
-  } catch (e) {
-    console.error("Une erreur est survenue lors de la création de la table 'banUser':", e);
+    const newUser = new BanUser({ jid });
+    await newUser.save();
+    console.log(`✅ User JID ${jid} added to the ban list.`);
+  } catch (error) {
+    if (error.code === 11000) {
+      console.log(`⚠️ User JID ${jid} is already banned.`);
+    } else {
+      console.error("❌ Error adding banned user:", error);
+    }
   }
 };
 
-// Appelez la méthode pour créer la table "banUser"
-creerTableBanUser();
-
-
-
-// Fonction pour ajouter un utilisateur à la liste des bannis
-async function addUserToBanList(jid) {
-  const client = await pool.connect();
+// Function to check if a user is banned
+const isUserBanned = async (jid) => {
   try {
-    // Insérez l'utilisateur dans la table "banUser"
-    const query = "INSERT INTO banUser (jid) VALUES ($1)";
-    const values = [jid];
-
-    await client.query(query, values);
-    console.log(`JID ${jid} ajouté à la liste des bannis.`);
+    const exists = await BanUser.exists({ jid });
+    return !!exists;
   } catch (error) {
-    console.error("Erreur lors de l'ajout de l'utilisateur banni :", error);
-  } finally {
-    client.release();
-  }
-}
-
-
-
-// Fonction pour vérifier si un utilisateur est banni
-async function isUserBanned(jid) {
-  const client = await pool.connect();
-  try {
-    // Vérifiez si l'utilisateur existe dans la table "banUser"
-    const query = "SELECT EXISTS (SELECT 1 FROM banUser WHERE jid = $1)";
-    const values = [jid];
-
-    const result = await client.query(query, values);
-    return result.rows[0].exists;
-  } catch (error) {
-    console.error("Erreur lors de la vérification de l'utilisateur banni :", error);
+    console.error("❌ Error checking banned user:", error);
     return false;
-  } finally {
-    client.release();
   }
-}
+};
 
-// Fonction pour supprimer un utilisateur de la liste des bannis
-async function removeUserFromBanList(jid) {
-  const client = await pool.connect();
+// Function to remove a user from the ban list
+const removeUserFromBanList = async (jid) => {
   try {
-    // Supprimez l'utilisateur de la table "banUser"
-    const query = "DELETE FROM banUser WHERE jid = $1";
-    const values = [jid];
-
-    await client.query(query, values);
-    console.log(`JID ${jid} supprimé de la liste des bannis.`);
+    const result = await BanUser.deleteOne({ jid });
+    if (result.deletedCount > 0) {
+      console.log(`✅ User JID ${jid} removed from the ban list.`);
+    } else {
+      console.log(`⚠️ User JID ${jid} was not found in the ban list.`);
+    }
   } catch (error) {
-    console.error("Erreur lors de la suppression de l'utilisateur banni :", error);
-  } finally {
-    client.release();
+    console.error("❌ Error removing banned user:", error);
   }
-}
+};
 
 module.exports = {
   addUserToBanList,

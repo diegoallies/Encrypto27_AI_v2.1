@@ -1,113 +1,66 @@
-// Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
+const mongoose = require("mongoose");
 
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-const { Pool } = require("pg");
+// Define the Schema for "users_rank"
+const userRankSchema = new mongoose.Schema({
+  jid: { type: String, required: true, unique: true },
+  xp: { type: Number, default: 0 },
+  messages: { type: Number, default: 0 },
+});
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
-const s = require("../set");
+// Create the Model
+const UserRank = mongoose.model("UserRank", userRankSchema);
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-const dbUrl = s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9" ;
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-};
-
-// Créez une pool de connexions PostgreSQL
-const pool = new Pool(proConfig);
-
-async function createUsersRankTable() {
-  const client = await pool.connect();
-
+// Function to add or update user data (XP and messages)
+const ajouterOuMettreAJourUserData = async (jid) => {
   try {
-    // Créez la table users_rank si elle n'existe pas déjà
-    await client.query(`
-      CREATE TABLE IF NOT EXISTS users_rank (
-        id SERIAL PRIMARY KEY,
-        jid VARCHAR(255) UNIQUE,
-        xp INTEGER DEFAULT 0,
-        messages INTEGER DEFAULT 0
-      );
-    `);
+    const user = await UserRank.findOneAndUpdate(
+      { jid },
+      { $inc: { xp: 10, messages: 1 } }, // Increment XP and messages
+      { upsert: true, new: true } // Insert new document if not found
+    );
+    console.log(`✅ User ${jid} data updated or added.`);
   } catch (error) {
-    console.error('Erreur lors de la création de la table users_rank:', error);
-  } finally {
-    client.release();
-  }
-}
-
-async function ajouterOuMettreAJourUserData(jid) {
-  const client = await pool.connect();
-
-  try {
-    // Vérifiez si le JID existe déjà dans la table 'users_rank'
-    const result = await client.query('SELECT * FROM users_rank WHERE jid = $1', [jid]);
-    const jidExiste = result.rows.length > 0;
-
-    if (jidExiste) {
-      // Si le JID existe, mettez à jour XP (+10) et messages (+1)
-      await client.query('UPDATE users_rank SET xp = xp + 10, messages = messages + 1 WHERE jid = $1', [jid]);
-    } else {
-      // Si le JID n'existe pas, ajoutez-le avec XP = 10 et messages = 1
-      await client.query('INSERT INTO users_rank (jid, xp, messages) VALUES ($1, $2, $3)', [jid, 10, 1]);
-    }
-
-  } catch (error) {
-    console.error('Erreur lors de la mise à jour des données de l\'utilisateur:', error);
-  } finally {
-    client.release();
+    console.error("❌ Error updating or adding user data:", error);
   }
 };
 
-async function getMessagesAndXPByJID(jid) {
-  const client = await pool.connect();
-
+// Function to get the number of messages and XP for a given JID
+const getMessagesAndXPByJID = async (jid) => {
   try {
-    // Sélectionnez le nombre de messages et d'XP pour le JID donné
-    const query = 'SELECT messages, xp FROM users_rank WHERE jid = $1';
-    const result = await client.query(query, [jid]);
-
-    if (result.rows.length > 0) {
-      // Retournez les valeurs de messages et d'XP
-      const { messages, xp } = result.rows[0];
-      return { messages, xp };
+    const user = await UserRank.findOne({ jid });
+    if (user) {
+      return { messages: user.messages, xp: user.xp };
     } else {
-      // Si le JID n'existe pas, renvoyez des valeurs par défaut (0 messages et 0 XP)
-      return { messages: 0, xp: 0 };
+      return { messages: 0, xp: 0 }; // Default values if user not found
     }
   } catch (error) {
-    console.error('Erreur lors de la récupération des données de l\'utilisateur:', error);
-    return { messages: 0, xp: 0 }; // En cas d'erreur, renvoyez des valeurs par défaut
-  } finally {
-    client.release();
+    console.error("❌ Error retrieving user data:", error);
+    return { messages: 0, xp: 0 }; // Default values on error
   }
-}
+};
 
-async function getBottom10Users() {
-  const client = await pool.connect();
-
+// Function to get the bottom 10 users (by XP)
+const getBottom10Users = async () => {
   try {
-    // Sélectionnez les 10 premiers utilisateurs classés par XP de manière ascendante (du plus bas au plus élevé)
-    const query = 'SELECT jid, xp , messages FROM users_rank ORDER BY xp DESC LIMIT 10';
-    const result = await client.query(query);
-
-    // Retournez le tableau des utilisateurs
-    return result.rows;
+    const users = await UserRank.find()
+      .sort({ xp: -1 }) // Sort by XP descending
+      .limit(10); // Limit to 10 users
+    return users.map(user => ({ jid: user.jid, xp: user.xp, messages: user.messages }));
   } catch (error) {
-    console.error('Erreur lors de la récupération du bottom 10 des utilisateurs:', error);
-    return []; // En cas d'erreur, renvoyez un tableau vide
-  } finally {
-    client.release();
+    console.error("❌ Error retrieving bottom 10 users:", error);
+    return []; // Return empty array on error
   }
-}
-
-
-
-// Exécutez la fonction de création de la table lors de l'initialisation
-createUsersRankTable();
+};
 
 module.exports = {
   ajouterOuMettreAJourUserData,

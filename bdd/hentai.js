@@ -1,91 +1,61 @@
-// Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
+const mongoose = require("mongoose");
 
-const { Pool } = require("pg");
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
-const s = require("../set");
+// Define the Schema for "hentai"
+const hentaiSchema = new mongoose.Schema({
+  groupeJid: { type: String, required: true, unique: true },
+});
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl = s.DATABASE_URL ? s.DATABASE_URL : "postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9";
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-};
+// Create the Model
+const Hentai = mongoose.model("Hentai", hentaiSchema);
 
-// Créez une pool de connexions PostgreSQL
-const pool = new Pool(proConfig);
-
-// Fonction pour créer la table "hentai"
-const creerTableHentai = async () => {
+// Function to add a group to the hentai list
+const addToHentaiList = async (groupeJid) => {
   try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS hentai (
-        groupeJid text PRIMARY KEY
-      );
-    `);
-    console.log("La table 'hentai' avec 'groupeJid' comme clé primaire a été créée avec succès.");
-  } catch (e) {
-    console.error("Une erreur est survenue lors de la création de la table 'hentai':", e);
+    const result = await Hentai.findOneAndUpdate(
+      { groupeJid },
+      { groupeJid },
+      { upsert: true, new: true }
+    );
+    console.log(`✅ Group JID ${groupeJid} added to the hentai list.`);
+  } catch (error) {
+    console.error("❌ Error adding group to hentai list:", error);
   }
 };
 
-// Appelez la méthode pour créer la table "hentai" avec 'groupeJid' comme clé primaire
-creerTableHentai();
-
-// Fonction pour ajouter un groupe à la liste de hentai
-async function addToHentaiList(groupeJid) {
-  const client = await pool.connect();
+// Function to check if a group is in the hentai list
+const checkFromHentaiList = async (groupeJid) => {
   try {
-    // Insérez le groupe dans la table "hentai"
-    const query = "INSERT INTO hentai (groupeJid) VALUES ($1)";
-    const values = [groupeJid];
-
-    await client.query(query, values);
-    console.log(`Le groupe JID ${groupeJid} a été ajouté à la liste de hentai.`);
+    const result = await Hentai.findOne({ groupeJid });
+    return result ? true : false;
   } catch (error) {
-    console.error("Erreur lors de l'ajout du groupe à la liste de hentai :", error);
-  } finally {
-    client.release();
-  }
-}
-
-// Fonction pour vérifier si un groupe est dans la liste de hentai
-async function checkFromHentaiList(groupeJid) {
-  const client = await pool.connect();
-  try {
-    // Vérifiez si le groupe existe dans la table "hentai"
-    const query = "SELECT EXISTS (SELECT 1 FROM hentai WHERE groupeJid = $1)";
-    const values = [groupeJid];
-
-    const result = await client.query(query, values);
-    return result.rows[0].exists;
-  } catch (error) {
-    console.error("Erreur lors de la vérification de la présence du groupe dans la liste de hentai :", error);
+    console.error("❌ Error checking group from hentai list:", error);
     return false;
-  } finally {
-    client.release();
   }
-}
+};
 
-// Fonction pour supprimer un groupe de la liste de hentai
-async function removeFromHentaiList(groupeJid) {
-  const client = await pool.connect();
+// Function to remove a group from the hentai list
+const removeFromHentaiList = async (groupeJid) => {
   try {
-    // Supprimez le groupe de la table "hentai"
-    const query = "DELETE FROM hentai WHERE groupeJid = $1";
-    const values = [groupeJid];
-
-    await client.query(query, values);
-    console.log(`Le groupe JID ${groupeJid} a été supprimé de la liste de hentai.`);
+    const result = await Hentai.deleteOne({ groupeJid });
+    if (result.deletedCount > 0) {
+      console.log(`✅ Group JID ${groupeJid} removed from the hentai list.`);
+    } else {
+      console.log(`⚠️ No group JID ${groupeJid} found in the hentai list.`);
+    }
   } catch (error) {
-    console.error("Erreur lors de la suppression du groupe de la liste de hentai :", error);
-  } finally {
-    client.release();
+    console.error("❌ Error removing group from hentai list:", error);
   }
-}
+};
 
 module.exports = {
   addToHentaiList,

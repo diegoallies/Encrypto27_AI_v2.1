@@ -1,94 +1,72 @@
 // Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
 
-const { Pool } = require("pg");
+// Importation de mongoose pour se connecter à MongoDB
+const mongoose = require("mongoose");
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
+// Utilisez le module 'set' pour obtenir la valeur de MONGODB_URI depuis vos configurations
 const s = require("../set");
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-};
+// Récupérez l'URL de la base de données de la variable s.MONGODB_URI
+const dbUrl = s.MONGODB_URI ? s.MONGODB_URI : "mongodb://localhost:27017/mydatabase";
 
-// Créez une pool de connexions PostgreSQL
-const pool = new Pool(proConfig);
+// Connexion à MongoDB
+mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("Connexion à MongoDB réussie.");
+  })
+  .catch((error) => {
+    console.error("Erreur lors de la connexion à MongoDB:", error);
+  });
 
-// Vous pouvez maintenant utiliser 'pool' pour interagir avec votre base de données PostgreSQL.
-const creerTableevents = async () => {
-  try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS events (
-        Id serial PRIMARY KEY,
-        jid text UNIQUE,
-        welcome text DEFAULT 'non',
-        goodbye text DEFAULT 'non',
-        antipromote text DEFAULT 'non',
-        antidemote text DEFAULT 'non'
-      );
-    `);
-    console.log("La table 'events' a été créée avec succès.");
-  } catch (e) {
-    console.error("Une erreur est survenue lors de la création de la table 'events':", e);
-  }
-};
+// Schéma de la collection events
+const eventSchema = new mongoose.Schema({
+  jid: { type: String, required: true, unique: true },
+  welcome: { type: String, default: 'non' },
+  goodbye: { type: String, default: 'non' },
+  antipromote: { type: String, default: 'non' },
+  antidemote: { type: String, default: 'non' },
+});
 
-// Appelez la méthode pour créer la table "banUser"
-creerTableevents();
+// Modèle pour la collection events
+const Event = mongoose.model("events", eventSchema);
 
-
-
-// Fonction pour ajouter un utilisateur à la liste des bannis
+// Fonction pour attribuer une valeur à une colonne spécifiée
 async function attribuerUnevaleur(jid, row, valeur) {
-    const client = await pool.connect();
+  try {
+    // Recherche de l'événement par JID
+    let event = await Event.findOne({ jid });
 
-    try {
-        // Vérifions si le jid existe dans la table
-        const result = await client.query('SELECT * FROM events WHERE jid = $1', [jid]);
-        
-        // Vérifiez la longueur des lignes (rows) pour déterminer si le jid existe
-        const jidExiste = result.rows.length > 0;
-
-        if (jidExiste) {
-            // Si le jid existe, mettez à jour la valeur de la colonne spécifiée (row)
-            await client.query(`UPDATE events SET ${row} = $1 WHERE jid = $2`, [valeur, jid]);
-            console.log(`La colonne ${row} a été actualisée sur ${valeur} pour le jid ${jid}`);
-        } else {
-            // Si le jid n'existe pas, ajoutez une nouvelle ligne avec le jid et la valeur spécifiés
-            await client.query(`INSERT INTO events (jid, ${row}) VALUES ($1, $2)`, [jid, valeur]);
-            console.log(`Nouveau jid ${jid} ajouté avec la colonne ${row} ayant la valeur ${valeur}`);
-        }
-    } catch (error) {
-        console.error("Erreur lors de l'actualisation de events :", error);
-    } finally {
-        client.release();
+    if (event) {
+      // Si l'événement existe, mettez à jour la colonne spécifiée
+      event[row] = valeur;
+      await event.save();
+      console.log(`La colonne ${row} a été actualisée sur ${valeur} pour le jid ${jid}`);
+    } else {
+      // Si l'événement n'existe pas, créez un nouveau document
+      const newEvent = new Event({ jid, [row]: valeur });
+      await newEvent.save();
+      console.log(`Nouveau jid ${jid} ajouté avec la colonne ${row} ayant la valeur ${valeur}`);
     }
-};
-
-
-async function recupevents(jid, row) {
-     const client = await pool.connect()
-    try {
-        const result = await client.query('SELECT ' + row + ' FROM events WHERE jid = $1', [jid]);
-        const jidExists = result.rows.length > 0;
-
-        if (jidExists) {
-            return result.rows[0][row];
-        } else {
-            return 'non';
-        }
-    } catch (e) {
-        console.error(e);
-    } finally {
-        client.release();
-    }
+  } catch (error) {
+    console.error("Erreur lors de l'actualisation de events :", error);
+  }
 }
 
+// Fonction pour récupérer la valeur d'une colonne spécifiée
+async function recupevents(jid, row) {
+  try {
+    const event = await Event.findOne({ jid });
 
+    if (event) {
+      return event[row];
+    } else {
+      return 'non'; // Retourne la valeur par défaut si l'événement n'existe pas
+    }
+  } catch (error) {
+    console.error("Erreur lors de la récupération de l'événement :", error);
+  }
+}
 
 module.exports = {
   attribuerUnevaleur,

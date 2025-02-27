@@ -1,109 +1,79 @@
-// Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
+const mongoose = require("mongoose");
 
-const { Pool } = require("pg");
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
-const s = require("../set");
+// Define the Schema for "mention"
+const mentionSchema = new mongoose.Schema({
+  status: { type: String, default: 'non' },
+  url: { type: String, required: true },
+  type: { type: String, required: true },
+  message: { type: String, required: true }
+});
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-};
+// Create the Model
+const Mention = mongoose.model("Mention", mentionSchema);
 
-// Créez une pool de connexions PostgreSQL
-const pool = new Pool(proConfig);
-
-// Fonction pour créer la table "alive" avec une colonne "id"
-
-async function creerTableMention() {
-    const client = await pool.connect();
+// Function to add or update mention data
+const addOrUpdateDataInMention = async (url, type, message) => {
   try {
-      await client.query(`
-        CREATE TABLE IF NOT EXISTS mention (
-          id serial PRIMARY KEY,
-          status text DEFAULT 'non',
-          url text,
-          type text,
-          message text
-        );
-      `);
-      console.log("La table 'mention' a été créée avec succès.");
-    } catch (e) {
-      console.error("Une erreur est survenue lors de la création de la table 'mention':", e);
-    } finally {
-        client.release();
-      }
-  };
-
-creerTableMention();
-
-  async function addOrUpdateDataInMention(url, type,message) {
-      const client = await pool.connect();
-      try {
-          const query = `
-              INSERT INTO mention (id, url, type, message)
-              VALUES (1, $1, $2, $3)
-              ON CONFLICT (id)
-              DO UPDATE SET  url = excluded.url, type = excluded.type , message = excluded.message;
-          `;
-          const values = [url, type,message];
-  
-          await client.query(query, values);
-          console.log("Données ajoutées ou mises à jour dans la table 'mention' avec succès.");
-      } catch (error) {
-          console.error("Erreur lors de l'ajout ou de la mise à jour des données dans la table 'mention':", error);
-      } finally {
-          client.release();
-      }
-  };
-  
-  
-async function modifierStatusId1(nouveauStatus) {
-    const client = await pool.connect();
-    try {
-        const query = `
-            UPDATE mention
-            SET status = $1
-            WHERE id = 1;
-        `;
-        const values = [nouveauStatus];
-
-        await client.query(query, values);
-        console.log("Le status a été modifié avec succès pour l'ID 1 dans la table 'mention'.");
-    } catch (error) {
-        console.error("Erreur lors de la modification du status pour l'ID 1 dans la table 'mention':", error);
-    } finally {
-        client.release();
-    }
+    const existingMention = await Mention.findOneAndUpdate(
+      { id: 1 }, // MongoDB doesn't use 'id' like PostgreSQL, but you can add 'id' as a unique field.
+      { url, type, message }, // New data
+      { upsert: true, new: true } // Insert if not found, and return the updated document
+    );
+    console.log("✅ Mention data added or updated successfully.");
+  } catch (error) {
+    console.error("❌ Error adding or updating mention data:", error);
+  }
 };
 
-async function recupererToutesLesValeurs() {
-    const client = await pool.connect();
-    try {
-        const query = `
-            SELECT * FROM mention;
-        `;
-
-        const result = await client.query(query);
-        console.log("Voici toutes les valeurs de la table 'mention':", result.rows);
-        return result.rows;
-    } catch (error) {
-        console.error("Erreur lors de la récupération des valeurs de la table 'mention':", error);
-    } finally {
-        client.release();
-    }
+// Function to modify the status of mention with id 1
+const modifierStatusId1 = async (nouveauStatus) => {
+  try {
+    const result = await Mention.updateOne(
+      { id: 1 },
+      { $set: { status: nouveauStatus } }
+    );
+    console.log("✅ Status updated successfully for ID 1.");
+  } catch (error) {
+    console.error("❌ Error updating status for ID 1:", error);
+  }
 };
+
+// Function to retrieve all mention values
+const recupererToutesLesValeurs = async () => {
+  try {
+    const mentions = await Mention.find(); // Find all documents
+    console.log("✅ Retrieved all mention values:", mentions);
+    return mentions;
+  } catch (error) {
+    console.error("❌ Error retrieving all mention values:", error);
+    return [];
+  }
+};
+
+// Initialize the MongoDB schema if necessary
+const initializeCollection = async () => {
+  const mentionCount = await Mention.countDocuments();
+  if (mentionCount === 0) {
+    await new Mention({ id: 1 }).save(); // Initialize with a default entry
+    console.log("✅ Initialized the mention collection.");
+  }
+};
+
+// Execute the collection initialization
+initializeCollection();
 
 module.exports = {
-                    addOrUpdateDataInMention,
-                    recupererToutesLesValeurs,
-                    modifierStatusId1,
-}
-
-
-
+  addOrUpdateDataInMention,
+  recupererToutesLesValeurs,
+  modifierStatusId1
+};

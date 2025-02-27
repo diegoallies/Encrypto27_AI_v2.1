@@ -1,109 +1,87 @@
 // Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
 
-const { Pool } = require("pg");
+// Importation de mongoose pour se connecter à MongoDB
+const mongoose = require("mongoose");
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
+// Utilisez le module 'set' pour obtenir la valeur de MONGODB_URI depuis vos configurations
 const s = require("../set");
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
-};
+// Récupérez l'URL de la base de données de la variable s.MONGODB_URI
+const dbUrl = s.MONGODB_URI ? s.MONGODB_URI : "mongodb://localhost:27017/mydatabase";
 
-// Créez une pool de connexions PostgreSQL
-const pool = new Pool(proConfig);
+// Connexion à MongoDB
+mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("Connexion à MongoDB réussie.");
+  })
+  .catch((error) => {
+    console.error("Erreur lors de la connexion à MongoDB:", error);
+  });
 
-async function creerTableWarnUsers() {
-    const client = await pool.connect();
-    try {
-      // Exécutez la requête SQL pour créer la table "warn_users" si elle n'existe pas
-      const query = `
-        CREATE TABLE IF NOT EXISTS warn_users (
-          jid text PRIMARY KEY,
-          warn_count integer DEFAULT 0
-        );
-      `;
-      await client.query(query);
-      console.log("La table 'warn_users' a été créée avec succès.");
-    } catch (error) {
-      console.error("Erreur lors de la création de la table 'warn_users':", error);
-    } finally {
-      client.release();
+// Schéma de la collection warn_users
+const warnUserSchema = new mongoose.Schema({
+  jid: { type: String, required: true, unique: true },
+  warn_count: { type: Number, default: 0 }
+});
+
+// Modèle pour la collection warn_users
+const WarnUser = mongoose.model("warn_users", warnUserSchema);
+
+// Fonction pour créer un utilisateur avec un count de warning
+async function ajouterUtilisateurAvecWarnCount(jid) {
+  try {
+    // Recherche de l'utilisateur existant
+    let user = await WarnUser.findOne({ jid });
+    if (user) {
+      // Si l'utilisateur existe, mettre à jour le warn_count
+      user.warn_count += 1;
+      await user.save();
+      console.log(`Utilisateur ${jid} mis à jour avec un warn_count de ${user.warn_count}.`);
+    } else {
+      // Si l'utilisateur n'existe pas, en créer un nouveau
+      user = new WarnUser({ jid, warn_count: 1 });
+      await user.save();
+      console.log(`Utilisateur ${jid} ajouté avec un warn_count de 1.`);
     }
-  };
-   creerTableWarnUsers();
-
-   async function ajouterUtilisateurAvecWarnCount(jid) {
-    const client = await pool.connect();
-    try {
-      // Exécutez une requête SQL pour ajouter ou mettre à jour l'utilisateur
-      const query = `
-        INSERT INTO warn_users (jid, warn_count)
-        VALUES ($1, 1)
-        ON CONFLICT (jid)
-        DO UPDATE SET warn_count = warn_users.warn_count + 1;
-      `;
-      const values = [jid];
-  
-      await client.query(query, values);
-      console.log(`Utilisateur ${jid} ajouté ou mis à jour avec un warn_count de 1.`);
-    } catch (error) {
-      console.error("Erreur lors de l'ajout ou de la mise à jour de l'utilisateur :", error);
-    } finally {
-      client.release();
-    }
-  } ;
-
-  async function getWarnCountByJID(jid) {
-    const client = await pool.connect();
-    try {
-      // Exécutez une requête SQL pour récupérer le warn_count par JID
-      const query = "SELECT warn_count FROM warn_users WHERE jid = $1";
-      const values = [jid];
-  
-      const result = await client.query(query, values);
-      if (result.rows.length > 0) {
-        const warnCount = result.rows[0].warn_count;
-        return warnCount;
-      } else {
-        // Si l'utilisateur n'est pas trouvé, retournez 0 ou une autre valeur par défaut
-        return 0;
-      }
-    } catch (error) {
-      console.error("Erreur lors de la récupération du warn_count :", error);
-      return -1; // Retournez une valeur d'erreur ou une autre valeur par défaut en cas d'erreur
-    } finally {
-      client.release();
-    }
-  } ;
-
-  async function resetWarnCountByJID(jid) {
-    const client = await pool.connect();
-    try {
-      // Exécutez une requête SQL pour réinitialiser le warn_count à 0 pour le JID spécifié
-      const query = "UPDATE warn_users SET warn_count = 0 WHERE jid = $1";
-      const values = [jid];
-  
-      await client.query(query, values);
-      console.log(`Le warn_count de l'utilisateur ${jid} a été réinitialisé à 0.`);
-    } catch (error) {
-      console.error("Erreur lors de la réinitialisation du warn_count :", error);
-    } finally {
-      client.release();
-    }
+  } catch (error) {
+    console.error("Erreur lors de l'ajout ou de la mise à jour de l'utilisateur :", error);
   }
-  
-  
-  
-  
-  module.exports = {
-    ajouterUtilisateurAvecWarnCount,
-    getWarnCountByJID,
-    resetWarnCountByJID,
-  };
-  
+}
+
+// Fonction pour récupérer le warn_count par JID
+async function getWarnCountByJID(jid) {
+  try {
+    const user = await WarnUser.findOne({ jid });
+    if (user) {
+      return user.warn_count;
+    } else {
+      return 0; // Retourne 0 si l'utilisateur n'existe pas
+    }
+  } catch (error) {
+    console.error("Erreur lors de la récupération du warn_count :", error);
+    return -1; // Retourne une valeur d'erreur ou une autre valeur par défaut en cas d'erreur
+  }
+}
+
+// Fonction pour réinitialiser le warn_count à 0 pour un utilisateur spécifique
+async function resetWarnCountByJID(jid) {
+  try {
+    const user = await WarnUser.findOne({ jid });
+    if (user) {
+      user.warn_count = 0;
+      await user.save();
+      console.log(`Le warn_count de l'utilisateur ${jid} a été réinitialisé à 0.`);
+    } else {
+      console.log(`Utilisateur ${jid} non trouvé.`);
+    }
+  } catch (error) {
+    console.error("Erreur lors de la réinitialisation du warn_count :", error);
+  }
+}
+
+module.exports = {
+  ajouterUtilisateurAvecWarnCount,
+  getWarnCountByJID,
+  resetWarnCountByJID,
+};

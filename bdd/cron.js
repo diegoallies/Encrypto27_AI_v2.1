@@ -1,114 +1,80 @@
 require("dotenv").config();
-const { Pool } = require("pg");
-let s =require("../set");
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
+const mongoose = require("mongoose");
 
-const proConfig = {
-  connectionString:dbUrl ,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
+
+// Define the Schema for "cron"
+const cronSchema = new mongoose.Schema({
+  group_id: { type: String, required: true, unique: true },
+  mute_at: { type: String, default: null },
+  unmute_at: { type: String, default: null },
+});
+
+// Create the Model
+const Cron = mongoose.model("Cron", cronSchema);
+
+// Function to get all cron data
+const getCron = async () => {
+  try {
+    return await Cron.find({});
+  } catch (error) {
+    console.error("❌ Error retrieving cron data:", error);
+    return [];
+  }
 };
 
-const pool = new Pool(proConfig);
+// Function to add or update a cron entry
+const addCron = async (group_id, field, value) => {
+  try {
+    let update = {};
+    update[field] = value;
 
+    const result = await Cron.findOneAndUpdate(
+      { group_id },
+      { $set: update },
+      { upsert: true, new: true }
+    );
 
-async function createTablecron() {
+    console.log(`✅ Cron entry updated:`, result);
+  } catch (error) {
+    console.error("❌ Error adding/updating cron data:", error);
+  }
+};
 
-    const client = await pool.connect();
-    try {
-      // Exécutez une requête SQL pour créer la table "cron" si elle n'existe pas déjà
-      await client.query(`
-        CREATE TABLE IF NOT EXISTS cron (
-          group_id text PRIMARY KEY,
-          mute_at text default null,
-          unmute_at text default null
-        );
-      `);
-      console.log("La table 'cron' a été créée avec succès.");
-    } catch (error) {
-      console.error("Une erreur est survenue lors de la création de la table 'cron':", error);
-    } finally {
-      client.release();
+// Function to get cron data by group_id
+const getCronById = async (group_id) => {
+  try {
+    return await Cron.findOne({ group_id });
+  } catch (error) {
+    console.error("❌ Error retrieving cron data by ID:", error);
+    return null;
+  }
+};
+
+// Function to delete a cron entry
+const delCron = async (group_id) => {
+  try {
+    const result = await Cron.deleteOne({ group_id });
+    if (result.deletedCount > 0) {
+      console.log(`✅ Cron entry for group_id ${group_id} deleted.`);
+    } else {
+      console.log(`⚠️ No cron entry found for group_id ${group_id}.`);
     }
-} ;
-
-createTablecron();
-
-
-async function getCron() {
-
-  const client = await pool.connect();
-  try {
-
-    const result = await client.query('SELECT * FROM cron');
-    return result.rows;
   } catch (error) {
-    console.error('Erreur lors de la récupération des données de la table "cron":', error);
-  } finally {
-    client.release();
+    console.error("❌ Error deleting cron entry:", error);
   }
- }  ;
+};
 
-
-async function addCron(group_id, rows, value) {
-  const client = await pool.connect();
-
-  try {
-    
-    let response = await client.query(`
-      SELECT * FROM cron WHERE group_id = $1`, [group_id]);
-
-      let exist = response.rows.length > 0 ;
-if (exist) {
-
-    await client.query(`
-    UPDATE cron SET ${rows} = $1 WHERE group_id = $2 `, [value, group_id])
-
-} else {
-    const query = `
-      INSERT INTO cron (group_id, ${rows}) 
-      VALUES ($1, $2)`;
-
-    await client.query(query, [group_id, value]);
-  }
-  } catch (error) {
-    console.error('Erreur lors de l\'ajout de la donnée dans la table "cron":', error);
-  } finally {
-    client.release();
-  }
-}
-
-
-
-
-async function getCronById(group_id) {
-
-  const client = await pool.connect();
-  try {
-    const result = await client.query('SELECT * FROM cron WHERE group_id = $1', [group_id]);
-    return result.rows[0];
-  } catch (error) {
-    console.error('Erreur lors de la récupération des données de la table "cron":', error);
-  } finally {
-    client.release();
-  }
-}
-
-async function delCron(group_id) {
-
-   const client = await pool.connect();
-  try {
-    await client.query('DELETE FROM cron WHERE group_id = $1', [group_id]);
-  } catch (error) {
-    console.error('Erreur lors de la suppression de la donnée dans la table "cron":', error);
-  } finally {
-    client.release();
-  }
-}
-
- module.exports = {
-          getCron,
-          addCron,
-          delCron,
-          getCronById, }
+module.exports = {
+  getCron,
+  addCron,
+  delCron,
+  getCronById,
+};

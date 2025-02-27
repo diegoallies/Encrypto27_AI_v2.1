@@ -1,134 +1,105 @@
-// Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
+const mongoose = require("mongoose");
 
-const { Pool } = require("pg");
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
-const s = require("../set");
+// Define the Schema for "stickcmd"
+const stickCmdSchema = new mongoose.Schema({
+  cmd: { type: String, required: true, unique: true },
+  id: { type: String, required: true }
+});
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+// Create the Model
+const StickCmd = mongoose.model("StickCmd", stickCmdSchema);
+
+// Function to add a stick command
+const addStickCmd = async (cmd, id) => {
+  try {
+    const existingCmd = await StickCmd.findOne({ cmd });
+    if (existingCmd) {
+      console.log(`La commande ${cmd} existe déjà.`);
+      return;
+    }
+
+    const newCmd = new StickCmd({ cmd, id });
+    await newCmd.save();
+    console.log(`Commande ${cmd} ajoutée avec succès.`);
+  } catch (error) {
+    console.error("❌ Erreur lors de l'ajout du stickcmd :", error);
+  }
 };
 
-
-const pool = new Pool(proConfig);
-
-async function creerTableStickcmd() {
+// Function to check if a stick command exists by ID
+const inStickCmd = async (id) => {
   try {
-    await pool.query(`
-      CREATE TABLE IF NOT EXISTS stickcmd (
-        cmd text PRIMARY KEY,
-        id text NOT NULL
-      );
-    `);
-    console.log("La table 'stickcmd' a été créée avec succès.");
-  } catch (e) {
-    console.error("Une erreur est survenue lors de la création de la table 'stickcmd':", e);
-  }
-}
-
-creerTableStickcmd();
-
-async function addstickcmd(cmd, id) {
-  let client;
-  try {
-    client = await pool.connect();
-    const query = "INSERT INTO stickcmd(cmd, id) VALUES ($1, $2)";
-    const values = [cmd, id];
-    await client.query(query, values);
+    const cmd = await StickCmd.findOne({ id });
+    return cmd !== null;
   } catch (error) {
-    console.log('Erreur lors de l\'ajout du stickcmd', error);
-  } finally {
-    if (client) {
-      client.release();
-    }
-  }
-}
-
-async function inStickCmd(id) {
-  let client;
-  try {
-    client = await pool.connect();
-    const query = "SELECT  EXISTS (SELECT 1 FROM stickcmd WHERE id = $1)";
-    const values = [id];
-    const result = await client.query(query, values);
-    return result.rows[0].exists;
-  } catch (error) {
+    console.error("❌ Erreur lors de la vérification du stickcmd :", error);
     return false;
-  } finally {
-    if (client) {
-      client.release();
-    }
   }
-}
+};
 
-async function deleteCmd(cmd) {
-  const client = await pool.connect();
+// Function to delete a stick command by cmd
+const deleteCmd = async (cmd) => {
   try {
-    const query = "DELETE FROM stickcmd WHERE cmd = $1";
-    const values = [cmd];
-    await client.query(query, values);
-    console.log(`Le stickcmd ${cmd} a été supprimé de la liste.`);
+    const result = await StickCmd.deleteOne({ cmd });
+    if (result.deletedCount > 0) {
+      console.log(`Commande ${cmd} supprimée avec succès.`);
+    } else {
+      console.log(`Aucune commande ${cmd} trouvée.`);
+    }
   } catch (error) {
-    console.error("Erreur lors de la suppression du stickcmd :", error);
-  } finally {
-    client.release();
+    console.error("❌ Erreur lors de la suppression du stickcmd :", error);
   }
-} ;
+};
 
-async function getCmdById(id) {
-    let client;
-    try {
-      client = await pool.connect();
-      const query = "SELECT cmd FROM stickcmd WHERE id = $1";
-      const values = [id];
-      const result = await client.query(query, values);
-  
-      if (result.rows.length > 0) {
-        return result.rows[0].cmd;
-      } else {
-        return null; // Ajustez la valeur de retour en conséquence si l'id n'est pas trouvé.
-      }
-    } catch (error) {
-      console.error("Erreur lors de la récupération du stickcmd par id :", error);
-      return null; // Gérer l'erreur et ajuster la valeur de retour si nécessaire.
-    } finally {
-      if (client) {
-        client.release();
-      }
-    }
-  };
-
-  async function getAllStickCmds() {
-
-    const client = await pool.connect();
-    try {
-        
-        const query = "SELECT cmd FROM stickcmd";
-        const result = await client.query(query);
-        return result.rows;
-    } catch (error) {
-        console.error("Erreur lors de la récupération de toutes les commandes stickcmd :", error);
-        return [];
-    } finally {
-        client.release();
-    }
-} ;
-
-  
-
-  
-  
-  module.exports = {
-
-     addstickcmd,
-     deleteCmd,
-     getCmdById,
-     inStickCmd,
-     getAllStickCmds,
+// Function to get a stick command by ID
+const getCmdById = async (id) => {
+  try {
+    const cmd = await StickCmd.findOne({ id });
+    return cmd ? cmd.cmd : null;
+  } catch (error) {
+    console.error("❌ Erreur lors de la récupération du stickcmd par id :", error);
+    return null;
   }
+};
+
+// Function to get all stick commands
+const getAllStickCmds = async () => {
+  try {
+    const cmds = await StickCmd.find({});
+    return cmds;
+  } catch (error) {
+    console.error("❌ Erreur lors de la récupération de toutes les commandes stickcmd :", error);
+    return [];
+  }
+};
+
+// Example of initialization: check if the "stickcmd" collection has any documents
+const initializeCollection = async () => {
+  const count = await StickCmd.countDocuments();
+  if (count === 0) {
+    console.log("La collection 'stickcmd' est vide.");
+  } else {
+    console.log(`La collection 'stickcmd' contient ${count} commandes.`);
+  }
+};
+
+// Run the initialization check
+initializeCollection();
+
+module.exports = {
+  addStickCmd,
+  deleteCmd,
+  getCmdById,
+  inStickCmd,
+  getAllStickCmds,
+};

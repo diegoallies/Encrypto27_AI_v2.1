@@ -1,143 +1,104 @@
-// Importez dotenv et chargez les variables d'environnement depuis le fichier .env
 require("dotenv").config();
+const mongoose = require("mongoose");
 
-const { Pool } = require("pg");
+// Connect to MongoDB
+const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => console.log("✅ Connected to MongoDB"))
+  .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// Utilisez le module 'set' pour obtenir la valeur de DATABASE_URL depuis vos configurations
-const s = require("../set");
+// Define the Schema for "sudo"
+const sudoSchema = new mongoose.Schema({
+  jid: { type: String, required: true, unique: true }
+});
 
-// Récupérez l'URL de la base de données de la variable s.DATABASE_URL
-var dbUrl=s.DATABASE_URL?s.DATABASE_URL:"postgres://db_7xp9_user:6hwmTN7rGPNsjlBEHyX49CXwrG7cDeYi@dpg-cj7ldu5jeehc73b2p7g0-a.oregon-postgres.render.com/db_7xp9"
-const proConfig = {
-  connectionString: dbUrl,
-  ssl: {
-    rejectUnauthorized: false,
-  },
+// Create the Model
+const Sudo = mongoose.model("Sudo", sudoSchema);
+
+// Function to add a sudo number
+const addSudoNumber = async (jid) => {
+  try {
+    const existingSudo = await Sudo.findOne({ jid });
+    if (existingSudo) {
+      console.log(`Le numéro ${jid} est déjà autorisé.`);
+      return;
+    }
+
+    const newSudo = new Sudo({ jid });
+    await newSudo.save();
+    console.log(`Numéro ${jid} ajouté à la liste des numéros autorisés.`);
+  } catch (error) {
+    console.error("❌ Erreur lors de l'ajout du numéro de téléphone autorisé :", error);
+  }
 };
 
-const pool = new Pool(proConfig);
-
-// Fonction pour créer la table "sudo"
-async function createSudoTable() {
-  const client = await pool.connect();
+// Function to check if a sudo number exists
+const issudo = async (jid) => {
   try {
-    // Exécutez une requête SQL pour créer la table "sudo" si elle n'existe pas déjà
-    await client.query(`
-      CREATE TABLE IF NOT EXISTS sudo (
-        id serial PRIMARY KEY,
-        jid text NOT NULL
-      );
-    `);
-    console.log("La table 'sudo' a été créée avec succès.");
+    const sudo = await Sudo.findOne({ jid });
+    return sudo !== null;
   } catch (error) {
-    console.error("Une erreur est survenue lors de la création de la table 'sudo':", error);
-  } finally {
-    client.release();
+    console.error("❌ Erreur lors de la vérification du numéro autorisé :", error);
+    return false;
   }
-}
+};
 
-// Appelez la méthode pour créer la table "sudo"
-createSudoTable();
-
-
-// Fonction pour vérifier si un groupe est banni
-async function issudo(jid) {
-    const client = await pool.connect();
-    try {
-      // Vérifiez si le groupe existe dans la table "banGroup"
-      const query = "SELECT EXISTS (SELECT 1 FROM sudo WHERE jid = $1)";
-      const values = [jid];
-  
-      const result = await client.query(query, values);
-      return result.rows[0].exists;
-    } catch (error) {
-      console.error("Erreur lors de la vérification du groupe banni :", error);
-      return false;
-    } finally {
-      client.release();
+// Function to remove a sudo number
+const removeSudoNumber = async (jid) => {
+  try {
+    const result = await Sudo.deleteOne({ jid });
+    if (result.deletedCount > 0) {
+      console.log(`Numéro ${jid} supprimé de la liste des numéros autorisés.`);
+    } else {
+      console.log(`Numéro ${jid} non trouvé.`);
     }
+  } catch (error) {
+    console.error("❌ Erreur lors de la suppression du numéro de téléphone autorisé :", error);
   }
-  
-  // Fonction pour supprimer un groupe de la liste des groupes bannis
-  async function removeSudoNumber(jid) {
-    const client = await pool.connect();
-    try {
-      // Supprimez le numéro de téléphone de la table "sudo"
-      const query = "DELETE FROM sudo WHERE jid = $1";
-      const values = [jid];
-  
-      await client.query(query, values);
-      console.log(`Numéro de téléphone ${jid} supprimé de la liste des numéros de téléphone autorisés.`);
-    } catch (error) {
-      console.error("Erreur lors de la suppression du numéro de téléphone autorisé :", error);
-    } finally {
-      client.release();
-    }
+};
+
+// Function to get all sudo numbers
+const getAllSudoNumbers = async () => {
+  try {
+    const sudoNumbers = await Sudo.find({});
+    return sudoNumbers.map(sudo => sudo.jid);
+  } catch (error) {
+    console.error("❌ Erreur lors de la récupération des numéros autorisés :", error);
+    return [];
   }
+};
 
-  async function addSudoNumber(jid) {
-    const client = await pool.connect();
-    try {
-      // Insérez le numéro de téléphone dans la table "sudo"
-      const query = "INSERT INTO sudo (jid) VALUES ($1)";
-      const values = [jid];
-  
-      await client.query(query, values);
-      console.log(`Numéro de téléphone ${jid} ajouté à la liste des numéros de téléphone autorisés.`);
-    } catch (error) {
-      console.error("Erreur lors de l'ajout du numéro de téléphone autorisé :", error);
-    } finally {
-      client.release();
-    }
+// Function to check if the sudo collection is empty
+const isSudoTableNotEmpty = async () => {
+  try {
+    const count = await Sudo.countDocuments();
+    return count > 0;
+  } catch (error) {
+    console.error("❌ Erreur lors de la vérification de la collection 'sudo' :", error);
+    return false;
   }
+};
 
-  async function getAllSudoNumbers() {
-    const client = await pool.connect();
-    try {
-      // Sélectionnez tous les numéros de téléphone de la table "sudo"
-      const query = "SELECT jid FROM sudo";
-      const result = await client.query(query);
-  
-      // Créez un tableau des numéros de téléphone
-      const sudoNumbers = result.rows.map((row) => row.jid);
-  
-      return sudoNumbers;
-    } catch (error) {
-      console.error("Erreur lors de la récupération des numéros de téléphone autorisés :", error);
-      return [];
-    } finally {
-      client.release();
-    }
-  }  
+// Example: check if the "sudo" collection has any documents
+const initializeCollection = async () => {
+  const isNotEmpty = await isSudoTableNotEmpty();
+  if (isNotEmpty) {
+    console.log("La collection 'sudo' contient des numéros.");
+  } else {
+    console.log("La collection 'sudo' est vide.");
+  }
+};
 
-     async function isSudoTableNotEmpty() {
-    const client = await pool.connect();
+// Run the initialization check
+initializeCollection();
 
-    try {
-      // Exécutez une requête SQL pour compter le nombre de lignes dans la table "sudo"
-      const result = await client.query('SELECT COUNT(*) FROM sudo');
-
-      // Récupérez la valeur du compteur (nombre de lignes)
-      const rowCount = parseInt(result.rows[0].count);
-
-      // Si le nombre de lignes est supérieur à zéro, la table n'est pas vide
-      return rowCount > 0;
-    } catch (error) {
-      console.error('Erreur lors de la vérification de la table "sudo" :', error);
-      return false; // En cas d'erreur, considérez la table comme vide
-    } finally {
-      client.release();
-    }
-  };
-  
-  
-  
-  
-  module.exports = {
-    issudo,
-    addSudoNumber,
-    removeSudoNumber,
-    getAllSudoNumbers,
-    isSudoTableNotEmpty
-  };
-  
+module.exports = {
+  addSudoNumber,
+  issudo,
+  removeSudoNumber,
+  getAllSudoNumbers,
+  isSudoTableNotEmpty,
+};
