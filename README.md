@@ -1,15 +1,15 @@
-# KYPHER_XMD 👋
+# Encrypto AI 👋
 WhatsApp Bot Created by ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞
 
 ### ➕ EASY COMMUNICATION ➕
 
-![KYPHER_XMD Banner](https://i.ibb.co/Q9yd9tR/IMG-20250117-WA0097.jpg)
+![Encrypto27 Banner](https://i.ibb.co/Q9yd9tR/IMG-20250117-WA0097.jpg)
 
 ---
 
 <a><img src='https://i.imgur.com/LyHic3i.gif'/></a><a><img src='https://i.imgur.com/LyHic3i.gif'/></a>
 
-<p align="center">𓊈𒆜 _𝐊𝐘𝚸𝚮𝚵𝚪_XMD𒆜𓊉</p>
+<p align="center">𓊈𒆜 _Encrypto AI𒆜𓊉</p>
 
 <p align="center"> 
   <a href="https://whatsapp.com/channel/0029VanspvdLtOj55DG0t82Y">
@@ -82,4 +82,4 @@ WhatsApp Bot Created by ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜�
 
 ---
 
-### 🎉 THANK YOU FOR USING KYPHER_XMD 🎉
+### 🎉 THANK YOU FOR USING Encrypto AI 🎉
