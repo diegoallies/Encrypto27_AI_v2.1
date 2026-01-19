@@ -858,17 +858,30 @@ ${metadata.desc}`;
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection, qr, isNewConnection } = con;
             
-            // Handle QR code for pairing
-            if (qr) {
-                console.log("📱 QR Code generated");
-                await pairingServer.updateQR(qr);
+            // Debug: Log all connection update properties
+            console.log("🔌 Connection update:", {
+                connection,
+                hasQR: !!qr,
+                qrLength: qr ? qr.length : 0,
+                hasPairingCode: !!con.pairingCode,
+                pairingCode: con.pairingCode,
+                isNewConnection,
+                lastDisconnect: lastDisconnect ? lastDisconnect.error?.message : null
+            });
+            
+            // Handle QR code for pairing - check multiple possible properties
+            const qrCode = qr || con.qr || con.qrcode;
+            if (qrCode) {
+                console.log("📱 QR Code generated, length:", qrCode.length);
+                await pairingServer.updateQR(qrCode);
                 pairingServer.updateConnectionStatus('connecting', false);
             }
             
-            // Handle pairing code if available
-            if (con.pairingCode) {
-                console.log("🔢 Pairing code available:", con.pairingCode);
-                pairingServer.updatePairingCode(con.pairingCode);
+            // Handle pairing code if available (newer Baileys versions)
+            const pairingCode = con.pairingCode || con.pairing_code;
+            if (pairingCode) {
+                console.log("🔢 Pairing code available:", pairingCode);
+                pairingServer.updatePairingCode(pairingCode);
             }
             
             if (connection === "connecting") {

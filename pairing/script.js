@@ -64,6 +64,8 @@ async function checkQR() {
         const response = await fetch(`${API_BASE}/api/qr`);
         const data = await response.json();
         
+        console.log('QR check response:', { hasQR: !!data.qr, status: data.status }); // Debug
+        
         if (data.qr && data.qr !== currentQR) {
             currentQR = data.qr;
             await displayQR(data.qr);
@@ -71,6 +73,9 @@ async function checkQR() {
         } else if (!data.qr && currentQR) {
             // QR code cleared (might be switching to pairing code)
             currentQR = null;
+        } else if (!data.qr && !currentQR && data.status === 'connecting') {
+            // Still waiting for QR - show loading state
+            updateStatus('Waiting for QR code...', 'connecting');
         }
     } catch (error) {
         console.error('QR check error:', error);
