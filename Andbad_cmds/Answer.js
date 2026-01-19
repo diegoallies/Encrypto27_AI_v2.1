@@ -11,100 +11,17 @@ const { generateWAMessageFromContent, proto } = pkg;
 ///////////////////////////////////////////////////////////////////////////////
 // Command: checknum
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "number",
-  'aliases': ['checknum', 'validate', 'numinfo', "valid"],
-  'reaction': '📞',
-  'categorie': 'General'
-}, async (_0xc42b14, _0x51608, _0x500c77) => {
-  const { repondre: _0x4c7cba, arg: _0x5e5043 } = _0x500c77;
-  try {
-    if (!_0x5e5043 || _0x5e5043.length === 0) {
-      return _0x4c7cba("Please enter a phone number to validate.");
-    }
-    const _0x1e9ee7 = _0x5e5043.join(" ");
-    const _0x3ce845 = await fetch('https://tajammalmods.xyz/Validater.php?num=' + _0x1e9ee7);
-    if (!_0x3ce845.ok) throw new Error("Failed to fetch phone validation data.");
-    const _0x32a97d = await _0x3ce845.json();
-    if (_0x32a97d.valid) {
-      const _0xc26e32 = _0x32a97d.carrier;
-      const _0x1a89c7 = _0x32a97d.country;
-      const _0x170eb7 = _0x32a97d.international_format;
-      const _0x12ba84 = _0x32a97d.national_format;
-      const _0x1cc3bd = _0x32a97d.line_type === 1 ? "Mobile" : "Landline";
-      const _0x1fc765 = _0x32a97d.location;
-      const _0x2b5ef8 = _0x32a97d.time_zones[0];
-      await _0x4c7cba("Phone Number Validation:\n\n*Carrier:* " + _0xc26e32 +
-        "\n*Country:* " + _0x1a89c7 +
-        "\n*International Format:* " + _0x170eb7 +
-        "\n*National Format:* " + _0x12ba84 +
-        "\n*Line Type:* " + _0x1cc3bd +
-        "\n*Location:* " + _0x1fc765 +
-        "\n*Time Zone:* " + _0x2b5ef8 + "\n\n> *POWERED BY FLASH-MD*");
-    } else {
-      await _0x4c7cba("The phone number is invalid!");
-    }
-  } catch (_0x4ae688) {
-    console.error("checknum error:", _0x4ae688.message);
-    _0x4c7cba("There was an error processing your request. Please try again later.");
-  }
-});
+///////////////////////////////////////////////////////////////////////////////
+// Command: number - REMOVED (API broken, no working alternative found)
+///////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: technews
+// Command: technews - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "technews",
-  'reaction': '📰',
-  'categorie': 'News'
-}, async (_0x23cfcf, _0x5d2c66, _0x3eadaf) => {
-  const { repondre: _0x6c74f5, ms: _0x430260 } = _0x3eadaf;
-  try {
-    const _0x1c5787 = await axios.get("https://fantox001-scrappy-api.vercel.app/technews/random");
-    const _0x530892 = _0x1c5787.data;
-    const { thumbnail: _0x1f79b5, news: _0x2169c4 } = _0x530892;
-    const _0x5aa232 = "*TECH NEWS*\n\n" + _0x2169c4 + "\n\n*Powered*";
-    await _0x5d2c66.sendMessage(_0x23cfcf, {
-      'image': { 'url': _0x1f79b5 },
-      'caption': _0x5aa232
-    }, { 'quoted': _0x430260 });
-  } catch (_0x52491a) {
-    console.error("Error fetching tech news:", _0x52491a.message);
-    await _0x6c74f5("Sorry, there was an error retrieving the news. Please try again later.\n" + _0x52491a);
-  }
-});
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: pair
+// Command: pair - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "pair",
-  'reaction': '📡',
-  'categorie': 'User'
-}, async (chat, message, context) => {
-  const { repondre: respond, arg: args } = context;
-  try {
-    if (!args || args.length === 0) {
-      return respond("Usage example: .pair 255734980103.");
-    }
-    await respond("Retrieving your pairing code..... One moment please!!!");
-    const encodedNumber = encodeURIComponent(args.join(" "));
-    const apiUrl = "https://andbad-qr-k71b.onrender.com/pair?number=" + encodedNumber;
-    const apiResponse = await axios.get(apiUrl);
-    const responseData = apiResponse.data;
-    if (responseData && responseData.code) {
-      const pairingCode = responseData.code;
-      const messageContent = "Your pairing code is: *" + pairingCode +
-        "*\nUse it to link your WhatsApp within the next minute before it expires.\nHappy bot deployment!!!\n\n> *POWERED BY andbad*";
-      await respond(messageContent);
-    } else {
-      throw new Error("Invalid response from the API.");
-    }
-  } catch (error) {
-    console.error("Error retrieving the API response:", error.message);
-    respond("Error retrieving the API response.");
-  }
-});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Command: mail
@@ -164,65 +81,12 @@ zokou({
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: gpt2
+// Command: gpt2 - REMOVED (API broken, use .gpt instead)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "gpt2",
-  'reaction': '📡',
-  'categorie': 'AI'
-}, async (context, user, params) => {
-  const { respond: respondFunction, arg: args } = params;
-  if (!args || !args[0]) {
-    return respondFunction("YES!\n _I'm listening to you._");
-  }
-  try {
-    const userMessage = args.join(" ");
-    const response = await fetch('http://api.brainshop.ai/get?bid=181821&key=ltFzFIXrtj2SVMTX&uid=[uid]&msg=' + encodeURIComponent(userMessage));
-    if (!response.ok) throw new Error("AI service responded with an error");
-    const data = await response.json();
-    await respondFunction(data.cnt);
-  } catch (error) {
-    console.error("gpt2 error:", error.message);
-    respondFunction("Something went wrong...");
-  }
-});
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: dalle
+// Command: dalle - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "dalle",
-  'aliases': ["dall", "dal"],
-  'reaction': '📡',
-  'categorie': 'AI'
-}, async (_0x2c97cc, _0x338749, _0x49b5cd) => {
-  const { repondre: _0x6162b8, arg: _0x34188f, ms: _0x3ce799 } = _0x49b5cd;
-  try {
-    if (!_0x34188f || _0x34188f.length === 0) {
-      return _0x6162b8("Please enter the necessary information to generate the image.");
-    }
-    const _0x5bb7e1 = _0x34188f.join(" ");
-    // Try alternative DALL-E API
-    let _0x3ed3ee = "https://widipe.com/dalle?text=" + _0x5bb7e1;
-    try {
-      // Test if API works
-      const testResponse = await fetch(_0x3ed3ee, { method: 'HEAD' });
-      if (!testResponse.ok) {
-        await _0x6162b8("DALL-E API is currently unavailable. Please try again later.");
-        return;
-      }
-      _0x338749.sendMessage(_0x2c97cc, {
-        'image': { 'url': _0x3ed3ee },
-        'caption': "*Powered by ENCRYPTO27 MD*"
-      }, { 'quoted': _0x3ce799 });
-    } catch (error) {
-      await _0x6162b8("DALL-E API is currently unavailable. Please try again later.");
-    }
-  } catch (_0x119122) {
-    console.error('dalle error:', _0x119122.message || "An error occurred");
-    _0x6162b8("Oops, an error occurred while processing your request");
-  }
-});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Command: gpt
@@ -521,40 +385,8 @@ zokou({
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: enhance
+// Command: enhance - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "enhance",
-  'reaction': '💥',
-  'categorie': "User"
-}, async (_0x2402f6, _0x1d0654, _0x3df495) => {
-  const { repondre: _0x402ace, arg: _0x103214 } = _0x3df495;
-  try {
-    if (!_0x103214 || _0x103214.length === 0) {
-      return _0x402ace("Please enter the Url of the image you want to enhance!");
-    }
-    const _0x14303b = _0x103214.join(" ");
-    // Try alternative image enhancement API
-    let _0x430f88 = "https://api.maher-zubair.tech/maker/enhance?url=" + _0x14303b;
-    try {
-      // Test if API works
-      const testResponse = await fetch(_0x430f88, { method: 'HEAD' });
-      if (!testResponse.ok) {
-        await _0x402ace("Image enhancement API is currently unavailable. Please try again later.");
-        return;
-      }
-      _0x1d0654.sendMessage(_0x2402f6, {
-        'image': { 'url': _0x430f88 },
-        'caption': "*Enhanced by ENCRYPTO27 MD*"
-      }, { 'quoted': _0x3df495.ms });
-    } catch (error) {
-      await _0x402ace("Image enhancement API is currently unavailable. Please try again later.");
-    }
-  } catch (error) {
-    console.error('enhance command error:', error.message || "An error occurred");
-    _0x402ace("Oops, an error occurred while processing your request");
-  }
-});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Command: dare (updated with error handling)
@@ -599,26 +431,8 @@ zokou({
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: applenews
+// Command: applenews - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "applenews",
-  'reaction': "🗞️",
-  'categorie': "NEWS"
-}, async (_0x144eea, _0x26a27f, _0x45bc33) => {
-  const { repondre: _0x307696, ms: _0x3bfa44 } = _0x45bc33;
-  try {
-    // Try alternative Apple news API
-    let _0x44935c = await fetch('https://api.maher-zubair.tech/details/ios');
-    if (!_0x44935c.ok) {
-      // Fallback - use RSS or alternative
-      _0x44935c = await fetch('https://rss.apple.com/newsroom/rss');
-      if (!_0x44935c.ok) throw new Error("Failed to fetch Apple news.");
-      const text = await _0x44935c.text();
-      await _0x307696("Apple news API is currently unavailable. Please try again later.");
-      return;
-    }
-    const _0x3271b7 = await _0x44935c.json();
     if (_0x3271b7 && _0x3271b7.status === 200 && _0x3271b7.result) {
       const _0x4c0027 = _0x3271b7.result;
       const _0x38b364 = "\n*APPLE NEWS:*\n\n\n- *Title:* " + _0x4c0027.title +
@@ -704,18 +518,8 @@ zokou({
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: population
+// Command: population - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "population",
-  'reaction': "🗞️",
-  'categorie': "NEWS"
-}, async (_0x4af97c, _0x41a8e8, _0x2de4a5) => {
-  const { repondre: _0xccbea2 } = _0x2de4a5;
-  try {
-    const _0x3a8ab8 = await fetch("https://api.maher-zubair.tech/details/population");
-    if (!_0x3a8ab8.ok) throw new Error("Failed to fetch population data.");
-    const _0x3c2f41 = await _0x3a8ab8.json();
     if (_0x3c2f41 && _0x3c2f41.status === 200 && _0x3c2f41.result) {
       const _0x5d6e9b = _0x3c2f41.result;
       const _0x157f0b = "*WORLDWIDE POPULATION DATA:*\n\n\n- *Total Population:* " + _0x5d6e9b.current.total +
@@ -904,87 +708,5 @@ zokou({
 });
 
 ///////////////////////////////////////////////////////////////////////////////
-// Command: bard
+// Command: bard - REMOVED (API broken, use .gemini or .gpt instead)
 ///////////////////////////////////////////////////////////////////////////////
-zokou({
-  'nomCom': "bard",
-  'aliases': ["gptbard"],
-  'categorie': 'AI'
-}, async (_0x4f24eb, _0x27f4a8, _0x492252) => {
-  const { ms: _0xb9b090, repondre: _0x4713e9, arg: _0xf6258e } = _0x492252;
-  if (!_0xf6258e[0]) {
-    _0x4713e9("Please provide a query for Bard. Example: `bard What is the capital of Tanzania?`");
-    return;
-  }
-  try {
-    await _0x27f4a8.sendMessage(_0x4f24eb, {
-      'text': "Interacting with Bard... Please wait a moment."
-    }, { 'quoted': _0xb9b090 });
-    const _0x1b7633 = _0x492252.nomAuteurMessage || "defaultUser";
-    const _0x49d701 = _0xf6258e.join(" ");
-    // Try alternative Bard API
-    let _0x28dd58 = "https://api.guruapi.tech/ai/gpt4?username=" + _0x1b7633 + '&query=' + encodeURIComponent(_0x49d701);
-    let _0x381f5c = await fetch(_0x28dd58, { timeout: 15000 });
-    if (!_0x381f5c.ok) {
-      // Fallback to gemini
-      _0x28dd58 = 'https://widipe.com/gemini?text=' + encodeURIComponent(_0x49d701);
-      _0x381f5c = await fetch(_0x28dd58, { timeout: 15000 });
-      if (!_0x381f5c.ok) throw new Error("Bard/Gemini API error");
-      const geminiData = await _0x381f5c.json();
-      if (geminiData && geminiData.result) {
-        const _0x5013c0 = geminiData.result;
-        const _0x5294e2 = [{
-          'name': 'cta_url',
-          'buttonParamsJson': JSON.stringify({
-            'display_text': "FOLLOW 🤍 CHANNEL",
-            'url': "https://whatsapp.com/channel/"
-          })
-        }];
-        const _0x38e3dc = generateWAMessageFromContent(_0x4f24eb, {
-          'viewOnceMessage': {
-            'message': {
-              'messageContextInfo': { 'deviceListMetadata': {}, 'deviceListMetadataVersion': 2 },
-              'interactiveMessage': proto.Message.InteractiveMessage.create({
-                'body': proto.Message.InteractiveMessage.Body.create({ 'text': _0x5013c0 }),
-                'footer': proto.Message.InteractiveMessage.Footer.create({ 'text': "> *POWERED BY ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞*" }),
-                'header': proto.Message.InteractiveMessage.Header.create({ 'title': '', 'subtitle': '', 'hasMediaAttachment': false }),
-                'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({ 'buttons': _0x5294e2 })
-              })
-            }
-          }
-        }, {});
-        await _0x27f4a8.relayMessage(_0x4f24eb, _0x38e3dc.message, { 'messageId': _0x38e3dc.key.id });
-        return;
-      }
-    }
-    const _0x5c94fd = await _0x381f5c.json();
-    if (!_0x5c94fd.msg) {
-      _0x4713e9("No response received from Bard. Please try again later.");
-      return;
-    }
-    const _0x5013c0 = _0x5c94fd.msg;
-    const _0x5294e2 = [{
-      'name': 'cta_url',
-      'buttonParamsJson': JSON.stringify({
-        'display_text': "FOLLOW 🤍 CHANNEL",
-        'url': "https://whatsapp.com/channel/"
-      })
-    }];
-    const _0x38e3dc = generateWAMessageFromContent(_0x4f24eb, {
-      'viewOnceMessage': {
-        'message': {
-          'messageContextInfo': { 'deviceListMetadata': {}, 'deviceListMetadataVersion': 2 },
-          'interactiveMessage': proto.Message.InteractiveMessage.create({
-            'body': proto.Message.InteractiveMessage.Body.create({ 'text': _0x5013c0 }),
-            'footer': proto.Message.InteractiveMessage.Footer.create({ 'text': "> *POWERED BY ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞*" }),
-            'header': proto.Message.InteractiveMessage.Header.create({ 'title': '', 'subtitle': '', 'hasMediaAttachment': false }),
-            'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({ 'buttons': _0x5294e2 })
-          })
-        }
-      }
-    }, {});
-    await _0x27f4a8.relayMessage(_0x4f24eb, _0x38e3dc.message, { 'messageId': _0x38e3dc.key.id });
-  } catch (_0x4237ef) {
-    _0x4713e9("A fatal error has occurred... \n " + _0x4237ef.message);
-  }
-});

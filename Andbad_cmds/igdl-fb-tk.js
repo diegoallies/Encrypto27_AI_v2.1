@@ -86,7 +86,19 @@ zokou({ nomCom: "tiktok", categorie: "Download", reaction: "🎵" }, async (dest
 
   const videoUrl = arg.join(" ");
 
- let data = await axios.get('https://vihangayt.me/download/tiktok?url='+ videoUrl) ;
+ // Try alternative TikTok downloader
+ let data;
+ try {
+   data = await axios.get('https://vihangayt.me/download/tiktok?url='+ videoUrl, { timeout: 15000 });
+ } catch (error) {
+   // Fallback to alternative API
+   try {
+     data = await axios.get('https://api.maher-zubair.tech/download/tiktok?url='+ videoUrl, { timeout: 15000 });
+   } catch (fallbackError) {
+     repondre("TikTok downloader API is currently unavailable. Please try again later.");
+     return;
+   }
+ }
 
   let tik = data.data.data
 

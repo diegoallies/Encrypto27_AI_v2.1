@@ -36,10 +36,7 @@ zokou({ nomCom: "menu", categorie: "General" }, async (dest, zk, commandeOptions
 │   𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │
 ╰─────────────────────────────────────────────╯
 
-╭━━━━━━━━━━━━━━━━━━━━━❰ *AVAILABLE MENUS* ❱━━━━━━━━━━━━━━━━━╮
-┃  🔥  ▪️ *MENU*                
-┃  🔥  ▪️ *MENU2*              
-┃  🔥  ▪️ *BUGMENU*             
+╭━━━━━━━━━━━━━━━━━━━━━❰ *BOT INFO* ❱━━━━━━━━━━━━━━━━━╮
 ┃ ════════════════════════════
 ┃  ⚡️ ▪️ *PLUGINS*    : ${cm.length}   
 ┃  💾 ▪️ *RAM*        : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}    
