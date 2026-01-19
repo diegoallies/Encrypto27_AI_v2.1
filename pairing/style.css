@@ -124,7 +124,10 @@ body {
 #qrCanvas {
     max-width: 100%;
     height: auto;
-    display: block;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: 1px solid #ddd;
 }
 
 .instruction {

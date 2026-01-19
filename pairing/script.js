@@ -18,9 +18,32 @@ const qrCanvas = document.getElementById('qrCanvas');
 const pairingCodeDisplay = document.getElementById('pairingCodeDisplay');
 const copyBtn = document.getElementById('copyBtn');
 
+// Wait for both DOM and QRCode library to be ready
+function waitForQRCode() {
+    if (typeof QRCode !== 'undefined') {
+        init();
+    } else {
+        setTimeout(waitForQRCode, 100);
+    }
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', waitForQRCode);
+} else {
+    waitForQRCode();
+}
+
 // Initialize
 async function init() {
+    console.log('Initializing pairing page...');
+    console.log('QRCode library available:', typeof QRCode !== 'undefined');
+    console.log('Canvas element:', qrCanvas);
+    
     updateStatus('Initializing...', 'disconnected');
+    
+    // Make sure QR section is visible initially
+    qrSection.style.display = 'block';
+    
     startPolling();
     setupCopyButton();
 }
@@ -64,15 +87,22 @@ async function checkQR() {
         const response = await fetch(`${API_BASE}/api/qr`);
         const data = await response.json();
         
-        console.log('QR check response:', { hasQR: !!data.qr, status: data.status }); // Debug
+        console.log('QR check response:', { 
+            hasQR: !!data.qr, 
+            qrLength: data.qr ? data.qr.length : 0,
+            status: data.status 
+        });
         
         if (data.qr && data.qr !== currentQR) {
+            console.log('New QR code detected, displaying...');
             currentQR = data.qr;
             await displayQR(data.qr);
             showQRSection();
         } else if (!data.qr && currentQR) {
             // QR code cleared (might be switching to pairing code)
+            console.log('QR code cleared');
             currentQR = null;
+            qrSection.style.display = 'none';
         } else if (!data.qr && !currentQR && data.status === 'connecting') {
             // Still waiting for QR - show loading state
             updateStatus('Waiting for QR code...', 'connecting');
@@ -101,17 +131,106 @@ async function checkPairingCode() {
 // Display QR code
 async function displayQR(qrString) {
     try {
+        console.log('=== Displaying QR Code ===');
+        console.log('QR string length:', qrString.length);
+        console.log('QR string type:', typeof qrString);
+        console.log('QR string preview:', qrString.substring(0, 100) + '...');
+        
+        // Make sure QRCode library is loaded
+        if (typeof QRCode === 'undefined') {
+            console.error('❌ QRCode library not loaded!');
+            console.error('Available globals:', Object.keys(window).filter(k => k.includes('QR')));
+            updateStatus('Error: QRCode library not loaded. Please refresh the page.', 'disconnected');
+            return;
+        }
+        
+        console.log('✅ QRCode library loaded:', typeof QRCode);
+        console.log('QRCode methods:', Object.keys(QRCode));
+        
+        // Make sure canvas exists
+        if (!qrCanvas) {
+            console.error('❌ Canvas element not found!');
+            return;
+        }
+        
+        console.log('✅ Canvas element found');
+        console.log('Canvas before:', { width: qrCanvas.width, height: qrCanvas.height });
+        
+        // Set canvas size explicitly
+        qrCanvas.width = 300;
+        qrCanvas.height = 300;
+        
+        console.log('Canvas after setting size:', { width: qrCanvas.width, height: qrCanvas.height });
+        
+        // Clear canvas first
+        const ctx = qrCanvas.getContext('2d');
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, 0, qrCanvas.width, qrCanvas.height);
+        
+        console.log('✅ Canvas cleared and filled with white');
+        console.log('Attempting to generate QR code...');
+        
+        // Generate QR code - Baileys QR format should work directly
         await QRCode.toCanvas(qrCanvas, qrString, {
             width: 300,
             margin: 2,
             color: {
                 dark: '#000000',
                 light: '#FFFFFF'
-            }
+            },
+            errorCorrectionLevel: 'M'
         });
+        
+        console.log('✅ QR code generated successfully!');
+        console.log('Final canvas dimensions:', qrCanvas.width, 'x', qrCanvas.height);
+        console.log('Canvas style:', window.getComputedStyle(qrCanvas).display);
+        
+        // Verify canvas has content
+        const imageData = ctx.getImageData(0, 0, 10, 10);
+        const hasContent = Array.from(imageData.data).some(pixel => pixel !== 255);
+        console.log('Canvas has content:', hasContent);
+        
         updateStatus('Scan QR code with WhatsApp', 'connecting');
+        
+        // Make sure QR section is visible
+        showQRSection();
+        
+        // Force a repaint
+        qrCanvas.style.display = 'block';
+        qrCanvas.style.visibility = 'visible';
+        
+        console.log('=== QR Code Display Complete ===');
     } catch (error) {
-        console.error('QR display error:', error);
+        console.error('❌ QR display error:', error);
+        console.error('Error name:', error.name);
+        console.error('Error message:', error.message);
+        console.error('Error stack:', error.stack);
+        updateStatus('Error displaying QR code: ' + error.message, 'disconnected');
+        
+        // Try alternative: create image from data URL
+        try {
+            console.log('Attempting alternative QR code generation...');
+            const qrDataUrl = await QRCode.toDataURL(qrString, {
+                width: 300,
+                margin: 2,
+                color: {
+                    dark: '#000000',
+                    light: '#FFFFFF'
+                }
+            });
+            console.log('QR Data URL generated, length:', qrDataUrl.length);
+            
+            // Create img element and draw to canvas
+            const img = new Image();
+            img.onload = () => {
+                const ctx = qrCanvas.getContext('2d');
+                ctx.drawImage(img, 0, 0);
+                console.log('✅ QR code displayed via image method');
+            };
+            img.src = qrDataUrl;
+        } catch (altError) {
+            console.error('Alternative method also failed:', altError);
+        }
     }
 }
 
@@ -123,9 +242,14 @@ function displayPairingCode(code) {
 
 // Show QR section
 function showQRSection() {
+    console.log('Showing QR section');
     qrSection.style.display = 'block';
     pairingCodeSection.style.display = 'none';
     connectedSection.style.display = 'none';
+    
+    // Force canvas to be visible
+    qrCanvas.style.display = 'block';
+    qrCanvas.style.visibility = 'visible';
 }
 
 // Show pairing code section
@@ -182,6 +306,3 @@ function setupCopyButton() {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-// Start when page loads
-document.addEventListener('DOMContentLoaded', init);

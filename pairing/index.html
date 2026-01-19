@@ -20,10 +20,10 @@
 
         <div class="pairing-container" id="pairingContainer">
             <!-- QR Code Section -->
-            <div class="qr-section" id="qrSection">
+            <div class="qr-section" id="qrSection" style="display: block;">
                 <h2>📱 Scan QR Code</h2>
                 <div class="qr-wrapper">
-                    <canvas id="qrCanvas"></canvas>
+                    <canvas id="qrCanvas" width="300" height="300"></canvas>
                 </div>
                 <p class="instruction">Open WhatsApp → Settings → Linked Devices → Link a Device</p>
             </div>
@@ -52,6 +52,19 @@
         </div>
     </div>
 
+    <script>
+        // Test QRCode library loading
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                if (typeof QRCode === 'undefined') {
+                    console.error('❌ QRCode library failed to load!');
+                    document.body.innerHTML += '<div style="color:red;padding:20px;background:white;margin:20px;border-radius:10px;"><h3>Error: QRCode library failed to load</h3><p>Please check your internet connection and refresh the page.</p></div>';
+                } else {
+                    console.log('✅ QRCode library loaded successfully');
+                }
+            }, 1000);
+        });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <script src="script.js"></script>
 </body>
