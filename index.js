@@ -114,9 +114,10 @@ const store = {
 const PairingServer = require('./pairing-server');
 const pairingServer = new PairingServer(process.env.PAIRING_PORT || 3000);
 
-// Start pairing server
+// Start pairing server (non-blocking)
 pairingServer.start().catch(err => {
-    console.error('Failed to start pairing server:', err);
+    console.error('⚠️  Failed to start pairing server:', err.message);
+    console.log('⚠️  Bot will continue without web pairing interface. QR code will be shown in terminal if needed.\n');
 });
 
 setTimeout(() => {
@@ -191,6 +192,7 @@ setTimeout(() => {
             const admins = verifGroupe ? getGroupAdmins(mbre) : [];
             const verifAdmin = verifGroupe ? isGroupAdmin(auteurMessage, admins) : false;
             const verifZokouAdmin = verifGroupe ? isGroupAdmin(idBot, admins) : false;
+            
             
             // Reply function
             async function repondre(mes) { 
@@ -482,10 +484,18 @@ setTimeout(() => {
                 return;
                 }
 
-                         /******************* PM_PERMT***************/
-
-            if (!superUser && origineMessage === auteurMessage&& conf.PM_PERMIT === "yes" ) {
-                repondre("You don't have acces to commands here") ; return }
+            // PM_PERMIT check - block non-superUsers in PM if enabled
+            // SuperUsers (owner/devs) should always have access
+            const isPM = origineMessage === auteurMessage;
+            if (!superUser && isPM && conf.PM_PERMIT === "yes") {
+                repondre("You don't have access to commands here. This bot only works in groups.");
+                return;
+            }
+            
+            // Debug log for permission issues
+            if (isPM && !superUser && verifCom) {
+                console.log(`[PM_PERMIT] Blocked command from ${auteurMessage} in PM. SuperUser: ${superUser}, PM_PERMIT: ${conf.PM_PERMIT}`);
+            }
             ///////////////////////////////
 
              

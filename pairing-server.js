@@ -136,13 +136,19 @@ class PairingServer {
     // Start the server
     start() {
         return new Promise((resolve, reject) => {
-            this.app.listen(this.port, (err) => {
-                if (err) {
-                    reject(err);
+            const server = this.app.listen(this.port, () => {
+                console.log(`\n🌐 Pairing server running on http://localhost:${this.port}`);
+                console.log(`📱 Open http://localhost:${this.port} in your browser to pair WhatsApp\n`);
+                resolve();
+            });
+            
+            server.on('error', (err) => {
+                if (err.code === 'EADDRINUSE') {
+                    console.log(`⚠️  Port ${this.port} is already in use. Pairing server will not start.`);
+                    console.log(`⚠️  Bot will continue without web pairing interface. QR code will be shown in terminal if needed.\n`);
+                    resolve(); // Resolve instead of reject so bot can continue
                 } else {
-                    console.log(`\n🌐 Pairing server running on http://localhost:${this.port}`);
-                    console.log(`📱 Open http://localhost:${this.port} in your browser to pair WhatsApp\n`);
-                    resolve();
+                    reject(err);
                 }
             });
         });

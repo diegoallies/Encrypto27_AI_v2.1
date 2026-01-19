@@ -8,8 +8,8 @@ const path = require("path");
 module.exports = {
     session: process.env.SESSION_ID || '',
     PREFIXE: process.env.PREFIX || ".",
-    OWNER_NAME: process.env.OWNER_NAME || "Ibrahim Adams",
-    NUMERO_OWNER: process.env.NUMERO_OWNER || "Ibrahim Adams",              
+    OWNER_NAME: process.env.OWNER_NAME || "Diego Allies",
+    NUMERO_OWNER: process.env.NUMERO_OWNER || "27679291800",              
     AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "yes",
     AUTO_DOWNLOAD_STATUS: process.env.AUTO_DOWNLOAD_STATUS || 'no',
     BOT: process.env.BOT_NAME || 'Encrypto27 MD',
