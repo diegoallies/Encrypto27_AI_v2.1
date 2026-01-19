@@ -19,7 +19,38 @@ class PairingServer {
         // Serve static files
         this.app.use(express.static(path.join(__dirname, 'pairing')));
         
-        // API endpoint to get QR code
+        // API endpoint to get QR code as image
+        this.app.get('/api/qr-image', async (req, res) => {
+            if (this.qrCode) {
+                try {
+                    const qrImageDataUrl = await QRCode.toDataURL(this.qrCode, {
+                        width: 300,
+                        margin: 2,
+                        color: {
+                            dark: '#000000',
+                            light: '#FFFFFF'
+                        }
+                    });
+                    res.json({ 
+                        image: qrImageDataUrl,
+                        status: this.connectionStatus,
+                        connected: this.isConnected
+                    });
+                } catch (error) {
+                    console.error('Error generating QR image:', error);
+                    res.status(500).json({ error: 'Failed to generate QR code image' });
+                }
+            } else {
+                res.json({ 
+                    image: null,
+                    status: this.connectionStatus,
+                    connected: this.isConnected,
+                    message: 'Waiting for QR code...'
+                });
+            }
+        });
+        
+        // API endpoint to get QR code (raw string)
         this.app.get('/api/qr', (req, res) => {
             if (this.qrCode) {
                 res.json({ 
