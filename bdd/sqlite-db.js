@@ -144,20 +144,21 @@ const initTables = async () => {
         
         // Stickcmd table
         `CREATE TABLE IF NOT EXISTS stickcmd (
-            jid TEXT PRIMARY KEY,
-            enabled INTEGER DEFAULT 0
+            cmd TEXT PRIMARY KEY,
+            id TEXT NOT NULL
         )`,
         
         // Hentai table
         `CREATE TABLE IF NOT EXISTS hentai (
             jid TEXT PRIMARY KEY,
-            enabled INTEGER DEFAULT 0
+            enabled INTEGER DEFAULT 1
         )`,
         
         // Alive table
         `CREATE TABLE IF NOT EXISTS alive (
-            jid TEXT PRIMARY KEY,
-            enabled INTEGER DEFAULT 0
+            id INTEGER PRIMARY KEY DEFAULT 1,
+            message TEXT,
+            lien TEXT
         )`
     ];
     

@@ -1,38 +1,9 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-
-// MongoDB URI
-const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
-
-// Check if already connected
-if (mongoose.connection.readyState === 0) {
-  // Not connected, attempt to connect
-  mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
-} else {
-  console.log("✅ MongoDB is already connected");
-}
-
-// Define the Schema for "hentai"
-const hentaiSchema = new mongoose.Schema({
-  groupeJid: { type: String, required: true, unique: true },
-});
-
-// Create the Model
-const Hentai = mongoose.model("Hentai", hentaiSchema);
+const { run, get } = require('./sqlite-db');
 
 // Function to add a group to the hentai list
 const addToHentaiList = async (groupeJid) => {
   try {
-    const result = await Hentai.findOneAndUpdate(
-      { groupeJid },
-      { groupeJid },
-      { upsert: true, new: true }
-    );
+    await run('INSERT OR REPLACE INTO hentai (jid, enabled) VALUES (?, 1)', [groupeJid]);
     console.log(`✅ Group JID ${groupeJid} added to the hentai list.`);
   } catch (error) {
     console.error("❌ Error adding group to hentai list:", error);
@@ -42,7 +13,7 @@ const addToHentaiList = async (groupeJid) => {
 // Function to check if a group is in the hentai list
 const checkFromHentaiList = async (groupeJid) => {
   try {
-    const result = await Hentai.findOne({ groupeJid });
+    const result = await get('SELECT jid FROM hentai WHERE jid = ? AND enabled = 1', [groupeJid]);
     return result ? true : false;
   } catch (error) {
     console.error("❌ Error checking group from hentai list:", error);
@@ -53,8 +24,8 @@ const checkFromHentaiList = async (groupeJid) => {
 // Function to remove a group from the hentai list
 const removeFromHentaiList = async (groupeJid) => {
   try {
-    const result = await Hentai.deleteOne({ groupeJid });
-    if (result.deletedCount > 0) {
+    const result = await run('DELETE FROM hentai WHERE jid = ?', [groupeJid]);
+    if (result.changes > 0) {
       console.log(`✅ Group JID ${groupeJid} removed from the hentai list.`);
     } else {
       console.log(`⚠️ No group JID ${groupeJid} found in the hentai list.`);

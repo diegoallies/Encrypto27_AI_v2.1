@@ -1,42 +1,14 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-
-// MongoDB URI
-const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
-
-// Check if already connected
-if (mongoose.connection.readyState === 0) {
-  // Not connected, attempt to connect
-  mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
-} else {
-  console.log("✅ MongoDB is already connected");
-}
-
-// Define the Schema for "stickcmd"
-const stickCmdSchema = new mongoose.Schema({
-  cmd: { type: String, required: true, unique: true },
-  id: { type: String, required: true }
-});
-
-// Create the Model
-const StickCmd = mongoose.model("StickCmd", stickCmdSchema);
+const { run, get, all } = require('./sqlite-db');
 
 // Function to add a stick command
 const addStickCmd = async (cmd, id) => {
   try {
-    const existingCmd = await StickCmd.findOne({ cmd });
-    if (existingCmd) {
+    const existing = await get('SELECT cmd FROM stickcmd WHERE cmd = ?', [cmd]);
+    if (existing) {
       console.log(`La commande ${cmd} existe déjà.`);
       return;
     }
-
-    const newCmd = new StickCmd({ cmd, id });
-    await newCmd.save();
+    await run('INSERT INTO stickcmd (cmd, id) VALUES (?, ?)', [cmd, id]);
     console.log(`Commande ${cmd} ajoutée avec succès.`);
   } catch (error) {
     console.error("❌ Erreur lors de l'ajout du stickcmd :", error);
@@ -46,7 +18,7 @@ const addStickCmd = async (cmd, id) => {
 // Function to check if a stick command exists by ID
 const inStickCmd = async (id) => {
   try {
-    const cmd = await StickCmd.findOne({ id });
+    const cmd = await get('SELECT id FROM stickcmd WHERE id = ?', [id]);
     return cmd !== null;
   } catch (error) {
     console.error("❌ Erreur lors de la vérification du stickcmd :", error);
@@ -57,8 +29,8 @@ const inStickCmd = async (id) => {
 // Function to delete a stick command by cmd
 const deleteCmd = async (cmd) => {
   try {
-    const result = await StickCmd.deleteOne({ cmd });
-    if (result.deletedCount > 0) {
+    const result = await run('DELETE FROM stickcmd WHERE cmd = ?', [cmd]);
+    if (result.changes > 0) {
       console.log(`Commande ${cmd} supprimée avec succès.`);
     } else {
       console.log(`Aucune commande ${cmd} trouvée.`);
@@ -71,7 +43,7 @@ const deleteCmd = async (cmd) => {
 // Function to get a stick command by ID
 const getCmdById = async (id) => {
   try {
-    const cmd = await StickCmd.findOne({ id });
+    const cmd = await get('SELECT cmd FROM stickcmd WHERE id = ?', [id]);
     return cmd ? cmd.cmd : null;
   } catch (error) {
     console.error("❌ Erreur lors de la récupération du stickcmd par id :", error);
@@ -82,26 +54,12 @@ const getCmdById = async (id) => {
 // Function to get all stick commands
 const getAllStickCmds = async () => {
   try {
-    const cmds = await StickCmd.find({});
-    return cmds;
+    return await all('SELECT * FROM stickcmd');
   } catch (error) {
     console.error("❌ Erreur lors de la récupération de toutes les commandes stickcmd :", error);
     return [];
   }
 };
-
-// Example of initialization: check if the "stickcmd" collection has any documents
-const initializeCollection = async () => {
-  const count = await StickCmd.countDocuments();
-  if (count === 0) {
-    console.log("La collection 'stickcmd' est vide.");
-  } else {
-    console.log(`La collection 'stickcmd' contient ${count} commandes.`);
-  }
-};
-
-// Run the initialization check
-initializeCollection();
 
 module.exports = {
   addStickCmd,
