@@ -485,16 +485,11 @@ setTimeout(() => {
                 }
 
             // PM_PERMIT check - block non-superUsers in PM if enabled
-            // SuperUsers (owner/devs) should always have access
+            // SuperUsers (owner/devs) should always have access, even in PM
             const isPM = origineMessage === auteurMessage;
-            if (!superUser && isPM && conf.PM_PERMIT === "yes") {
+            if (!superUser && isPM && conf.PM_PERMIT && conf.PM_PERMIT.toLowerCase() === "yes") {
                 repondre("You don't have access to commands here. This bot only works in groups.");
                 return;
-            }
-            
-            // Debug log for permission issues
-            if (isPM && !superUser && verifCom) {
-                console.log(`[PM_PERMIT] Blocked command from ${auteurMessage} in PM. SuperUser: ${superUser}, PM_PERMIT: ${conf.PM_PERMIT}`);
             }
             ///////////////////////////////
 

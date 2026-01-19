@@ -15,7 +15,7 @@ module.exports = {
     BOT: process.env.BOT_NAME || 'Encrypto27 MD',
     URL: process.env.BOT_MENU_LINKS || 'https://i.ibb.co/Q9yd9tR/IMG-20250117-WA0097.jpg',
     MODE: process.env.PUBLIC_MODE || "yes",
-    PM_PERMIT: process.env.PM_PERMIT || 'yes',
+    PM_PERMIT: process.env.PM_PERMIT || 'no', // Set to 'no' to allow commands in PM
     HEROKU_APP_NAME: process.env.HEROKU_APP_NAME,
     HEROKU_APY_KEY: process.env.HEROKU_APY_KEY,
     WARN_COUNT: process.env.WARN_COUNT || '3',
