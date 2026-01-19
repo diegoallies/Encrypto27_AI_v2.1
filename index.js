@@ -56,7 +56,7 @@ async function authentification() {
        
         //console.log("le data "+data)
         if (!fs.existsSync(__dirname + "/auth/creds.json")) {
-            console.log("connexion en cour ...");
+            console.log("Connection in progress...");
             await fs.writeFileSync(__dirname + "/auth/creds.json", atob(session), "utf8");
             //console.log(session)
         }
@@ -121,8 +121,19 @@ pairingServer.start().catch(err => {
 
 setTimeout(() => {
     async function main() {
+        // Reset connection failure counter
+        global.connectionFailureCount = 0;
+        
+        console.log('🔄 Starting WhatsApp connection...');
         const { version, isLatest } = await (0, baileys_1.fetchLatestBaileysVersion)();
         const { state, saveCreds } = await (0, baileys_1.useMultiFileAuthState)(__dirname + "/auth");
+        
+        // Log if we have existing credentials
+        if (state.creds && state.creds.me) {
+            console.log('📱 Using existing session for:', state.creds.me.id);
+        } else {
+            console.log('📱 No existing session - QR code will be generated');
+        }
         const sockOptions = {
             version,
             logger: pino({ level: "silent" }),
@@ -854,7 +865,7 @@ ${metadata.desc}`;
             insertContact(contacts);
         });
         //fin événement contact 
-        //événement connexion
+        //connection event
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection, qr, isNewConnection } = con;
             
@@ -942,38 +953,76 @@ ${metadata.desc}`;
             else if (connection == "close") {
                 pairingServer.updateConnectionStatus('disconnected', false);
                 let raisonDeconnexion = new boom_1.Boom(lastDisconnect?.error)?.output.statusCode;
-                if (raisonDeconnexion === baileys_1.DisconnectReason.badSession) {
-                    console.log('Session id érronée veuillez rescanner le qr svp ...');
+                
+                // Check for connection failures that indicate invalid session
+                const isConnectionFailure = lastDisconnect?.error?.message?.includes('Connection Failure') || 
+                                          lastDisconnect?.error?.message?.includes('ECONNREFUSED');
+                
+                if (raisonDeconnexion === baileys_1.DisconnectReason.badSession || isConnectionFailure) {
+                    console.log('⚠️ Invalid session detected. Deleting session to force QR code generation...');
+                    // Delete invalid session files
+                    try {
+                        if (fs.existsSync(__dirname + "/auth/creds.json")) {
+                            fs.unlinkSync(__dirname + "/auth/creds.json");
+                            console.log('✅ Deleted invalid session file');
+                        }
+                        // Delete all auth files
+                        const authFiles = fs.readdirSync(__dirname + "/auth");
+                        authFiles.forEach(file => {
+                            if (file !== 'File.js' && file !== 'kypher') {
+                                fs.unlinkSync(__dirname + "/auth/" + file);
+                            }
+                        });
+                        console.log('✅ Cleared auth directory. Restarting to generate new QR code...');
+                    } catch (e) {
+                        console.log('Error deleting session:', e);
+                    }
+                    // Wait a bit then restart
+                    await (0, baileys_1.delay)(2000);
+                    main();
                 }
                 else if (raisonDeconnexion === baileys_1.DisconnectReason.connectionClosed) {
-                    console.log('!!! connexion fermée, reconnexion en cours ...');
+                    console.log('!!! Connection closed, reconnecting...');
+                    await (0, baileys_1.delay)(2000);
                     main();
                 }
                 else if (raisonDeconnexion === baileys_1.DisconnectReason.connectionLost) {
-                    console.log('connexion au serveur perdue 😞 ,,, reconnexion en cours ... ');
+                    console.log('Connection to server lost 😞, reconnecting...');
+                    await (0, baileys_1.delay)(2000);
                     main();
                 }
                 else if (raisonDeconnexion === baileys_1.DisconnectReason?.connectionReplaced) {
-                    console.log('connexion réplacée ,,, une sesssion est déjà ouverte veuillez la fermer svp !!!');
+                    console.log('Connection replaced - another session is already open. Please close it first!!!');
                 }
                 else if (raisonDeconnexion === baileys_1.DisconnectReason.loggedOut) {
-                    console.log('vous êtes déconnecté,,, veuillez rescanner le code qr svp');
+                    console.log('You are logged out. Please scan the QR code again');
+                    // Delete session on logout
+                    try {
+                        if (fs.existsSync(__dirname + "/auth/creds.json")) {
+                            fs.unlinkSync(__dirname + "/auth/creds.json");
+                        }
+                    } catch (e) {}
+                    await (0, baileys_1.delay)(2000);
+                    main();
                 }
                 else if (raisonDeconnexion === baileys_1.DisconnectReason.restartRequired) {
                     console.log('redémarrage en cours ▶️');
+                    await (0, baileys_1.delay)(2000);
                     main();
-                }   else {
-
-                console.log('redemarrage sur le coup de l\'erreur  ',raisonDeconnexion) ;         
-                    //repondre("* Redémarrage du bot en cour ...*");
-
-                                const {exec}=require("child_process") ;
-
-                                exec("pm2 restart all");            
+                } else {
+                    console.log('redemarrage sur le coup de l\'erreur  ',raisonDeconnexion);
+                    // For unknown errors, also try deleting session if it keeps failing
+                    if (isConnectionFailure) {
+                        try {
+                            if (fs.existsSync(__dirname + "/auth/creds.json")) {
+                                fs.unlinkSync(__dirname + "/auth/creds.json");
+                                console.log('✅ Deleted session due to connection failure');
+                            }
+                        } catch (e) {}
+                    }
+                    await (0, baileys_1.delay)(3000);
+                    main();
                 }
-                // sleep(50000)
-                console.log("hum " + connection);
-                main(); //console.log(session)
             }
         });
         //fin événement connexion
