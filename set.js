@@ -8,7 +8,7 @@ const path = require("path");
 const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/my_database';
 
 // Connection setup for MongoDB
-mongoose.connect(DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(DATABASE_URL)
     .then(() => {
         console.log('Successfully connected to MongoDB');
     })

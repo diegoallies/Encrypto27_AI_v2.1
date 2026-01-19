@@ -70,9 +70,45 @@ async function authentification() {
     }
 }
 authentification();
-const store = (0, baileys_1.makeInMemoryStore)({
-    logger: pino().child({ level: "silent", stream: "store" }),
-});
+// Create a simple in-memory store (makeInMemoryStore not available in this Baileys version)
+const store = {
+    messages: {},
+    contacts: {},
+    chats: {},
+    loadMessage: async (jid, id) => {
+        if (store.messages[jid] && store.messages[jid][id]) {
+            return store.messages[jid][id];
+        }
+        return null;
+    },
+    bind: (ev) => {
+        // Listen to messages and cache them
+        ev.on('messages.upsert', ({ messages }) => {
+            for (const msg of messages) {
+                if (!store.messages[msg.key.remoteJid]) {
+                    store.messages[msg.key.remoteJid] = {};
+                }
+                store.messages[msg.key.remoteJid][msg.key.id] = msg;
+            }
+        });
+        // Listen to contacts
+        ev.on('contacts.upsert', (contacts) => {
+            for (const contact of contacts) {
+                store.contacts[contact.id] = contact;
+            }
+        });
+    },
+    writeToFile: (filename) => {
+        try {
+            fs.writeFileSync(filename, JSON.stringify({
+                messages: store.messages,
+                contacts: store.contacts
+            }, null, 2));
+        } catch (e) {
+            // Ignore write errors
+        }
+    }
+};
 
 // Initialize Pairing Server
 const PairingServer = require('./pairing-server');
@@ -91,7 +127,7 @@ setTimeout(() => {
             version,
             logger: pino({ level: "silent" }),
             browser: ['Zokou-Md', "safari", "1.0.0"],
-            printQRInTerminal: true,
+            // printQRInTerminal removed - using web interface instead
             fireInitQueries: false,
             shouldSyncHistoryMessage: true,
             downloadHistory: true,
