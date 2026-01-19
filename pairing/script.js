@@ -40,14 +40,32 @@ async function init() {
 }
 
 // Poll for updates
+let connectionErrorCount = 0;
+const MAX_CONNECTION_ERRORS = 3;
+
 async function startPolling() {
     while (isPolling) {
         try {
             await checkStatus();
             await checkQR();
             await checkPairingCode();
+            connectionErrorCount = 0; // Reset on success
         } catch (error) {
-            console.error('Polling error:', error);
+            connectionErrorCount++;
+            if (connectionErrorCount <= MAX_CONNECTION_ERRORS) {
+                // Only log first few errors to avoid spam
+                if (connectionErrorCount === 1) {
+                    console.warn('⚠️ Connection error (server may be restarting):', error.message);
+                }
+            }
+            
+            // Stop polling if too many errors
+            if (connectionErrorCount >= MAX_CONNECTION_ERRORS) {
+                console.warn('⚠️ Server connection lost. Stopping polling. Please refresh when server is back.');
+                updateStatus('Server connection lost. Please refresh the page.', 'disconnected');
+                isPolling = false;
+                break;
+            }
         }
         await sleep(POLL_INTERVAL);
     }
@@ -57,6 +75,9 @@ async function startPolling() {
 async function checkStatus() {
     try {
         const response = await fetch(`${API_BASE}/api/status`);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
         const data = await response.json();
         
         if (data.connected) {
@@ -68,7 +89,11 @@ async function checkStatus() {
             updateStatus('Waiting for connection...', 'disconnected');
         }
     } catch (error) {
-        console.error('Status check error:', error);
+        // Only throw if it's a network error, not a JSON parse error
+        if (error.message.includes('Failed to fetch') || error.message.includes('ERR_CONNECTION_REFUSED')) {
+            throw error; // Let polling handle it
+        }
+        // Silently handle other errors
     }
 }
 
@@ -77,12 +102,10 @@ async function checkQR() {
     try {
         // Try to get QR code as image first (server-generated)
         const response = await fetch(`${API_BASE}/api/qr-image`);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
         const data = await response.json();
-        
-        console.log('QR check response:', { 
-            hasImage: !!data.image, 
-            status: data.status 
-        });
         
         if (data.image && data.image !== currentQR) {
             console.log('New QR code image detected, displaying...');
@@ -99,7 +122,11 @@ async function checkQR() {
             updateStatus('Waiting for QR code...', 'connecting');
         }
     } catch (error) {
-        console.error('QR check error:', error);
+        // Only throw if it's a network error
+        if (error.message.includes('Failed to fetch') || error.message.includes('ERR_CONNECTION_REFUSED')) {
+            throw error; // Let polling handle it
+        }
+        // Silently handle other errors
     }
 }
 
@@ -170,6 +197,9 @@ function displayQRImage(imageDataUrl) {
 async function checkPairingCode() {
     try {
         const response = await fetch(`${API_BASE}/api/pairing-code`);
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
         const data = await response.json();
         
         if (data.code && data.code !== currentPairingCode) {
@@ -178,7 +208,11 @@ async function checkPairingCode() {
             showPairingCodeSection();
         }
     } catch (error) {
-        console.error('Pairing code check error:', error);
+        // Only throw if it's a network error
+        if (error.message.includes('Failed to fetch') || error.message.includes('ERR_CONNECTION_REFUSED')) {
+            throw error; // Let polling handle it
+        }
+        // Silently handle other errors
     }
 }
 

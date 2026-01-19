@@ -140,9 +140,9 @@ setTimeout(() => {
             browser: ['Zokou-Md', "safari", "1.0.0"],
             // printQRInTerminal removed - using web interface instead
             fireInitQueries: false,
-            shouldSyncHistoryMessage: true,
-            downloadHistory: true,
-            syncFullHistory: true,
+            // shouldSyncHistoryMessage removed - not compatible with Baileys 6.7.19
+            // downloadHistory: true, // Removed - may cause issues
+            // syncFullHistory: true, // Removed - may cause issues
             generateHighQualityLinkPreview: true,
             markOnlineOnConnect: false,
             keepAliveIntervalMs: 30_000,
