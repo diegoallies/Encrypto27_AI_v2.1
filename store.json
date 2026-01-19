@@ -1210,6 +1210,107 @@
             "senderTimestampMs": "1768840049968"
           }
         }
+      },
+      "3BFC4687D309A8C7D661": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3BFC4687D309A8C7D661"
+        },
+        "messageTimestamp": 1768840111,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "imageMessage": {
+            "url": "https://mmg.whatsapp.net/v/t62.7118-24/561072684_2399471673857529_2012019138150141934_n.enc?ccb=11-4&oh=01_Q5Aa3gEoCw746qEVlAHHjQPQaBCe18Ku2mCD2w4fjya3gUiH5Q&oe=6995C764&_nc_sid=5e03e0&mms3=true",
+            "mimetype": "image/jpeg",
+            "caption": "Nom install",
+            "fileSha256": "Est7iL3pM9tepW45NEBSyfdnJOobB7gGsh8LQW0weIM=",
+            "fileLength": "17173",
+            "height": 309,
+            "width": 812,
+            "mediaKey": "oyKpJ58tyEmY7oieqqvTqsabKgnUS09fpiB/EqhOR8A=",
+            "fileEncSha256": "f9QBQFBtYgHrQnfZdRTNQoQnRpTq8RYIC07kehZlEKY=",
+            "directPath": "/v/t62.7118-24/561072684_2399471673857529_2012019138150141934_n.enc?ccb=11-4&oh=01_Q5Aa3gEoCw746qEVlAHHjQPQaBCe18Ku2mCD2w4fjya3gUiH5Q&oe=6995C764&_nc_sid=5e03e0",
+            "mediaKeyTimestamp": "1768840108",
+            "jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wgARCABIAEgDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwb/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAAA88qyKIoiiKNIqoKgqCoDKNMjTI0yNMiwAG8Du4Do5gDQM0IAD//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQIBAT8AT//EABQRAQAAAAAAAAAAAAAAAAAAAED/2gAIAQMBAT8AT//EACEQAAICAgIBBQAAAAAAAAAAAAABAhIRIQMwICIxQVFx/9oACAEBAAE/AOmpUqVKlSpUr1WLFixYsWLFjRo0aNGjRo11NY8eJQc0uR4iSjwV9MnkguBqVm08aOVw0oL2+fvsjGzaykThV4yn+GN4JRrjaefD//4AAwD/2Q==",
+            "contextInfo": {
+              "statusSourceType": "IMAGE"
+            },
+            "firstScanSidecar": "/eIS25dVVemYeA==",
+            "firstScanLength": 1665,
+            "scansSidecar": "/eIS25dVVemYeFpWn2FqpiGE5tJjsl6CisXpjP8XntbTk5P8wSmY2g==",
+            "scanLengths": [
+              1665,
+              7472,
+              3658,
+              4376
+            ],
+            "midQualityFileSha256": "xxTlPJRy5pCI2k1RVgXUzhvfodRWInT/YWDm+MlKvLs=",
+            "imageSourceType": "USER_IMAGE"
+          }
+        }
+      },
+      "3B364EC5BB72F3C4719A": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3B364EC5BB72F3C4719A"
+        },
+        "messageTimestamp": 1768840114,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "npm start"
+        }
+      },
+      "3B44E4B2BA9148F78923": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3B44E4B2BA9148F78923"
+        },
+        "messageTimestamp": 1768840127,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "http://localhost:3000/\n\nto pair"
+        }
+      },
+      "3B56C5561234F3CE38C1": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3B56C5561234F3CE38C1"
+        },
+        "messageTimestamp": 1768840140,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "you scan qr code to pair with your whatsapp"
+        }
+      }
+    },
+    "status@broadcast": {
+      "4A9588700D817731727A": {
+        "key": {
+          "remoteJid": "status@broadcast",
+          "fromMe": false,
+          "id": "4A9588700D817731727A",
+          "participant": "27760135582@s.whatsapp.net",
+          "participantLid": "207709450318057@lid"
+        },
+        "messageTimestamp": 1768840181,
+        "pushName": "Musa Nkuna",
+        "broadcast": true,
+        "messageStubType": 2,
+        "messageStubParameters": [
+          "No session found to decrypt message"
+        ]
       }
     }
   },
