@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reaction = exports.recept_message = exports.getBuffer = exports.zJson = exports.apiWaifu = exports.format = exports.fruit = exports.tabCmd = exports.police = exports.styletext = exports.xlab = exports.ajouterCommande = void 0;
+exports.reaction = exports.recept_message = exports.getBuffer = exports.zJson = exports.format = exports.fruit = exports.tabCmd = exports.police = exports.styletext = exports.xlab = exports.ajouterCommande = void 0;
 const axios = require('axios');
 const path = require("path");
 const cheerio = require("cheerio");
@@ -169,32 +169,8 @@ by @luffy
 
 
 */
-async function apiWaifu(theme) {
-    var url = 'https://api.waifu.pics/nsfw/';
-    if (theme == 'waifu') {
-        url += theme;
-    }
-    else if (theme == 'trap') {
-        url += theme;
-    }
-    else if (theme == 'neko') {
-        url += theme;
-    }
-    else if (theme == 'blowjob') {
-        url += 'blowjob';
-    }
-    else {
-        url = 'https://api.waifu.pics/nsfw/waifu';
-    }
-    try {
-        const response = await axios.get(url);
-        return response.data.url;
-    }
-    catch (e) {
-        console.log(e);
-    }
-}
-exports.apiWaifu = apiWaifu;
+// NSFW function removed
+// apiWaifu removed - NSFW content
 var tabCmd = {};
 exports.tabCmd = tabCmd;
 var reaction = {};
