@@ -21,6 +21,7 @@ All references to "Kypher_xmd", "KYPHER_XMD", "Kypher", "BMW_MD", and "Zokou-Md"
 - ✅ `Andbad_cmds/igdl-fb-tk.js` - Downloader messages
 - ✅ `Andbad_cmds/play.js` - YouTube downloader
 - ✅ `Andbad_cmds/utils.js` - Loading messages
+- ✅ `Andbad_cmds/style.js` - Style messages
 - ✅ `Andbad_cmds/rank.js` - Rank system branding
 - ✅ `Andbad_cmds/Answer.js` - YouTube channel
 - ✅ `Andbad_cmds/conversion.js` - Sticker pack name

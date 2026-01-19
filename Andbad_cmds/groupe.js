@@ -953,36 +953,4 @@ zokou({
 }) ;
 
 
-zokou({
-      nomCom : 'nsfw',
-      categorie : 'Group'
-}, async (dest,zk,commandeOptions) => {
-  
-    const {arg , repondre , verifAdmin } = commandeOptions ;
-
-  if(!verifAdmin) { repondre('Sorry, you cannot enable NSFW content without being an administrator of the group') ; return}
-
-      let hbd = require('../bdd/hentai') ;
-
-    let isHentaiGroupe = await hbd.checkFromHentaiList(dest) ;
-
-  if (arg[0] == 'on') {
-    
-       if(isHentaiGroupe) {repondre('NSFW content is already active for this group') ; return} ;
-
-      await hbd.addToHentaiList(dest) ;
-
-      repondre('NSFW content is now active for this group') ;
-       
-  } else if (arg[0] == 'off') {
-
-     if(!isHentaiGroupe) {repondre('NSFW content is already disabled for this group') ; return} ;
-
-      await hbd.removeFromHentaiList(dest) ;
-
-      repondre('NSFW content is now disabled for this group') ;
-  } else {
-
-      repondre('You must enter "on" or "off"') ;
-    }
-} ) ;
+// NSFW command removed - inappropriate content

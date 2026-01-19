@@ -148,11 +148,7 @@ const initTables = async () => {
             id TEXT NOT NULL
         )`,
         
-        // Hentai table
-        `CREATE TABLE IF NOT EXISTS hentai (
-            jid TEXT PRIMARY KEY,
-            enabled INTEGER DEFAULT 1
-        )`,
+        // Hentai table removed - inappropriate content
         
         // Alive table
         `CREATE TABLE IF NOT EXISTS alive (
