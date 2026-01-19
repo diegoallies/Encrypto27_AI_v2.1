@@ -433,29 +433,6 @@ zokou({
 ///////////////////////////////////////////////////////////////////////////////
 // Command: applenews - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-    if (_0x3271b7 && _0x3271b7.status === 200 && _0x3271b7.result) {
-      const _0x4c0027 = _0x3271b7.result;
-      const _0x38b364 = "\n*APPLE NEWS:*\n\n\n- *Title:* " + _0x4c0027.title +
-        "\n\n- *Description:* " + _0x4c0027.desc.split("\n")[0] +
-        "...\n- *Read More:* " + _0x4c0027.link +
-        "\n\n\n> Powered by *©ANDBAD*";
-      const _0x3c13a7 = _0x4c0027.images.find(_0x5d3e5c => _0x5d3e5c && _0x5d3e5c !== 'https://images.macrumors.com/images-new/1x1.trans.gif');
-      if (_0x3c13a7) {
-        await _0x26a27f.sendMessage(_0x144eea, {
-          'image': { 'url': _0x3c13a7 },
-          'caption': _0x38b364.trim()
-        }, { 'quoted': _0x3bfa44 });
-      } else {
-        await _0x26a27f.sendMessage(_0x144eea, { 'text': _0x38b364.trim() }, { 'quoted': _0x3bfa44 });
-      }
-    } else {
-      await _0x307696("No news data found.");
-    }
-  } catch (error) {
-    console.error("applenews error:", error.message);
-    await _0x307696("There was an error fetching the news. Please try again later.");
-  }
-});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Command: nasanews
@@ -520,25 +497,6 @@ zokou({
 ///////////////////////////////////////////////////////////////////////////////
 // Command: population - REMOVED (API broken, no working alternative found)
 ///////////////////////////////////////////////////////////////////////////////
-    if (_0x3c2f41 && _0x3c2f41.status === 200 && _0x3c2f41.result) {
-      const _0x5d6e9b = _0x3c2f41.result;
-      const _0x157f0b = "*WORLDWIDE POPULATION DATA:*\n\n\n- *Total Population:* " + _0x5d6e9b.current.total +
-        "\n- *Male Population:* " + _0x5d6e9b.current.male +
-        "\n- *Female Population:* " + _0x5d6e9b.current.female +
-        "\n- *Births This Year:* " + _0x5d6e9b.this_year.births +
-        "\n- *Deaths This Year:* " + _0x5d6e9b.this_year.deaths +
-        "\n- *Births Today:* " + _0x5d6e9b.today.births +
-        "\n- *Deaths Today:* " + _0x5d6e9b.today.deaths +
-        "\n\n\n> *Powered by ©ANDBAD*";
-      await _0xccbea2(_0x157f0b);
-    } else {
-      await _0xccbea2("No population data found.");
-    }
-  } catch (error) {
-    console.error("population error:", error.message);
-    await _0xccbea2("There was an error fetching the population data. Please try again later.");
-  }
-});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Command: jokes
