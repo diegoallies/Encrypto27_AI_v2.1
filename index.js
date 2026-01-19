@@ -169,99 +169,54 @@ setTimeout(() => {
         zk.ev.on("messages.upsert", async (m) => {
             const { messages } = m;
             const ms = messages[0];
-            if (!ms.message)
-                return;
-            const decodeJid = (jid) => {
-                if (!jid)
-                    return jid;
-                if (/:\d+@/gi.test(jid)) {
-                    let decode = (0, baileys_1.jidDecode)(jid) || {};
-                    return decode.user && decode.server && decode.user + '@' + decode.server || jid;
-                }
-                else
-                    return jid;
-            };
-            var mtype = (0, baileys_1.getContentType)(ms.message);
-            var texte = mtype == "conversation" ? ms.message.conversation : mtype == "imageMessage" ? ms.message.imageMessage?.caption : mtype == "videoMessage" ? ms.message.videoMessage?.caption : mtype == "extendedTextMessage" ? ms.message?.extendedTextMessage?.text : mtype == "buttonsResponseMessage" ?
-                ms?.message?.buttonsResponseMessage?.selectedButtonId : mtype == "listResponseMessage" ?
-                ms.message?.listResponseMessage?.singleSelectReply?.selectedRowId : mtype == "messageContextInfo" ?
-                (ms?.message?.buttonsResponseMessage?.selectedButtonId || ms.message?.listResponseMessage?.singleSelectReply?.selectedRowId || ms.text) : "";
-            var origineMessage = ms.key.remoteJid;
-            var idBot = decodeJid(zk.user.id);
-            var servBot = idBot.split('@')[0];
-            /* const dj='22559763447';
-             const dj2='2250143343357';
-             const luffy='22891733300'*/
-            /*  var superUser=[servBot,dj,dj2,luffy].map((s)=>s.replace(/[^0-9]/g)+"@s.whatsapp.net").includes(auteurMessage);
-              var dev =[dj,dj2,luffy].map((t)=>t.replace(/[^0-9]/g)+"@s.whatsapp.net").includes(auteurMessage);*/
-            const verifGroupe = origineMessage?.endsWith("@g.us");
-            var infosGroupe = verifGroupe ? await zk.groupMetadata(origineMessage) : "";
-            var nomGroupe = verifGroupe ? infosGroupe.subject : "";
-            var msgRepondu = ms.message.extendedTextMessage?.contextInfo?.quotedMessage;
-            var auteurMsgRepondu = decodeJid(ms.message?.extendedTextMessage?.contextInfo?.participant);
-            //ms.message.extendedTextMessage?.contextInfo?.mentionedJid
-            // ms.message.extendedTextMessage?.contextInfo?.quotedMessage.
-            var mr = ms.message?.extendedTextMessage?.contextInfo?.mentionedJid;
-            var utilisateur = mr ? mr : msgRepondu ? auteurMsgRepondu : "";
-            var auteurMessage = verifGroupe ? (ms.key.participant ? ms.key.participant : ms.participant) : origineMessage;
-            if (ms.key.fromMe) {
-                auteurMessage = idBot;
-            }
+            if (!ms.message) return;
 
-            var membreGroupe = verifGroupe ? ms.key.participant : '';
+            // Use message processor utilities
+            const { extractMessageMetadata, getGroupAdmins, decodeJid } = require("./framework/message-processor");
+            const { isSuperUser, isDev, isGroupAdmin } = require("./framework/permissions");
             const { getAllSudoNumbers } = require("./bdd/sudo");
-            const nomAuteurMessage = ms.pushName;
-            const dj = '22559763447';
-            const dj2 = '22543343357';
-            const dj3 = "22564297888";
-            const luffy = '22891733300';
-            const sudo = await getAllSudoNumbers();
-            const superUserNumbers = [servBot, dj, dj2, dj3, luffy, conf.NUMERO_OWNER].map((s) => s.replace(/[^0-9]/g) + "@s.whatsapp.net");
-            const allAllowedNumbers = superUserNumbers.concat(sudo);
-            const superUser = allAllowedNumbers.includes(auteurMessage);
             
-            var dev = [dj, dj2,dj3,luffy].map((t) => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
-            function repondre(mes) { zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); }
+            const metadata = extractMessageMetadata(ms, zk);
+            const { mtype, texte, origineMessage, idBot, servBot, verifGroupe, auteurMessage, nomAuteurMessage, msgRepondu, auteurMsgRepondu } = metadata;
+            
+            // Get group info if group message
+            const infosGroupe = verifGroupe ? await zk.groupMetadata(origineMessage) : null;
+            const nomGroupe = verifGroupe ? infosGroupe.subject : "";
+            const membreGroupe = verifGroupe ? ms.key.participant : '';
+            const mbre = verifGroupe ? infosGroupe.participants : [];
+            
+            // Check permissions
+            const superUser = await isSuperUser(auteurMessage, conf, getAllSudoNumbers);
+            const dev = isDev(auteurMessage);
+            const admins = verifGroupe ? getGroupAdmins(mbre) : [];
+            const verifAdmin = verifGroupe ? isGroupAdmin(auteurMessage, admins) : false;
+            const verifZokouAdmin = verifGroupe ? isGroupAdmin(idBot, admins) : false;
+            
+            // Reply function
+            async function repondre(mes) { 
+                return await zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); 
+            }
+            
+            // Log message info
             console.log("\t [][]...{Encrypto27 MD}...[][]");
             console.log("=========== Nouveau message ===========");
             if (verifGroupe) {
                 console.log("Message from group: " + nomGroupe);
             }
-            console.log("Message sent by: " + "[" + nomAuteurMessage + " : " + auteurMessage.split("@s.whatsapp.net")[0] + " ]");
+            console.log("Message sent by: [" + nomAuteurMessage + " : " + auteurMessage.split("@s.whatsapp.net")[0] + "]");
             console.log("Message type: " + mtype);
             console.log("------ Message content ------");
             console.log(texte);
-            /**  */
-            function groupeAdmin(membreGroupe) {
-                let admin = [];
-                for (m of membreGroupe) {
-                    if (m.admin == null)
-                        continue;
-                    admin.push(m.id);
-                }
-                // else{admin= false;}
-                return admin;
-            }
 
-            var etat =conf.ETAT;
-            if(etat==1)
-            {await zk.sendPresenceUpdate("available",origineMessage);}
-            else if(etat==2)
-            {await zk.sendPresenceUpdate("composing",origineMessage);}
-            else if(etat==3)
-            {
-            await zk.sendPresenceUpdate("recording",origineMessage);
-            }
-            else
-            {
-                await zk.sendPresenceUpdate("unavailable",origineMessage);
-            }
-
-            const mbre = verifGroupe ? await infosGroupe.participants : '';
-            //  const verifAdmin = verifGroupe ? await mbre.filter(v => v.admin !== null).map(v => v.id) : ''
-            let admins = verifGroupe ? groupeAdmin(mbre) : '';
-            const verifAdmin = verifGroupe ? admins.includes(auteurMessage) : false;
-            var verifZokouAdmin = verifGroupe ? admins.includes(idBot) : false;
+            // Update presence based on config
+            const etat = conf.ETAT;
+            const presenceMap = {
+                '1': 'available',
+                '2': 'composing',
+                '3': 'recording'
+            };
+            const presence = presenceMap[etat] || 'unavailable';
+            await zk.sendPresenceUpdate(presence, origineMessage);
             /** ** */
             /** ***** */
             const arg = texte ? texte.trim().split(/ +/).slice(1) : null;
@@ -269,20 +224,21 @@ setTimeout(() => {
             const com = verifCom ? texte.slice(1).trim().split(/ +/).shift().toLowerCase() : false;
            
          
-            const lien = conf.URL.split(',')  
-
-
-           // Utiliser une boucle for...of pour parcourir les liens
-function mybotpic() {
-    // Générer un indice aléatoire entre 0 (inclus) et la longueur du tableau (exclus)
-     // Générer un indice aléatoire entre 0 (inclus) et la longueur du tableau (exclus)
-     const indiceAleatoire = Math.floor(Math.random() * lien.length);
-     // Récupérer le lien correspondant à l'indice aléatoire
-     const lienAleatoire = lien[indiceAleatoire];
-     return lienAleatoire;
-  }
-            var commandeOptions = {
-                superUser, dev,
+            // Random bot picture function
+            const botPicUrls = conf.URL.split(',');
+            function mybotpic() {
+                const randomIndex = Math.floor(Math.random() * botPicUrls.length);
+                return botPicUrls[randomIndex];
+            }
+            
+            // Command options for handlers
+            const arg = texte ? texte.trim().split(/ +/).slice(1) : null;
+            const verifCom = texte ? texte.startsWith(prefixe) : false;
+            const com = verifCom ? texte.slice(1).trim().split(/ +/).shift().toLowerCase() : false;
+            
+            const commandeOptions = {
+                superUser,
+                dev,
                 verifGroupe,
                 mbre,
                 membreGroupe,
@@ -297,12 +253,12 @@ function mybotpic() {
                 arg,
                 repondre,
                 mtype,
-                groupeAdmin,
+                admins,
                 msgRepondu,
                 auteurMsgRepondu,
                 ms,
-                mybotpic
-            
+                mybotpic,
+                zk
             };
 
 

@@ -31,52 +31,55 @@ zokou({
   'aliases': ['tempmail', 'temp'],
   'reaction': '📧',
   'categorie': "General"
-}, async (_0x15d59a, _0x4afeec, _0xfb2be5) => {
-  const { repondre: _0x389c8d, ms: _0xd52df1 } = _0xfb2be5;
+}, async (dest, zk, commandeOptions) => {
+  const { repondre, ms } = commandeOptions;
   try {
-    const _0x30ee20 = Math.random().toString(36).substring(2, 12);
-    const _0x231d8d = _0x30ee20 + "@1secmail.com";
-    await _0x4afeec.sendMessage(_0x15d59a, {
-      'text': "Your temporary email is: " + _0x231d8d +
+    const randomId = Math.random().toString(36).substring(2, 12);
+    const emailAddress = randomId + "@1secmail.com";
+    await zk.sendMessage(dest, {
+      text: "Your temporary email is: " + emailAddress +
         "\n\nYou can use this email for temporary purposes. I will notify you if you receive any emails."
-    }, { 'quoted': _0xd52df1 });
-    const _0x1e54ea = _0x49a817 => {
-      const _0x34f8c3 = /(https?:\/\/[^\s]+)/g;
-      return _0x49a817.match(_0x34f8c3);
+    }, { quoted: ms });
+    
+    const extractLinks = (text) => {
+      const linkRegex = /(https?:\/\/[^\s]+)/g;
+      return text.match(linkRegex);
     };
-    const _0x2584e2 = async () => {
+    
+    const checkEmail = async () => {
       try {
-        const _0x52ad21 = await fetch("https://www.1secmail.com/api/v1/?action=getMessages&login=" + _0x30ee20 + "&domain=1secmail.com");
-        const _0x14f845 = await _0x52ad21.json();
-        if (_0x14f845 && _0x14f845.length > 0) {
-          for (const _0x473566 of _0x14f845) {
-            const _0x344bd6 = await fetch("https://www.1secmail.com/api/v1/?action=readMessage&login=" + _0x30ee20 + "&domain=1secmail.com&id=" + _0x473566.id);
-            const _0x4784a4 = await _0x344bd6.json();
-            const _0x4ce790 = _0x1e54ea(_0x4784a4.textBody);
-            const _0x392106 = _0x4ce790 ? _0x4ce790.join("\n") : "No links found in the email content.";
-            await _0x4afeec.sendMessage(_0x15d59a, {
-              'text': "You have received a new email!\n\nFrom: " + _0x4784a4.from +
-                "\nSubject: " + _0x4784a4.subject + "\n\n" + _0x4784a4.textBody +
-                "\n\nLinks found:\n" + _0x392106
-            }, { 'quoted': _0xd52df1 });
+        const response = await fetch("https://www.1secmail.com/api/v1/?action=getMessages&login=" + randomId + "&domain=1secmail.com");
+        const messages = await response.json();
+        if (messages && messages.length > 0) {
+          for (const message of messages) {
+            const messageResponse = await fetch("https://www.1secmail.com/api/v1/?action=readMessage&login=" + randomId + "&domain=1secmail.com&id=" + message.id);
+            const messageData = await messageResponse.json();
+            const links = extractLinks(messageData.textBody);
+            const linksText = links ? links.join("\n") : "No links found in the email content.";
+            await zk.sendMessage(dest, {
+              text: "You have received a new email!\n\nFrom: " + messageData.from +
+                "\nSubject: " + messageData.subject + "\n\n" + messageData.textBody +
+                "\n\nLinks found:\n" + linksText
+            }, { quoted: ms });
           }
         }
-      } catch (_0x43267d) {
-        console.error("Error checking temporary email:", _0x43267d.message);
+      } catch (error) {
+        console.error("Error checking temporary email:", error.message);
       }
     };
-    const _0x3b8e24 = setInterval(_0x2584e2, 30000);
+    
+    const checkInterval = setInterval(checkEmail, 30000);
     setTimeout(() => {
-      clearInterval(_0x3b8e24);
-      _0x4afeec.sendMessage(_0x15d59a, {
-        'text': "Your temporary email session has ended. Please create a new temporary email if needed."
-      }, { 'quoted': _0xd52df1 });
+      clearInterval(checkInterval);
+      zk.sendMessage(dest, {
+        text: "Your temporary email session has ended. Please create a new temporary email if needed."
+      }, { quoted: ms });
     }, 600000);
-  } catch (_0x1730b7) {
-    console.error("Error generating temporary email:", _0x1730b7.message);
-    await _0x4afeec.sendMessage(_0x15d59a, {
-      'text': "Error generating temporary email. Please try again later."
-    }, { 'quoted': _0xd52df1 });
+  } catch (error) {
+    console.error("Error generating temporary email:", error.message);
+    await zk.sendMessage(dest, {
+      text: "Error generating temporary email. Please try again later."
+    }, { quoted: ms });
   }
 });
 
