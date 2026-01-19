@@ -202,11 +202,22 @@ zokou({
       return _0x6162b8("Please enter the necessary information to generate the image.");
     }
     const _0x5bb7e1 = _0x34188f.join(" ");
-    const _0x3ed3ee = "https://widipe.com/dalle?text=" + _0x5bb7e1;
-    _0x338749.sendMessage(_0x2c97cc, {
-      'image': { 'url': _0x3ed3ee },
-      'caption': "*Powered by FLASH-MD*"
-    }, { 'quoted': _0x3ce799 });
+    // Try alternative DALL-E API
+    let _0x3ed3ee = "https://widipe.com/dalle?text=" + _0x5bb7e1;
+    try {
+      // Test if API works
+      const testResponse = await fetch(_0x3ed3ee, { method: 'HEAD' });
+      if (!testResponse.ok) {
+        await _0x6162b8("DALL-E API is currently unavailable. Please try again later.");
+        return;
+      }
+      _0x338749.sendMessage(_0x2c97cc, {
+        'image': { 'url': _0x3ed3ee },
+        'caption': "*Powered by ENCRYPTO27 MD*"
+      }, { 'quoted': _0x3ce799 });
+    } catch (error) {
+      await _0x6162b8("DALL-E API is currently unavailable. Please try again later.");
+    }
   } catch (_0x119122) {
     console.error('dalle error:', _0x119122.message || "An error occurred");
     _0x6162b8("Oops, an error occurred while processing your request");
@@ -250,8 +261,13 @@ zokou({
       return _0x5e569a("Hello am *FLASH-MD.* an AI developed by ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞.\n\n What help can I offer you today?");
     }
     const _0x1a05b7 = _0xea7c04.join(" ");
-    const _0x1665a8 = await fetch('https://widipe.com/gemini?text=' + _0x1a05b7);
-    if (!_0x1665a8.ok) throw new Error("Gemini API error");
+    // Try alternative Gemini API
+    let _0x1665a8 = await fetch('https://widipe.com/gemini?text=' + _0x1a05b7);
+    if (!_0x1665a8.ok) {
+      // Fallback to alternative
+      _0x1665a8 = await fetch('https://api.gurusensei.workers.dev/gemini?prompt=' + encodeURIComponent(_0x1a05b7));
+      if (!_0x1665a8.ok) throw new Error("Gemini API error");
+    }
     const _0x449374 = await _0x1665a8.json();
     if (_0x449374 && _0x449374.result) {
       const _0x17c283 = _0x449374.result;
@@ -327,10 +343,18 @@ zokou({
       return _0x42ce14("Please insert math calculations like 100000+2024.\n\nNOTE: Use \"(/)\" for division and \"(*)\" for multiplication or letter x");
     }
     const _0xa0ab30 = _0x3c1020.join(" ");
-    const _0x6127e3 = await fetch("https://api.maher-zubair.tech/ai/mathssolve?q=" + _0xa0ab30);
-    if (!_0x6127e3.ok) throw new Error("Failed to fetch calculation result.");
-    const _0xa91128 = await _0x6127e3.json();
-    await _0x42ce14(_0xa91128.result);
+    // Try alternative calculator API
+    let _0x6127e3 = await fetch("https://api.mathjs.org/v4/?expr=" + encodeURIComponent(_0xa0ab30));
+    if (!_0x6127e3.ok) {
+      // Fallback to original
+      _0x6127e3 = await fetch("https://api.maher-zubair.tech/ai/mathssolve?q=" + _0xa0ab30);
+      if (!_0x6127e3.ok) throw new Error("Failed to fetch calculation result.");
+      const _0xa91128 = await _0x6127e3.json();
+      await _0x42ce14(_0xa91128.result);
+    } else {
+      const result = await _0x6127e3.text();
+      await _0x42ce14(result);
+    }
     console.log(_0xa91128.completion);
   } catch (error) {
     console.error("calc command error:", error.message);
@@ -452,10 +476,15 @@ zokou({
 }, async (_0x57baf4, _0x1f839f, _0x52b256) => {
   const { repondre: _0x4d8435 } = _0x52b256;
   try {
-    const _0x1f27e0 = await fetch("https://api.maher-zubair.tech/misc/lines");
-    if (!_0x1f27e0.ok) throw new Error("Failed to fetch lines.");
+    // Try alternative API for lines/pickup lines
+    let _0x1f27e0 = await fetch("https://api.popcat.xyz/pickuplines");
+    if (!_0x1f27e0.ok) {
+      // Fallback
+      _0x1f27e0 = await fetch("https://api.maher-zubair.tech/misc/lines");
+      if (!_0x1f27e0.ok) throw new Error("Failed to fetch lines.");
+    }
     const _0x3ec766 = await _0x1f27e0.json();
-    await _0x4d8435(_0x3ec766.result);
+    await _0x4d8435(_0x3ec766.pickupline || _0x3ec766.result || _0x3ec766);
     console.log(_0x3ec766.completion);
   } catch (error) {
     console.error("lines command error:", error.message);
@@ -473,11 +502,18 @@ zokou({
 }, async (_0x7345fc, _0x4f2a4b, _0x2ebea8) => {
   const { repondre: _0x50c4be } = _0x2ebea8;
   try {
-    const _0x4e2b6d = await fetch("https://api.maher-zubair.tech/misc/insult");
-    if (!_0x4e2b6d.ok) throw new Error("Failed to fetch insult.");
-    const _0x56e5d4 = await _0x4e2b6d.json();
-    await _0x50c4be(_0x56e5d4.result);
-    console.log(_0x56e5d4.completion);
+    // Try alternative API first
+    let response = await fetch("https://evilinsult.com/generate_insult.php?lang=en&type=json");
+    if (!response.ok) {
+      // Fallback to another API
+      response = await fetch("https://insult.mattbas.org/api/insult");
+      if (!response.ok) throw new Error("Failed to fetch insult.");
+      const text = await response.text();
+      await _0x50c4be(text);
+    } else {
+      const data = await response.json();
+      await _0x50c4be(data.insult || data.result || "You're not worth insulting!");
+    }
   } catch (error) {
     console.error("insult command error:", error.message);
     await _0x50c4be("Error fetching insult. Please try again later.");
@@ -498,11 +534,22 @@ zokou({
       return _0x402ace("Please enter the Url of the image you want to enhance!");
     }
     const _0x14303b = _0x103214.join(" ");
-    const _0x430f88 = "https://api.maher-zubair.tech/maker/enhance?url=" + _0x14303b;
-    _0x1d0654.sendMessage(_0x2402f6, {
-      'image': { 'url': _0x430f88 },
-      'caption': "*Enhanced by ANDBAD*"
-    }, { 'quoted': _0x3df495.ms });
+    // Try alternative image enhancement API
+    let _0x430f88 = "https://api.maher-zubair.tech/maker/enhance?url=" + _0x14303b;
+    try {
+      // Test if API works
+      const testResponse = await fetch(_0x430f88, { method: 'HEAD' });
+      if (!testResponse.ok) {
+        await _0x402ace("Image enhancement API is currently unavailable. Please try again later.");
+        return;
+      }
+      _0x1d0654.sendMessage(_0x2402f6, {
+        'image': { 'url': _0x430f88 },
+        'caption': "*Enhanced by ENCRYPTO27 MD*"
+      }, { 'quoted': _0x3df495.ms });
+    } catch (error) {
+      await _0x402ace("Image enhancement API is currently unavailable. Please try again later.");
+    }
   } catch (error) {
     console.error('enhance command error:', error.message || "An error occurred");
     _0x402ace("Oops, an error occurred while processing your request");
@@ -561,8 +608,16 @@ zokou({
 }, async (_0x144eea, _0x26a27f, _0x45bc33) => {
   const { repondre: _0x307696, ms: _0x3bfa44 } = _0x45bc33;
   try {
-    const _0x44935c = await fetch('https://api.maher-zubair.tech/details/ios');
-    if (!_0x44935c.ok) throw new Error("Failed to fetch Apple news.");
+    // Try alternative Apple news API
+    let _0x44935c = await fetch('https://api.maher-zubair.tech/details/ios');
+    if (!_0x44935c.ok) {
+      // Fallback - use RSS or alternative
+      _0x44935c = await fetch('https://rss.apple.com/newsroom/rss');
+      if (!_0x44935c.ok) throw new Error("Failed to fetch Apple news.");
+      const text = await _0x44935c.text();
+      await _0x307696("Apple news API is currently unavailable. Please try again later.");
+      return;
+    }
     const _0x3271b7 = await _0x44935c.json();
     if (_0x3271b7 && _0x3271b7.status === 200 && _0x3271b7.result) {
       const _0x4c0027 = _0x3271b7.result;
@@ -598,8 +653,31 @@ zokou({
 }, async (_0x35ed94, _0x4cf3db, _0x329470) => {
   const { repondre: _0x137d3b, ms: _0x85e6ab } = _0x329470;
   try {
-    const _0x1fd2f2 = await fetch("https://api.maher-zubair.tech/details/nasa");
-    if (!_0x1fd2f2.ok) throw new Error("Failed to fetch NASA news.");
+    // Try NASA API directly
+    let _0x1fd2f2 = await fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
+    if (!_0x1fd2f2.ok) {
+      // Fallback to original
+      _0x1fd2f2 = await fetch("https://api.maher-zubair.tech/details/nasa");
+      if (!_0x1fd2f2.ok) throw new Error("Failed to fetch NASA news.");
+      const _0x519fed = await _0x1fd2f2.json();
+      if (_0x519fed && _0x519fed.status === 200 && _0x519fed.result) {
+        const _0x25ee7e = _0x519fed.result;
+        const _0x500db0 = "\n* NASA NEWS:*\n\n\n- *Title:* " + _0x25ee7e.title +
+          "\n\n- *Date:* " + _0x25ee7e.date +
+          "\n\n- *Description:* " + _0x25ee7e.explanation.split("\n")[0] +
+          "...\n\n\n> Powered by *©ENCRYPTO27 MD*";
+        const _0x223fd9 = _0x25ee7e.url;
+        if (_0x223fd9) {
+          await _0x4cf3db.sendMessage(_0x35ed94, {
+            'image': { 'url': _0x223fd9 },
+            'caption': _0x500db0.trim()
+          }, { 'quoted': _0x85e6ab });
+        } else {
+          await _0x4cf3db.sendMessage(_0x35ed94, { 'text': _0x500db0.trim() }, { 'quoted': _0x85e6ab });
+        }
+        return;
+      }
+    }
     const _0x519fed = await _0x1fd2f2.json();
     if (_0x519fed && _0x519fed.status === 200 && _0x519fed.result) {
       const _0x25ee7e = _0x519fed.result;
@@ -776,9 +854,11 @@ zokou({
       return _0x5488f8("Please ask a question.");
     }
     const _0x1c4393 = encodeURIComponent(_0x5610c3.join(" "));
-    const _0x320c11 = "https://samirxpikachuio.onrender.com/gpt?content=" + _0x1c4393;
-    const _0x2913f8 = await axios.get(_0x320c11);
-    const _0x823fc2 = _0x2913f8.data;
+    // Try alternative GPT4 API
+    let _0x320c11 = "https://samirxpikachuio.onrender.com/gpt?content=" + _0x1c4393;
+    try {
+      const _0x2913f8 = await axios.get(_0x320c11, { timeout: 15000 });
+      const _0x823fc2 = _0x2913f8.data;
     if (_0x823fc2 && _0x823fc2.message && _0x823fc2.message.content) {
       const _0x790fb0 = _0x823fc2.message.content;
       const _0x46fe6a = _0x790fb0.match(/```([\s\S]*?)```/);
@@ -842,9 +922,41 @@ zokou({
     }, { 'quoted': _0xb9b090 });
     const _0x1b7633 = _0x492252.nomAuteurMessage || "defaultUser";
     const _0x49d701 = _0xf6258e.join(" ");
-    const _0x28dd58 = "https://api.guruapi.tech/ai/gpt4?username=" + _0x1b7633 + '&query=' + encodeURIComponent(_0x49d701);
-    const _0x381f5c = await fetch(_0x28dd58);
-    if (!_0x381f5c.ok) throw new Error("Bard API error");
+    // Try alternative Bard API
+    let _0x28dd58 = "https://api.guruapi.tech/ai/gpt4?username=" + _0x1b7633 + '&query=' + encodeURIComponent(_0x49d701);
+    let _0x381f5c = await fetch(_0x28dd58, { timeout: 15000 });
+    if (!_0x381f5c.ok) {
+      // Fallback to gemini
+      _0x28dd58 = 'https://widipe.com/gemini?text=' + encodeURIComponent(_0x49d701);
+      _0x381f5c = await fetch(_0x28dd58, { timeout: 15000 });
+      if (!_0x381f5c.ok) throw new Error("Bard/Gemini API error");
+      const geminiData = await _0x381f5c.json();
+      if (geminiData && geminiData.result) {
+        const _0x5013c0 = geminiData.result;
+        const _0x5294e2 = [{
+          'name': 'cta_url',
+          'buttonParamsJson': JSON.stringify({
+            'display_text': "FOLLOW 🤍 CHANNEL",
+            'url': "https://whatsapp.com/channel/"
+          })
+        }];
+        const _0x38e3dc = generateWAMessageFromContent(_0x4f24eb, {
+          'viewOnceMessage': {
+            'message': {
+              'messageContextInfo': { 'deviceListMetadata': {}, 'deviceListMetadataVersion': 2 },
+              'interactiveMessage': proto.Message.InteractiveMessage.create({
+                'body': proto.Message.InteractiveMessage.Body.create({ 'text': _0x5013c0 }),
+                'footer': proto.Message.InteractiveMessage.Footer.create({ 'text': "> *POWERED BY ✞𓊈𒆜  𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞*" }),
+                'header': proto.Message.InteractiveMessage.Header.create({ 'title': '', 'subtitle': '', 'hasMediaAttachment': false }),
+                'nativeFlowMessage': proto.Message.InteractiveMessage.NativeFlowMessage.create({ 'buttons': _0x5294e2 })
+              })
+            }
+          }
+        }, {});
+        await _0x27f4a8.relayMessage(_0x4f24eb, _0x38e3dc.message, { 'messageId': _0x38e3dc.key.id });
+        return;
+      }
+    }
     const _0x5c94fd = await _0x381f5c.json();
     if (!_0x5c94fd.msg) {
       _0x4713e9("No response received from Bard. Please try again later.");

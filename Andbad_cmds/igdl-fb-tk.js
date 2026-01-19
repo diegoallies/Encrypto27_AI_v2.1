@@ -12,7 +12,19 @@ zokou({nomCom : "instagram" , categorie : "Download"},async (dest , zk , command
 
   try {
      
-    let igvid = await axios('https://vihangayt.me/download/instagram?url='+link)
+    // Try alternative Instagram downloader
+    let igvid;
+    try {
+      igvid = await axios('https://vihangayt.me/download/instagram?url='+link, { timeout: 15000 });
+    } catch (error) {
+      // Fallback to alternative API
+      try {
+        igvid = await axios('https://api.maher-zubair.tech/download/instagram?url='+link, { timeout: 15000 });
+      } catch (fallbackError) {
+        repondre("Instagram downloader API is currently unavailable. Please try again later.");
+        return;
+      }
+    }
 
     if (igvid.data.data.data[0].type == 'video') {
     zk.sendMessage(dest,{video : {url : igvid.data.data.data[0].url},caption : "ig video downloader powered by *Encrypto27 MD*",gifPlayback : false },{quoted : ms}) 

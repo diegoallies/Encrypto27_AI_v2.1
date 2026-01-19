@@ -1304,13 +1304,42 @@
           "participant": "27760135582@s.whatsapp.net",
           "participantLid": "207709450318057@lid"
         },
-        "messageTimestamp": 1768840181,
+        "messageTimestamp": 1768840275,
         "pushName": "Musa Nkuna",
         "broadcast": true,
-        "messageStubType": 2,
-        "messageStubParameters": [
-          "No session found to decrypt message"
-        ]
+        "message": {
+          "extendedTextMessage": {
+            "text": "https://www.threads.com/@imran_hoxxain_/post/DTry1nxDWNH?xmt=AQF090hp_4XIg5zWtBuR-fVm1Cb6-7VbVVOTzx4BBki9R22it2L-5h5NqcGPdtGtIBxBzyb7&slof=1",
+            "matchedText": "https://www.threads.com/@imran_hoxxain_/post/DTry1nxDWNH?xmt=AQF090hp_4XIg5zWtBuR-fVm1Cb6-7VbVVOTzx4BBki9R22it2L-5h5NqcGPdtGtIBxBzyb7&slof=1",
+            "description": "পর্তুগালে অবহেলিত রোনালদো😏😢\n\n#footballplayer #portogal Cristiano Ronaldo",
+            "title": "Imran Hoxxain Jr. (@imran_hoxxain_) on Threads",
+            "font": "SYSTEM",
+            "previewType": "VIDEO",
+            "thumbnailDirectPath": "/v/t62.36144-24/564304739_1603989861047408_8368513979824935549_n.enc?ccb=11-4&oh=01_Q5Aa3gGtOJ41CTohlOJJ7jtCuJypMUFw94EY_1No1xUXjMix_Q&oe=6995D543&_nc_sid=5e03e0",
+            "thumbnailSha256": "J6BeD9L6zbtG4FPpNvDXozvcnWUPqquV4FPDebL7rH8=",
+            "thumbnailEncSha256": "/oh3r0aXGjvCttjFF4sJPS60WZNwm9KVcEpIbW12luk=",
+            "inviteLinkGroupTypeV2": "DEFAULT",
+            "faviconMMSMetadata": {
+              "thumbnailDirectPath": "/v/t62.36144-24/564304739_1603989861047408_8368513979824935549_n.enc?ccb=11-4&oh=01_Q5Aa3gGtOJ41CTohlOJJ7jtCuJypMUFw94EY_1No1xUXjMix_Q&oe=6995D543&_nc_sid=5e03e0",
+              "thumbnailSha256": "J6BeD9L6zbtG4FPpNvDXozvcnWUPqquV4FPDebL7rH8=",
+              "thumbnailEncSha256": "/oh3r0aXGjvCttjFF4sJPS60WZNwm9KVcEpIbW12luk=",
+              "mediaKey": "3Ec51Ayv1Myi1+hQIA1deJFGjjJ49cWtgbVRG7HQ9O0="
+            },
+            "linkPreviewMetadata": {
+              "fbExperimentId": 0
+            }
+          },
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "KWgiZ/84rSXrxg==",
+              "senderTimestamp": "1767930329",
+              "recipientKeyHash": "bHFKcKLlfpnqiw==",
+              "recipientTimestamp": "1768573518"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "sNiVAUht+6GzT91b18hGl58HEeiaTzZX6SUazvsiDSU="
+          }
+        }
       }
     }
   },
