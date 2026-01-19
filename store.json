@@ -728,6 +728,359 @@
             "deviceListMetadataVersion": 2
           }
         }
+      },
+      "3A7218F93710A81129E8": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A7218F93710A81129E8"
+        },
+        "messageTimestamp": 1768838492,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "extendedTextMessage": {
+            "text": ".",
+            "contextInfo": {
+              "stanzaId": "3EB08098147DA5F640E30B",
+              "participant": "240067750715440@lid",
+              "quotedMessage": {
+                "conversation": "\n╔════◇\n║ 『ENCRYPTO-27 AI CONNECTED』\n║    Prefix : [ . ]\n║    Mode :public\n║    Total Commands : 207︎\n║     𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍℕ𝕆𝕃𝕆𝔾𝕀𝔼𝕊 \n╚════════════════╝"
+              }
+            }
+          }
+        }
+      },
+      "3A7829632BFC97B283EE": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A7829632BFC97B283EE"
+        },
+        "messageTimestamp": 1768838498,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "-"
+        }
+      },
+      "3A08E0DC7EADA14B3708": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A08E0DC7EADA14B3708"
+        },
+        "messageTimestamp": 1768838506,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": ".ping"
+        }
+      },
+      "3EB0D11FFDB754FD48EAF6": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0D11FFDB754FD48EAF6"
+        },
+        "message": {
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27679291800@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3A08E0DC7EADA14B3708"
+            },
+            "text": "📡",
+            "senderTimestampMs": "1768838506947"
+          }
+        },
+        "messageTimestamp": "1768838506",
+        "status": "PENDING"
+      },
+      "3EB0585E81503190FBAAED": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0585E81503190FBAAED"
+        },
+        "message": {
+          "extendedTextMessage": {
+            "text": "*📡 ENCRYPTED SPEED :0.0009 MS* ",
+            "contextInfo": {
+              "stanzaId": "3A08E0DC7EADA14B3708",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "conversation": ".ping"
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838506",
+        "status": "PENDING"
+      },
+      "3AFED5ADD695BED6500D": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3AFED5ADD695BED6500D"
+        },
+        "messageTimestamp": 1768838513,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": ".menu"
+        }
+      },
+      "3EB030727845FC8999568B": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB030727845FC8999568B"
+        },
+        "message": {
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27679291800@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3AFED5ADD695BED6500D"
+            },
+            "text": "➕",
+            "senderTimestampMs": "1768838513949"
+          }
+        },
+        "messageTimestamp": "1768838513",
+        "status": "PENDING"
+      },
+      "3EB0FC9C14BDCD61F123F7": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0FC9C14BDCD61F123F7"
+        },
+        "message": {
+          "imageMessage": {
+            "url": "https://mmg.whatsapp.net/o1/v/t24/f2/m232/AQMb1KerOIZL1Gt-XoAB8G5-SXI8GBtMFf_VEAjMPIMxckgXL4KCr6ps_zRjP2r1AgFkiYuRBKU4shEEM6DIUSnIg59zm9Tx2QMm3bCtUw?ccb=9-4&oh=01_Q5Aa3gGzSNpfGBgkyqxWJIHgU0pVi3PuxFQ-YIlAxbyqocu40w&oe=6995DEEE&_nc_sid=e6ed6c&mms3=true",
+            "mimetype": "image/jpeg",
+            "caption": "\n╭─────────────────────────────────────────────╮\n│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│\n│   💻 *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*                    │\n│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│\n│   𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │\n╰─────────────────────────────────────────────╯\n\n╭━━━━━━━━━━━━━━━━━━━━━❰ *AVAILABLE MENUS* ❱━━━━━━━━━━━━━━━━━╮\n┃  🔥  ▪️ *MENU*                \n┃  🔥  ▪️ *MENU2*              \n┃  🔥  ▪️ *BUGMENU*             \n┃ ════════════════════════════\n┃  ⚡️ ▪️ *PLUGINS*    : 207   \n┃  💾 ▪️ *RAM*        : 15.94 GB/16 GB    \n┃  🖥️ ▪️ *SAVER*      : darwin         \n┃  🎨 ▪️ *THEME*      : 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝔸𝕀  \n╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\n\n🗣️ _*Type the command to proceed.*_  \n═══════════════════════════════\n💡 _*𝔼_𝔸_𝕀_*  \n═══════════════════════════════\n\n▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n███████████\n\n*COMMANDS*‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎             \n\n███████████\n▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n\n╭━━❯ *General* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in General\n│ ─────────────────────────\n\n│ ➕  ▪️ number\n│ ➕  ▪️ mail\n│ ➕  ▪️ calc\n│ ➕  ▪️ time\n│ ➕  ▪️ inspire\n│ ➕  ▪️ owner\n│ ➕  ▪️ dev\n│ ➕  ▪️ support\n│ ➕  ▪️ alive\n│ ➕  ▪️ sc\n│ ➕  ▪️ menu\n│ ➕  ▪️ menu2\n│ ➕  ▪️ repo\n│ ➕  ▪️ git\n│ ➕  ▪️ ping\n│ ➕  ▪️ uptime\n│ ➕  ▪️ ss\n│ ➕  ▪️ vv\n╰────────────────────────···▸▸\n\n╭━━❯ *News* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in News\n│ ─────────────────────────\n\n│ ➕  ▪️ technews\n╰────────────────────────···▸▸\n\n╭━━❯ *User* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in User\n│ ─────────────────────────\n\n│ ➕  ▪️ pair\n│ ➕  ▪️ enhance\n╰────────────────────────···▸▸\n\n╭━━❯ *AI* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in AI\n│ ─────────────────────────\n\n│ ➕  ▪️ gpt2\n│ ➕  ▪️ dalle\n│ ➕  ▪️ gemini\n│ ➕  ▪️ gpt4\n│ ➕  ▪️ bard\n╰────────────────────────···▸▸\n\n╭━━❯ *IA* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in IA\n│ ─────────────────────────\n\n│ ➕  ▪️ gpt\n╰────────────────────────···▸▸\n\n╭━━❯ *PICS* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in PICS\n│ ─────────────────────────\n\n│ ➕  ▪️ best-wallp\n│ ➕  ▪️ random\n│ ➕  ▪️ nature\n╰────────────────────────···▸▸\n\n╭━━❯ *Fun* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Fun\n│ ─────────────────────────\n\n│ ➕  ▪️ lines\n│ ➕  ▪️ insult\n│ ➕  ▪️ dare\n│ ➕  ▪️ truth\n│ ➕  ▪️ jokes\n│ ➕  ▪️ advice\n│ ➕  ▪️ trivia\n│ ➕  ▪️ ranime\n│ ➕  ▪️ profile\n│ ➕  ▪️ quote\n│ ➕  ▪️ rank\n│ ➕  ▪️ toprank\n╰────────────────────────···▸▸\n\n╭━━❯ *NEWS* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in NEWS\n│ ─────────────────────────\n\n│ ➕  ▪️ applenews\n│ ➕  ▪️ nasanews\n│ ➕  ▪️ population\n╰────────────────────────···▸▸\n\n╭━━❯ *Search* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Search\n│ ─────────────────────────\n\n│ ➕  ▪️ video\n│ ➕  ▪️ google\n│ ➕  ▪️ imdb\n│ ➕  ▪️ movie\n│ ➕  ▪️ github\n│ ➕  ▪️ img\n│ ➕  ▪️ lyrics\n│ ➕  ▪️ stickersearch\n│ ➕  ▪️ weather\n╰────────────────────────···▸▸\n\n╭━━❯ *Download* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Download\n│ ─────────────────────────\n\n│ ➕  ▪️ song\n│ ➕  ▪️ play\n│ ➕  ▪️ instagram\n│ ➕  ▪️ facabook\n│ ➕  ▪️ tiktok\n│ ➕  ▪️ facebook2\n╰────────────────────────···▸▸\n\n╭━━❯ *Mods* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Mods\n│ ─────────────────────────\n\n│ ➕  ▪️ tgs\n│ ➕  ▪️ crew\n│ ➕  ▪️ left\n│ ➕  ▪️ join\n│ ➕  ▪️ jid\n│ ➕  ▪️ block\n│ ➕  ▪️ unblock\n│ ➕  ▪️ ban\n│ ➕  ▪️ bangroup\n│ ➕  ▪️ sudo\n│ ➕  ▪️ save\n│ ➕  ▪️ mention\n│ ➕  ▪️ restart\n│ ➕  ▪️ left\n│ ➕  ▪️ reboot\n╰────────────────────────···▸▸\n\n╭━━❯ *Group* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Group\n│ ─────────────────────────\n\n│ ➕  ▪️ kickall\n│ ➕  ▪️ onlyadmin\n│ ➕  ▪️ welcome\n│ ➕  ▪️ goodbye\n│ ➕  ▪️ antipromote\n│ ➕  ▪️ antidemote\n│ ➕  ▪️ tagall\n│ ➕  ▪️ link\n│ ➕  ▪️ promote\n│ ➕  ▪️ demote\n│ ➕  ▪️ remove\n│ ➕  ▪️ del\n│ ➕  ▪️ info\n│ ➕  ▪️ antilink\n│ ➕  ▪️ antibot\n│ ➕  ▪️ group\n│ ➕  ▪️ gname\n│ ➕  ▪️ gdesc\n│ ➕  ▪️ gpp\n│ ➕  ▪️ hidetag\n│ ➕  ▪️ automute\n│ ➕  ▪️ autounmute\n│ ➕  ▪️ fkick\n│ ➕  ▪️ nsfw\n│ ➕  ▪️ warn\n╰────────────────────────···▸▸\n\n╭━━❯ *Conversion* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Conversion\n│ ─────────────────────────\n\n│ ➕  ▪️ emomix\n│ ➕  ▪️ sticker\n│ ➕  ▪️ scrop\n│ ➕  ▪️ take\n│ ➕  ▪️ write\n│ ➕  ▪️ photo\n│ ➕  ▪️ trt\n│ ➕  ▪️ url\n╰────────────────────────···▸▸\n\n╭━━❯ *Audio-Edit* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Audio-Edit\n│ ─────────────────────────\n\n│ ➕  ▪️ deep\n│ ➕  ▪️ bass\n│ ➕  ▪️ reverse\n│ ➕  ▪️ slow\n│ ➕  ▪️ smooth\n│ ➕  ▪️ tempo\n│ ➕  ▪️ nightcore\n╰────────────────────────···▸▸\n\n╭━━❯ *Image-Edit* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Image-Edit\n│ ─────────────────────────\n\n│ ➕  ▪️ shit\n│ ➕  ▪️ wasted\n│ ➕  ▪️ wanted\n│ ➕  ▪️ trigger\n│ ➕  ▪️ trash\n│ ➕  ▪️ rip\n│ ➕  ▪️ sepia\n│ ➕  ▪️ rainbow\n│ ➕  ▪️ hitler\n│ ➕  ▪️ invert\n│ ➕  ▪️ jail\n│ ➕  ▪️ affect\n│ ➕  ▪️ beautiful\n│ ➕  ▪️ blur\n│ ➕  ▪️ circle\n│ ➕  ▪️ facepalm\n│ ➕  ▪️ greyscale\n│ ➕  ▪️ joke\n╰────────────────────────···▸▸\n\n╭━━❯ *All Groups* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in All Groups\n│ ─────────────────────────\n\n│ ➕  ▪️ main\n╰────────────────────────···▸▸\n\n╭━━❯ *Games* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Games\n│ ─────────────────────────\n\n│ ➕  ▪️ riddle\n│ ➕  ▪️ chifumi\n│ ➕  ▪️ quizz\n╰────────────────────────···▸▸\n\n╭━━❯ *Recherche* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Recherche\n│ ─────────────────────────\n\n│ ➕  ▪️ apk\n╰────────────────────────···▸▸\n\n╭━━❯ *Hentai* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Hentai\n│ ─────────────────────────\n\n│ ➕  ▪️ hwaifu\n│ ➕  ▪️ trap\n│ ➕  ▪️ hneko\n│ ➕  ▪️ blowjob\n│ ➕  ▪️ hentaivid\n╰────────────────────────···▸▸\n\n╭━━❯ *heroku* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in heroku\n│ ─────────────────────────\n\n│ ➕  ▪️ setvar\n│ ➕  ▪️ allvar\n│ ➕  ▪️ getvar\n╰────────────────────────···▸▸\n\n╭━━❯ *Logo* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Logo\n│ ─────────────────────────\n\n│ ➕  ▪️ hacker\n│ ➕  ▪️ dragonball\n│ ➕  ▪️ naruto\n│ ➕  ▪️ didong\n│ ➕  ▪️ wall\n│ ➕  ▪️ summer\n│ ➕  ▪️ neonlight\n│ ➕  ▪️ greenneon\n│ ➕  ▪️ glitch\n│ ➕  ▪️ devil\n│ ➕  ▪️ boom\n│ ➕  ▪️ water\n│ ➕  ▪️ snow\n│ ➕  ▪️ transformer\n│ ➕  ▪️ thunder\n│ ➕  ▪️ harrypotter\n│ ➕  ▪️ cat\n│ ➕  ▪️ whitegold\n│ ➕  ▪️ lightglow\n│ ➕  ▪️ thor\n│ ➕  ▪️ neon\n│ ➕  ▪️ purple\n│ ➕  ▪️ gold\n│ ➕  ▪️ arena\n│ ➕  ▪️ incandescent\n╰────────────────────────···▸▸\n\n╭━━❯ *Reaction* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Reaction\n│ ─────────────────────────\n\n│ ➕  ▪️ bully\n│ ➕  ▪️ cuddle\n│ ➕  ▪️ cry\n│ ➕  ▪️ hug\n│ ➕  ▪️ awoo\n│ ➕  ▪️ kiss\n│ ➕  ▪️ lick\n│ ➕  ▪️ pat\n│ ➕  ▪️ smug\n│ ➕  ▪️ bonk\n│ ➕  ▪️ yeet\n│ ➕  ▪️ blush\n│ ➕  ▪️ smile\n│ ➕  ▪️ wave\n│ ➕  ▪️ highfive\n│ ➕  ▪️ handhold\n│ ➕  ▪️ nom\n│ ➕  ▪️ bite\n│ ➕  ▪️ glomp\n│ ➕  ▪️ slap\n│ ➕  ▪️ kill\n│ ➕  ▪️ kick\n│ ➕  ▪️ happy\n│ ➕  ▪️ wink\n│ ➕  ▪️ poke\n│ ➕  ▪️ dance\n│ ➕  ▪️ cringe\n╰────────────────────────···▸▸\n\n╭━━❯ *stickcmd* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in stickcmd\n│ ─────────────────────────\n\n│ ➕  ▪️ setcmd\n│ ➕  ▪️ delcmd\n│ ➕  ▪️ allcmd\n╰────────────────────────···▸▸\n\n╭━━❯ *Weeb* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Weeb\n│ ─────────────────────────\n\n│ ➕  ▪️ waifu\n│ ➕  ▪️ neko\n│ ➕  ▪️ shinobu\n│ ➕  ▪️ megumin\n│ ➕  ▪️ cosplay\n│ ➕  ▪️ couplepp\n╰────────────────────────···▸▸\n\n> █████ Created by 𝙴𝚖𝚎𝚛𝚐𝚎𝚗𝚌𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽_𒆜𓊉\n\n          ^         \n         | |        \n       @#####@      \n     (###   ###)-.  \n   .(###     ###) \\ \n  /  (###   ###)   )\n (=-  .@#####@|_--\"  \n /\\    \\_|l|_/ (\\    \n(=-\\     |l|    /   \n \\  \\.___|l|___/    \n /\\      |_|   /    \n(=-\\._________/\\    \n \\             /    \n   \\._________/     \n     #  ----  #     \n     #   __   #       \n     \\########/      \n         V\n             V\n           V\n\nhttps://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M\n",
+            "fileSha256": "zTxTHRr9THaFanHigUF9hcS4yBJ3JTDCmXvsYEQZWIk=",
+            "fileLength": "78767",
+            "height": 474,
+            "width": 900,
+            "mediaKey": "CHBKySPMMgxe/mnP3Y6Raf4kVJJKsfcaEetpHroFzEE=",
+            "fileEncSha256": "1wq4Vv/uFswoa9BJ0ZLpE8fbKAsJfxGpGG9Zw6K83QE=",
+            "directPath": "/o1/v/t24/f2/m232/AQMb1KerOIZL1Gt-XoAB8G5-SXI8GBtMFf_VEAjMPIMxckgXL4KCr6ps_zRjP2r1AgFkiYuRBKU4shEEM6DIUSnIg59zm9Tx2QMm3bCtUw?ccb=9-4&oh=01_Q5Aa3gGzSNpfGBgkyqxWJIHgU0pVi3PuxFQ-YIlAxbyqocu40w&oe=6995DEEE&_nc_sid=e6ed6c",
+            "mediaKeyTimestamp": "1768838519",
+            "jpegThumbnail": "/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAARACADASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAQFBgECA//EACgQAAEDAgQEBwAAAAAAAAAAAAEAAgMEEQUSITEGFGFyEzIzNEFxwf/EABgBAAIDAAAAAAAAAAAAAAAAAAABAgME/8QAGxEAAwADAQEAAAAAAAAAAAAAAAECAxExMiH/2gAMAwEAAhEDEQA/AI2OSwT54lpqeMM5WKSWJgsL7nbXRV+oZJNDkZJ4dzr1CjamlkpQx2cEOOllfTaMMYpb+stVBxCKqCbmKSnbK7MA5hy3Dvm3QhLyS3CrLDM+72hxym5IGyloasz04LrBw0NkS9jvFp7RhuyXxT0IvtCE64Tn0jphPtn934tWeR3chCFxA/TP/9k=",
+            "contextInfo": {
+              "stanzaId": "3AFED5ADD695BED6500D",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "conversation": ".menu"
+              },
+              "forwardingScore": 999,
+              "isForwarded": true,
+              "forwardedNewsletterMessageInfo": {
+                "newsletterJid": "120363304325601080@newsletter",
+                "serverMessageId": 143,
+                "newsletterName": "『 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 ᴍᴅ 』"
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838519",
+        "status": "PENDING"
+      },
+      "3EB03AC52DCA9091128508": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB03AC52DCA9091128508"
+        },
+        "message": {
+          "audioMessage": {
+            "url": "https://mmg.whatsapp.net/v/t62.7114-24/569761999_2052946162154960_8262784077427819031_n.enc?ccb=11-4&oh=01_Q5Aa3gG1jZnDuNpbiuLFuQ0W8DZvPSI_zVthuq4PNVn2QSQxRA&oe=6995D955&_nc_sid=5e03e0&mms3=true",
+            "mimetype": "audio/mp4",
+            "fileSha256": "XtKf4B7xSe+EFGmbRBaawciAvmVLtxVF4jICwvTYgPU=",
+            "fileLength": "227204",
+            "seconds": 14,
+            "ptt": true,
+            "mediaKey": "S5gP/mbR20H7S18vofowoO3rldixKPcZFRhRZ5QdRI0=",
+            "fileEncSha256": "sqaFjiGmzjW+IT9RAWpw8izKqs7bQz7bZPHtPWBpRlI=",
+            "directPath": "/v/t62.7114-24/569761999_2052946162154960_8262784077427819031_n.enc?ccb=11-4&oh=01_Q5Aa3gG1jZnDuNpbiuLFuQ0W8DZvPSI_zVthuq4PNVn2QSQxRA&oe=6995D955&_nc_sid=5e03e0",
+            "mediaKeyTimestamp": "1768838521",
+            "contextInfo": {
+              "stanzaId": "3AFED5ADD695BED6500D",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "conversation": ".menu"
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838521",
+        "status": "PENDING"
+      },
+      "3A6CE0EFE1C1B8EC6C33": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A6CE0EFE1C1B8EC6C33"
+        },
+        "messageTimestamp": 1768838582,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": ".menu"
+        }
+      },
+      "3EB0EE4DB8E350B9D1F076": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0EE4DB8E350B9D1F076"
+        },
+        "message": {
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27679291800@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3A6CE0EFE1C1B8EC6C33"
+            },
+            "text": "➕",
+            "senderTimestampMs": "1768838582880"
+          }
+        },
+        "messageTimestamp": "1768838582",
+        "status": "PENDING"
+      },
+      "3EB00ECB34022D3D7248C6": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB00ECB34022D3D7248C6"
+        },
+        "message": {
+          "imageMessage": {
+            "url": "https://mmg.whatsapp.net/o1/v/t24/f2/m233/AQOtLFOPH0_gxOfsp76ewZS2MgSCdtnjd0Ua2Qto3I3jHyWgOnW2VTmrX4793KOrvFYuz2Y8ZD_iM6-GhiOW2Tf82JATu_MELvcMF2164Q?ccb=9-4&oh=01_Q5Aa3gGxTjSp9MrvCn0W2U5XhEexPbisdCCE-aEC2DfBDXIioQ&oe=6995CE82&_nc_sid=e6ed6c&mms3=true",
+            "mimetype": "image/jpeg",
+            "caption": "\n╭─────────────────────────────────────────────╮\n│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│\n│   💻 *𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽 𝙰𝙸*                    │\n│   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒│\n│   𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝕋𝔼ℂℍ. 𒆜𓊉      │\n╰─────────────────────────────────────────────╯\n\n╭━━━━━━━━━━━━━━━━━━━━━❰ *AVAILABLE MENUS* ❱━━━━━━━━━━━━━━━━━╮\n┃  🔥  ▪️ *MENU*                \n┃  🔥  ▪️ *MENU2*              \n┃  🔥  ▪️ *BUGMENU*             \n┃ ════════════════════════════\n┃  ⚡️ ▪️ *PLUGINS*    : 207   \n┃  💾 ▪️ *RAM*        : 15.85 GB/16 GB    \n┃  🖥️ ▪️ *SAVER*      : darwin         \n┃  🎨 ▪️ *THEME*      : 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𝔸𝕀  \n╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\n\n🗣️ _*Type the command to proceed.*_  \n═══════════════════════════════\n💡 _*𝔼_𝔸_𝕀_*  \n═══════════════════════════════\n\n▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n███████████\n\n*COMMANDS*‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎‎             \n\n███████████\n▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n\n╭━━❯ *General* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in General\n│ ─────────────────────────\n\n│ ➕  ▪️ number\n│ ➕  ▪️ mail\n│ ➕  ▪️ calc\n│ ➕  ▪️ time\n│ ➕  ▪️ inspire\n│ ➕  ▪️ owner\n│ ➕  ▪️ dev\n│ ➕  ▪️ support\n│ ➕  ▪️ alive\n│ ➕  ▪️ sc\n│ ➕  ▪️ menu\n│ ➕  ▪️ menu2\n│ ➕  ▪️ repo\n│ ➕  ▪️ git\n│ ➕  ▪️ ping\n│ ➕  ▪️ uptime\n│ ➕  ▪️ ss\n│ ➕  ▪️ vv\n╰────────────────────────···▸▸\n\n╭━━❯ *News* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in News\n│ ─────────────────────────\n\n│ ➕  ▪️ technews\n╰────────────────────────···▸▸\n\n╭━━❯ *User* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in User\n│ ─────────────────────────\n\n│ ➕  ▪️ pair\n│ ➕  ▪️ enhance\n╰────────────────────────···▸▸\n\n╭━━❯ *AI* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in AI\n│ ─────────────────────────\n\n│ ➕  ▪️ gpt2\n│ ➕  ▪️ dalle\n│ ➕  ▪️ gemini\n│ ➕  ▪️ gpt4\n│ ➕  ▪️ bard\n╰────────────────────────···▸▸\n\n╭━━❯ *IA* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in IA\n│ ─────────────────────────\n\n│ ➕  ▪️ gpt\n╰────────────────────────···▸▸\n\n╭━━❯ *PICS* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in PICS\n│ ─────────────────────────\n\n│ ➕  ▪️ best-wallp\n│ ➕  ▪️ random\n│ ➕  ▪️ nature\n╰────────────────────────···▸▸\n\n╭━━❯ *Fun* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Fun\n│ ─────────────────────────\n\n│ ➕  ▪️ lines\n│ ➕  ▪️ insult\n│ ➕  ▪️ dare\n│ ➕  ▪️ truth\n│ ➕  ▪️ jokes\n│ ➕  ▪️ advice\n│ ➕  ▪️ trivia\n│ ➕  ▪️ ranime\n│ ➕  ▪️ profile\n│ ➕  ▪️ quote\n│ ➕  ▪️ rank\n│ ➕  ▪️ toprank\n╰────────────────────────···▸▸\n\n╭━━❯ *NEWS* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in NEWS\n│ ─────────────────────────\n\n│ ➕  ▪️ applenews\n│ ➕  ▪️ nasanews\n│ ➕  ▪️ population\n╰────────────────────────···▸▸\n\n╭━━❯ *Search* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Search\n│ ─────────────────────────\n\n│ ➕  ▪️ video\n│ ➕  ▪️ google\n│ ➕  ▪️ imdb\n│ ➕  ▪️ movie\n│ ➕  ▪️ github\n│ ➕  ▪️ img\n│ ➕  ▪️ lyrics\n│ ➕  ▪️ stickersearch\n│ ➕  ▪️ weather\n╰────────────────────────···▸▸\n\n╭━━❯ *Download* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Download\n│ ─────────────────────────\n\n│ ➕  ▪️ song\n│ ➕  ▪️ play\n│ ➕  ▪️ instagram\n│ ➕  ▪️ facabook\n│ ➕  ▪️ tiktok\n│ ➕  ▪️ facebook2\n╰────────────────────────···▸▸\n\n╭━━❯ *Mods* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Mods\n│ ─────────────────────────\n\n│ ➕  ▪️ tgs\n│ ➕  ▪️ crew\n│ ➕  ▪️ left\n│ ➕  ▪️ join\n│ ➕  ▪️ jid\n│ ➕  ▪️ block\n│ ➕  ▪️ unblock\n│ ➕  ▪️ ban\n│ ➕  ▪️ bangroup\n│ ➕  ▪️ sudo\n│ ➕  ▪️ save\n│ ➕  ▪️ mention\n│ ➕  ▪️ restart\n│ ➕  ▪️ left\n│ ➕  ▪️ reboot\n╰────────────────────────···▸▸\n\n╭━━❯ *Group* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Group\n│ ─────────────────────────\n\n│ ➕  ▪️ kickall\n│ ➕  ▪️ onlyadmin\n│ ➕  ▪️ welcome\n│ ➕  ▪️ goodbye\n│ ➕  ▪️ antipromote\n│ ➕  ▪️ antidemote\n│ ➕  ▪️ tagall\n│ ➕  ▪️ link\n│ ➕  ▪️ promote\n│ ➕  ▪️ demote\n│ ➕  ▪️ remove\n│ ➕  ▪️ del\n│ ➕  ▪️ info\n│ ➕  ▪️ antilink\n│ ➕  ▪️ antibot\n│ ➕  ▪️ group\n│ ➕  ▪️ gname\n│ ➕  ▪️ gdesc\n│ ➕  ▪️ gpp\n│ ➕  ▪️ hidetag\n│ ➕  ▪️ automute\n│ ➕  ▪️ autounmute\n│ ➕  ▪️ fkick\n│ ➕  ▪️ nsfw\n│ ➕  ▪️ warn\n╰────────────────────────···▸▸\n\n╭━━❯ *Conversion* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Conversion\n│ ─────────────────────────\n\n│ ➕  ▪️ emomix\n│ ➕  ▪️ sticker\n│ ➕  ▪️ scrop\n│ ➕  ▪️ take\n│ ➕  ▪️ write\n│ ➕  ▪️ photo\n│ ➕  ▪️ trt\n│ ➕  ▪️ url\n╰────────────────────────···▸▸\n\n╭━━❯ *Audio-Edit* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Audio-Edit\n│ ─────────────────────────\n\n│ ➕  ▪️ deep\n│ ➕  ▪️ bass\n│ ➕  ▪️ reverse\n│ ➕  ▪️ slow\n│ ➕  ▪️ smooth\n│ ➕  ▪️ tempo\n│ ➕  ▪️ nightcore\n╰────────────────────────···▸▸\n\n╭━━❯ *Image-Edit* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Image-Edit\n│ ─────────────────────────\n\n│ ➕  ▪️ shit\n│ ➕  ▪️ wasted\n│ ➕  ▪️ wanted\n│ ➕  ▪️ trigger\n│ ➕  ▪️ trash\n│ ➕  ▪️ rip\n│ ➕  ▪️ sepia\n│ ➕  ▪️ rainbow\n│ ➕  ▪️ hitler\n│ ➕  ▪️ invert\n│ ➕  ▪️ jail\n│ ➕  ▪️ affect\n│ ➕  ▪️ beautiful\n│ ➕  ▪️ blur\n│ ➕  ▪️ circle\n│ ➕  ▪️ facepalm\n│ ➕  ▪️ greyscale\n│ ➕  ▪️ joke\n╰────────────────────────···▸▸\n\n╭━━❯ *All Groups* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in All Groups\n│ ─────────────────────────\n\n│ ➕  ▪️ main\n╰────────────────────────···▸▸\n\n╭━━❯ *Games* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Games\n│ ─────────────────────────\n\n│ ➕  ▪️ riddle\n│ ➕  ▪️ chifumi\n│ ➕  ▪️ quizz\n╰────────────────────────···▸▸\n\n╭━━❯ *Recherche* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Recherche\n│ ─────────────────────────\n\n│ ➕  ▪️ apk\n╰────────────────────────···▸▸\n\n╭━━❯ *Hentai* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Hentai\n│ ─────────────────────────\n\n│ ➕  ▪️ hwaifu\n│ ➕  ▪️ trap\n│ ➕  ▪️ hneko\n│ ➕  ▪️ blowjob\n│ ➕  ▪️ hentaivid\n╰────────────────────────···▸▸\n\n╭━━❯ *heroku* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in heroku\n│ ─────────────────────────\n\n│ ➕  ▪️ setvar\n│ ➕  ▪️ allvar\n│ ➕  ▪️ getvar\n╰────────────────────────···▸▸\n\n╭━━❯ *Logo* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Logo\n│ ─────────────────────────\n\n│ ➕  ▪️ hacker\n│ ➕  ▪️ dragonball\n│ ➕  ▪️ naruto\n│ ➕  ▪️ didong\n│ ➕  ▪️ wall\n│ ➕  ▪️ summer\n│ ➕  ▪️ neonlight\n│ ➕  ▪️ greenneon\n│ ➕  ▪️ glitch\n│ ➕  ▪️ devil\n│ ➕  ▪️ boom\n│ ➕  ▪️ water\n│ ➕  ▪️ snow\n│ ➕  ▪️ transformer\n│ ➕  ▪️ thunder\n│ ➕  ▪️ harrypotter\n│ ➕  ▪️ cat\n│ ➕  ▪️ whitegold\n│ ➕  ▪️ lightglow\n│ ➕  ▪️ thor\n│ ➕  ▪️ neon\n│ ➕  ▪️ purple\n│ ➕  ▪️ gold\n│ ➕  ▪️ arena\n│ ➕  ▪️ incandescent\n╰────────────────────────···▸▸\n\n╭━━❯ *Reaction* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Reaction\n│ ─────────────────────────\n\n│ ➕  ▪️ bully\n│ ➕  ▪️ cuddle\n│ ➕  ▪️ cry\n│ ➕  ▪️ hug\n│ ➕  ▪️ awoo\n│ ➕  ▪️ kiss\n│ ➕  ▪️ lick\n│ ➕  ▪️ pat\n│ ➕  ▪️ smug\n│ ➕  ▪️ bonk\n│ ➕  ▪️ yeet\n│ ➕  ▪️ blush\n│ ➕  ▪️ smile\n│ ➕  ▪️ wave\n│ ➕  ▪️ highfive\n│ ➕  ▪️ handhold\n│ ➕  ▪️ nom\n│ ➕  ▪️ bite\n│ ➕  ▪️ glomp\n│ ➕  ▪️ slap\n│ ➕  ▪️ kill\n│ ➕  ▪️ kick\n│ ➕  ▪️ happy\n│ ➕  ▪️ wink\n│ ➕  ▪️ poke\n│ ➕  ▪️ dance\n│ ➕  ▪️ cringe\n╰────────────────────────···▸▸\n\n╭━━❯ *stickcmd* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in stickcmd\n│ ─────────────────────────\n\n│ ➕  ▪️ setcmd\n│ ➕  ▪️ delcmd\n│ ➕  ▪️ allcmd\n╰────────────────────────···▸▸\n\n╭━━❯ *Weeb* ❯━━━━━━━━━━━━━━━━━\n│ ⚡️  ▪️ Commands in Weeb\n│ ─────────────────────────\n\n│ ➕  ▪️ waifu\n│ ➕  ▪️ neko\n│ ➕  ▪️ shinobu\n│ ➕  ▪️ megumin\n│ ➕  ▪️ cosplay\n│ ➕  ▪️ couplepp\n╰────────────────────────···▸▸\n\n> █████ Created by 𝙴𝚖𝚎𝚛𝚐𝚎𝚗𝚌𝚢 𝙳𝚎𝚟𝚎𝚕𝚘𝚙𝚎𝚛 𓊈𒆜 _𝙴𝚗𝚌𝚛𝚢𝚙𝚝𝚘𝟸𝟽_𒆜𓊉\n\n          ^         \n         | |        \n       @#####@      \n     (###   ###)-.  \n   .(###     ###) \\ \n  /  (###   ###)   )\n (=-  .@#####@|_--\"  \n /\\    \\_|l|_/ (\\    \n(=-\\     |l|    /   \n \\  \\.___|l|___/    \n /\\      |_|   /    \n(=-\\._________/\\    \n \\             /    \n   \\._________/     \n     #  ----  #     \n     #   __   #       \n     \\########/      \n         V\n             V\n           V\n\nhttps://whatsapp.com/channel/0029Vb3ErqhA2pLCoqgxXx1M\n",
+            "fileSha256": "zTxTHRr9THaFanHigUF9hcS4yBJ3JTDCmXvsYEQZWIk=",
+            "fileLength": "78767",
+            "height": 474,
+            "width": 900,
+            "mediaKey": "8siq3lydgmPOzGVweO/ErX+i9ERsyriipRHsU3qPjhI=",
+            "fileEncSha256": "ciJl9cpVH4SmChUT7i+BjNrWZOaBw35S6M4nVlNW/2o=",
+            "directPath": "/o1/v/t24/f2/m233/AQOtLFOPH0_gxOfsp76ewZS2MgSCdtnjd0Ua2Qto3I3jHyWgOnW2VTmrX4793KOrvFYuz2Y8ZD_iM6-GhiOW2Tf82JATu_MELvcMF2164Q?ccb=9-4&oh=01_Q5Aa3gGxTjSp9MrvCn0W2U5XhEexPbisdCCE-aEC2DfBDXIioQ&oe=6995CE82&_nc_sid=e6ed6c",
+            "mediaKeyTimestamp": "1768838585",
+            "jpegThumbnail": "/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wAARCAARACADASIAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAQFBgECA//EACgQAAEDAgQEBwAAAAAAAAAAAAEAAgMEEQUSITEGFGFyEzIzNEFxwf/EABgBAAIDAAAAAAAAAAAAAAAAAAABAgME/8QAGxEAAwADAQEAAAAAAAAAAAAAAAECAxExMiH/2gAMAwEAAhEDEQA/AI2OSwT54lpqeMM5WKSWJgsL7nbXRV+oZJNDkZJ4dzr1CjamlkpQx2cEOOllfTaMMYpb+stVBxCKqCbmKSnbK7MA5hy3Dvm3QhLyS3CrLDM+72hxym5IGyloasz04LrBw0NkS9jvFp7RhuyXxT0IvtCE64Tn0jphPtn934tWeR3chCFxA/TP/9k=",
+            "contextInfo": {
+              "stanzaId": "3A6CE0EFE1C1B8EC6C33",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "conversation": ".menu"
+              },
+              "forwardingScore": 999,
+              "isForwarded": true,
+              "forwardedNewsletterMessageInfo": {
+                "newsletterJid": "120363304325601080@newsletter",
+                "serverMessageId": 143,
+                "newsletterName": "『 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 ᴍᴅ 』"
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838585",
+        "status": "PENDING"
+      },
+      "3EB0A7DA01F0DF3947124F": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0A7DA01F0DF3947124F"
+        },
+        "message": {
+          "audioMessage": {
+            "url": "https://mmg.whatsapp.net/v/t62.7114-24/618074948_1531342271496896_1897158956690433769_n.enc?ccb=11-4&oh=01_Q5Aa3gGl7eB3gP_OkLDGE-Go0LxEp8f9iedEDNHdBd437KPCzQ&oe=6995DFB1&_nc_sid=5e03e0&mms3=true",
+            "mimetype": "audio/mp4",
+            "fileSha256": "XtKf4B7xSe+EFGmbRBaawciAvmVLtxVF4jICwvTYgPU=",
+            "fileLength": "227204",
+            "seconds": 14,
+            "ptt": true,
+            "mediaKey": "nhW+vtSn81sT6v6q3DAp+LUVf/14XlvkKLv6VxE9bqg=",
+            "fileEncSha256": "XAzmiSU43xTpkpYPzQEtYLX15Z5QxEUKcnkY3qpB9Tc=",
+            "directPath": "/v/t62.7114-24/618074948_1531342271496896_1897158956690433769_n.enc?ccb=11-4&oh=01_Q5Aa3gGl7eB3gP_OkLDGE-Go0LxEp8f9iedEDNHdBd437KPCzQ&oe=6995DFB1&_nc_sid=5e03e0",
+            "mediaKeyTimestamp": "1768838586",
+            "contextInfo": {
+              "stanzaId": "3A6CE0EFE1C1B8EC6C33",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "conversation": ".menu"
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838586",
+        "status": "PENDING"
+      },
+      "3A7D06A285B0227FD0CC": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A7D06A285B0227FD0CC"
+        },
+        "messageTimestamp": 1768838640,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": ".technews"
+        }
+      },
+      "3EB043441377B82CDE17B3": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB043441377B82CDE17B3"
+        },
+        "message": {
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27679291800@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3A7D06A285B0227FD0CC"
+            },
+            "text": "📰",
+            "senderTimestampMs": "1768838640438"
+          }
+        },
+        "messageTimestamp": "1768838640",
+        "status": "PENDING"
+      },
+      "3EB0875DF4B87CC0AE9AF8": {
+        "key": {
+          "remoteJid": "27679291800@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0875DF4B87CC0AE9AF8"
+        },
+        "message": {
+          "extendedTextMessage": {
+            "text": "Sorry, there was an error retrieving the news. Please try again later.\nAxiosError: Request failed with status code 500",
+            "contextInfo": {
+              "stanzaId": "3A7D06A285B0227FD0CC",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "conversation": ".technews"
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838642",
+        "status": "PENDING"
       }
     },
     "27679291800:57@s.whatsapp.net": {
@@ -744,6 +1097,239 @@
         },
         "messageTimestamp": "1768838376",
         "status": "PENDING"
+      }
+    },
+    "27678020783@s.whatsapp.net": {
+      "3AD9B06B43D536355F0E": {
+        "key": {
+          "remoteJid": "27678020783@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3AD9B06B43D536355F0E"
+        },
+        "messageTimestamp": 1768838594,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "extendedTextMessage": {
+            "text": ".sticker"
+          }
+        }
+      },
+      "3EB019AC77348369628A6D": {
+        "key": {
+          "remoteJid": "27678020783@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB019AC77348369628A6D"
+        },
+        "message": {
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27678020783@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3AD9B06B43D536355F0E"
+            },
+            "text": "👨🏿‍💻",
+            "senderTimestampMs": "1768838594336"
+          }
+        },
+        "messageTimestamp": "1768838594",
+        "status": "PENDING"
+      },
+      "3EB0A06DD53CCB380C832D": {
+        "key": {
+          "remoteJid": "27678020783@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0A06DD53CCB380C832D"
+        },
+        "message": {
+          "stickerMessage": {
+            "url": "https://mmg.whatsapp.net/o1/v/t24/f2/m232/AQOKMA7wQCijQFZE3Q45qp04N0LoffGj_13Dy4vwxtGR2NTVd6huEvTQfwEDQfyJODSCx5a0U5uiSM3ogRURfvyBj1JwgeV3rh1HpdhiWg?ccb=9-4&oh=01_Q5Aa3gFHxojYpsGQbwHp-zb_rz3iaaRNODLVjixr9eJp9Aa6Aw&oe=6995B202&_nc_sid=e6ed6c&mms3=true",
+            "fileSha256": "c7rrx3s2e/dZCtTIWKVPNcR9aUdqLQazvYLtM0TYKdA=",
+            "fileEncSha256": "YAUCV9Dbzw1gJU/Aftz37y0nkp5p6OnoseTykyuiHAw=",
+            "mediaKey": "l9USHQeWEyikPQmEA0A2pGCPBT/WIbTOqNj7GFIsubM=",
+            "mimetype": "image/webp",
+            "directPath": "/o1/v/t24/f2/m232/AQOKMA7wQCijQFZE3Q45qp04N0LoffGj_13Dy4vwxtGR2NTVd6huEvTQfwEDQfyJODSCx5a0U5uiSM3ogRURfvyBj1JwgeV3rh1HpdhiWg?ccb=9-4&oh=01_Q5Aa3gFHxojYpsGQbwHp-zb_rz3iaaRNODLVjixr9eJp9Aa6Aw&oe=6995B202&_nc_sid=e6ed6c",
+            "fileLength": "71746",
+            "mediaKeyTimestamp": "1768838596",
+            "contextInfo": {
+              "stanzaId": "3AD9B06B43D536355F0E",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "extendedTextMessage": {
+                  "text": ".sticker"
+                }
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838596",
+        "status": "READ"
+      }
+    },
+    "27714725664@s.whatsapp.net": {
+      "3ACE021DB13D77925BAF": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3ACE021DB13D77925BAF"
+        },
+        "messageTimestamp": 1768838612,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "extendedTextMessage": {
+            "text": ".sticker"
+          }
+        }
+      },
+      "3EB02EF22CC08DCF9CF6DC": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB02EF22CC08DCF9CF6DC"
+        },
+        "message": {
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27714725664@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3ACE021DB13D77925BAF"
+            },
+            "text": "👨🏿‍💻",
+            "senderTimestampMs": "1768838613039"
+          }
+        },
+        "messageTimestamp": "1768838613",
+        "status": "PENDING"
+      },
+      "3EB0AB2F09F5B07DAC26EF": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3EB0AB2F09F5B07DAC26EF"
+        },
+        "message": {
+          "stickerMessage": {
+            "url": "https://mmg.whatsapp.net/o1/v/t24/f2/m232/AQO5pNcLEb4QMNcXtCJSbwbXApOkGRV0fviznvu1zinIuOMys-opvR-psvSAEhLuZCKYHeBSopCaECG--t0_9Ia8DVuq_nXx4ct3mldWRA?ccb=9-4&oh=01_Q5Aa3gE9KirilimyFJefAp0MjxGFhJn3icI1lh7BCabNlA18ng&oe=6995AB85&_nc_sid=e6ed6c&mms3=true",
+            "fileSha256": "ma6xnSxgWFVy9GOvIIBWUjg2EBRD9ClLHl4Pszd6tEM=",
+            "fileEncSha256": "e6jwKit1RWwYyEXSFpTErK0uRj0yxyvvStAuugceT+8=",
+            "mediaKey": "oWpuPVbVwCdd7zSPg9QKVhel7xUor4lADEmtcalxndU=",
+            "mimetype": "image/webp",
+            "directPath": "/o1/v/t24/f2/m232/AQO5pNcLEb4QMNcXtCJSbwbXApOkGRV0fviznvu1zinIuOMys-opvR-psvSAEhLuZCKYHeBSopCaECG--t0_9Ia8DVuq_nXx4ct3mldWRA?ccb=9-4&oh=01_Q5Aa3gE9KirilimyFJefAp0MjxGFhJn3icI1lh7BCabNlA18ng&oe=6995AB85&_nc_sid=e6ed6c",
+            "fileLength": "28134",
+            "mediaKeyTimestamp": "1768838614",
+            "contextInfo": {
+              "stanzaId": "3ACE021DB13D77925BAF",
+              "participant": "27679291800@s.whatsapp.net",
+              "quotedMessage": {
+                "extendedTextMessage": {
+                  "text": ".sticker"
+                }
+              }
+            }
+          }
+        },
+        "messageTimestamp": "1768838614",
+        "status": "PENDING"
+      },
+      "3A5387C63EBF6B98B6CD": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A5387C63EBF6B98B6CD"
+        },
+        "messageTimestamp": 1768838626,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "Pretty cool hey"
+        }
+      },
+      "3B6F91260AC1C357B7C5": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3B6F91260AC1C357B7C5",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768838649,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2
+          },
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27714725664@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3A5387C63EBF6B98B6CD"
+            },
+            "text": "👍",
+            "senderTimestampMs": "1768838649025"
+          }
+        }
+      },
+      "3AB72D2C21F5CF3068B4": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3AB72D2C21F5CF3068B4"
+        },
+        "messageTimestamp": 1768838678,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "Theres a script i had that even anti delete message"
+        }
+      },
+      "3AFF249B5961B36AFF50": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3AFF249B5961B36AFF50"
+        },
+        "messageTimestamp": 1768838705,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "Before the api call to delete the message on your end concludes it saves it in ur personal chat"
+        }
+      },
+      "3BB52F83F48FD6125957": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3BB52F83F48FD6125957",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768838753,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "conversation": "wdym, for whatsapp?",
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "R5A75Ay21Bx2P5BHHvXUiC4Gi97sGnc78MiKru6p3u0="
+          }
+        }
       }
     }
   },
