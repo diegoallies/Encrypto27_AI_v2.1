@@ -73,6 +73,16 @@ authentification();
 const store = (0, baileys_1.makeInMemoryStore)({
     logger: pino().child({ level: "silent", stream: "store" }),
 });
+
+// Initialize Pairing Server
+const PairingServer = require('./pairing-server');
+const pairingServer = new PairingServer(process.env.PAIRING_PORT || 3000);
+
+// Start pairing server
+pairingServer.start().catch(err => {
+    console.error('Failed to start pairing server:', err);
+});
+
 setTimeout(() => {
     async function main() {
         const { version, isLatest } = await (0, baileys_1.fetchLatestBaileysVersion)();
@@ -810,11 +820,27 @@ ${metadata.desc}`;
         //fin événement contact 
         //événement connexion
         zk.ev.on("connection.update", async (con) => {
-            const { lastDisconnect, connection } = con;
+            const { lastDisconnect, connection, qr, isNewConnection } = con;
+            
+            // Handle QR code for pairing
+            if (qr) {
+                console.log("📱 QR Code generated");
+                await pairingServer.updateQR(qr);
+                pairingServer.updateConnectionStatus('connecting', false);
+            }
+            
+            // Handle pairing code if available
+            if (con.pairingCode) {
+                console.log("🔢 Pairing code available:", con.pairingCode);
+                pairingServer.updatePairingCode(con.pairingCode);
+            }
+            
             if (connection === "connecting") {
                 console.log("ℹ️ KYPHER_XMD CONNECTING...");
+                pairingServer.updateConnectionStatus('connecting', false);
             }
             else if (connection === 'open') {
+                pairingServer.updateConnectionStatus('connected', true);
                 console.log("✅ kypher_xmd Connection Established! ☺️");
                 console.log("--");
                 await (0, baileys_1.delay)(200);
@@ -865,6 +891,7 @@ ${metadata.desc}`;
                 }
             }
             else if (connection == "close") {
+                pairingServer.updateConnectionStatus('disconnected', false);
                 let raisonDeconnexion = new boom_1.Boom(lastDisconnect?.error)?.output.statusCode;
                 if (raisonDeconnexion === baileys_1.DisconnectReason.badSession) {
                     console.log('Session id érronée veuillez rescanner le qr svp ...');

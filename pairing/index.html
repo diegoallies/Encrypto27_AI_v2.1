@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encrypto27 AI - WhatsApp Pairing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>𓊈𒆜 Encrypto27 AI 𒆜𓊉</h1>
+            <p class="subtitle">WhatsApp Bot Pairing</p>
+        </div>
+
+        <div class="status-card" id="statusCard">
+            <div class="status-indicator" id="statusIndicator"></div>
+            <p class="status-text" id="statusText">Initializing...</p>
+        </div>
+
+        <div class="pairing-container" id="pairingContainer">
+            <!-- QR Code Section -->
+            <div class="qr-section" id="qrSection">
+                <h2>📱 Scan QR Code</h2>
+                <div class="qr-wrapper">
+                    <canvas id="qrCanvas"></canvas>
+                </div>
+                <p class="instruction">Open WhatsApp → Settings → Linked Devices → Link a Device</p>
+            </div>
+
+            <!-- Pairing Code Section -->
+            <div class="pairing-code-section" id="pairingCodeSection" style="display: none;">
+                <h2>🔢 Pairing Code</h2>
+                <div class="code-display">
+                    <div class="code-box" id="pairingCodeDisplay">----</div>
+                </div>
+                <p class="instruction">Enter this code in WhatsApp when prompted</p>
+                <button class="copy-btn" id="copyBtn">📋 Copy Code</button>
+            </div>
+
+            <!-- Connected Section -->
+            <div class="connected-section" id="connectedSection" style="display: none;">
+                <div class="success-icon">✅</div>
+                <h2>Successfully Connected!</h2>
+                <p>Your WhatsApp is now linked to Encrypto27 AI bot.</p>
+                <p class="info-text">You can close this page now.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Created by ✞𓊈𒆜 𝔼ℕℂℝ𝕐ℙ𝕋𝕆-𝟚𝟟 𒆜𓊉 ✞</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -38,6 +38,7 @@ module.exports = {
     DATABASE: DATABASE_URL.startsWith('mongodb')
         ? "mongodb://localhost:27017/my_database"
         : DATABASE_URL, // Handle if it's MongoDB or not
+    PAIRING_PORT: process.env.PAIRING_PORT || 3000, // Pairing server port
 };
 
 // Watch the file for changes (reloading on changes)

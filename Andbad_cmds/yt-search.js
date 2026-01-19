@@ -1,7 +1,7 @@
 const { zokou } = require("../framework/zokou");
 const { getytlink, ytdwn } = require("../framework/ytdl-core");
 const yts = require("yt-search");
-const ytdl = require('ytdl-core');
+const ytdl = require('@distube/ytdl-core');
 const fs = require('fs');
 
 zokou({ nomCom: "yts", categorie: "Search", reaction: "✋" }, async (dest, zk, commandeOptions) => {
