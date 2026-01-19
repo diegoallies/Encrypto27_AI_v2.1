@@ -1,15 +1,7 @@
-const mongoose = require("mongoose");
-
-const mongoURI = process.env.MONGO_URI || "mongodb://localhost:27017/mydatabase";
-
+// SQLite database is initialized automatically via sqlite-db.js
+// This file is kept for compatibility but no longer needed
 const connectDB = async () => {
-  try {
-    await mongoose.connect(mongoURI);
-    console.log("✅ Connected to MongoDB");
-  } catch (error) {
-    console.error("❌ MongoDB Connection Error:", error);
-    process.exit(1);
-  }
+  console.log("✅ SQLite database initialized");
 };
 
 module.exports = connectDB;

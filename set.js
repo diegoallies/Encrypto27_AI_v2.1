@@ -1,20 +1,9 @@
 const fs = require('fs-extra');
-const mongoose = require('mongoose');
 if (fs.existsSync('set.env'))
     require('dotenv').config({ path: __dirname + '/set.env' });
 const path = require("path");
 
-// MongoDB URI (replace with your MongoDB URI or environment variable)
-const DATABASE_URL = process.env.DATABASE_URL || 'mongodb://localhost:27017/my_database';
-
-// Connection setup for MongoDB
-mongoose.connect(DATABASE_URL)
-    .then(() => {
-        console.log('Successfully connected to MongoDB');
-    })
-    .catch((err) => {
-        console.error('Error connecting to MongoDB:', err);
-    });
+// SQLite database - no connection needed, handled by sqlite-db.js
 
 module.exports = {
     session: process.env.SESSION_ID || '',
@@ -34,10 +23,6 @@ module.exports = {
     CHATBOT: process.env.PM_CHATBOT || 'no',
     DP: process.env.STARTING_BOT_MESSAGE || "yes",
     ADM: process.env.ANTI_DELETE_MESSAGE || 'no',
-    DATABASE_URL: process.env.MONGO_URI , // MongoDB URL
-    DATABASE: DATABASE_URL.startsWith('mongodb')
-        ? "mongodb://localhost:27017/my_database"
-        : DATABASE_URL, // Handle if it's MongoDB or not
     PAIRING_PORT: process.env.PAIRING_PORT || 3000, // Pairing server port
 };
 

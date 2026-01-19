@@ -45,4 +45,4 @@ pm2/
 *.tsbuildinfo
 
 # Heroku files
-*.heroku/
+*.heroku/database.sqlite
