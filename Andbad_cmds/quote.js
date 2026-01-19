@@ -13,14 +13,14 @@ zokou({ nomCom: 'quote', categorie: 'Fun' }, async (dest, zk, commandeOptions) =
         .then((response) => response.json())
         .then(async (quote) => {
           repondre(`╔══════════════════════════╗
-║   KYPHER_XMD             ║
+║   ENCRYPTO27 MD          ║
 ╚══════════════════════════╝
 
 🎬 Anime: ${quote.anime}
 👤 Character: ${quote.character}
 💬 Quote: ${quote.quote}
 
-Powered by KYPHER_XMD`);
+Powered by ENCRYPTO27 MD`);
         });
     } catch (e) {
       repondre('Error generating quote: ' + e.message);
@@ -33,14 +33,14 @@ Powered by KYPHER_XMD`);
         .then((response) => response.json())
         .then(async (quote) => {
           repondre(`╔══════════════════════════╗
-║   kypher_xmd               ║
+║   Encrypto27 MD           ║
 ╚══════════════════════════╝
 
 🎬 Anime: ${quote.anime}
 👤 Character: ${quote.character}
 💬 Quote: ${quote.quote}
 
-Powered by KYPHER_XMD`);
+Powered by ENCRYPTO27 MD`);
         });
     } catch (e) {
       repondre('Error generating quote: ' + e.message);

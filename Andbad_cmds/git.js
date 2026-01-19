@@ -50,7 +50,7 @@ const date = moment().format('DD/MM/YYYY');
   `;
     
 let menuMsg = `
-     > KYPHER TECH TEAM
+     > ENCRYPTO27 TECH TEAM
 
 ❒────────────────────❒`;
     

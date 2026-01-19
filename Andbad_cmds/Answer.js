@@ -260,7 +260,7 @@ zokou({
         'name': "cta_url",
         'buttonParamsJson': JSON.stringify({
           'display_text': "SUBSCRIBE 🤍 CHANNEL",
-          'url': "https://www.youtube.com/@Kypher_tech"
+          'url': "https://www.youtube.com/@Encrypto27"
         })
       }];
       if (_0x2c0cf9) {

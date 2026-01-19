@@ -47,7 +47,7 @@ const  {addGroupToBanList,isGroupBanned,removeGroupFromBanList} = require("./bdd
 const {isGroupOnlyAdmin,addGroupToOnlyAdminList,removeGroupFromOnlyAdminList} = require("./bdd/onlyAdmin");
 //const //{loadCmd}=require("/framework/mesfonctions")
 let { reagir } = require(__dirname + "/framework/app");
-var session = conf.session.replace(/KYPHER_XMD;;;/g,"");
+var session = conf.session.replace(/ENCRYPTO27_MD;;;/g,"");
 const prefixe = conf.PREFIXE;
 
 
@@ -137,7 +137,7 @@ setTimeout(() => {
         const sockOptions = {
             version,
             logger: pino({ level: "silent" }),
-            browser: ['Zokou-Md', "safari", "1.0.0"],
+            browser: ['Encrypto27-MD', "safari", "1.0.0"],
             // printQRInTerminal removed - using web interface instead
             fireInitQueries: false,
             // shouldSyncHistoryMessage removed - not compatible with Baileys 6.7.19
@@ -222,7 +222,7 @@ setTimeout(() => {
             
             var dev = [dj, dj2,dj3,luffy].map((t) => t.replace(/[^0-9]/g) + "@s.whatsapp.net").includes(auteurMessage);
             function repondre(mes) { zk.sendMessage(origineMessage, { text: mes }, { quoted: ms }); }
-            console.log("\t [][]...{Kypher_xmd}...[][]");
+            console.log("\t [][]...{Encrypto27 MD}...[][]");
             console.log("=========== Nouveau message ===========");
             if (verifGroupe) {
                 console.log("Message from group: " + nomGroupe);
@@ -896,18 +896,18 @@ ${metadata.desc}`;
             }
             
             if (connection === "connecting") {
-                console.log("ℹ️ KYPHER_XMD CONNECTING...");
+                console.log("ℹ️ ENCRYPTO27 MD CONNECTING...");
                 pairingServer.updateConnectionStatus('connecting', false);
             }
             else if (connection === 'open') {
                 pairingServer.updateConnectionStatus('connected', true);
-                console.log("✅ kypher_xmd Connection Established! ☺️");
+                console.log("✅ Encrypto27 MD Connection Established! ☺️");
                 console.log("--");
                 await (0, baileys_1.delay)(200);
                 console.log("------");
                 await (0, baileys_1.delay)(300);
                 console.log("------------------/-----");
-                console.log("kypher xmd is Online 🕸\n\n");
+                console.log("Encrypto27 MD is Online 🕸\n\n");
                 //chargement des commandes 
                 console.log("Loading Commands ...\n");
                 fs.readdirSync(__dirname + "/Andbad_cmds").forEach((fichier) => {
@@ -969,7 +969,7 @@ ${metadata.desc}`;
                         // Delete all auth files
                         const authFiles = fs.readdirSync(__dirname + "/auth");
                         authFiles.forEach(file => {
-                            if (file !== 'File.js' && file !== 'kypher') {
+                            if (file !== 'File.js' && file !== 'encrypto27') {
                                 fs.unlinkSync(__dirname + "/auth/" + file);
                             }
                         });

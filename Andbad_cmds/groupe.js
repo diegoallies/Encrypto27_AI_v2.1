@@ -31,7 +31,7 @@ zokou({ nomCom: "tagall", categorie: 'Group', reaction: "📣" }, async (dest, z
   let membresGroupe = verifGroupe ? await infosGroupe.participants : ""
   var tag = ""; 
   tag += `========================\n  
-        🌟 *KYPHER_XMD* 🌟
+        🌟 *ENCRYPTO27 MD* 🌟
 ========================\n
 👥 Group : ${nomGroupe} 🚀 
 👤 Autor : *${nomAuteurMessage}* 👋 
@@ -251,7 +251,7 @@ zokou({ nomCom: "remove", categorie: 'Group', reaction: "👨🏿‍💼" }, asy
             if (admin == false) {
               const gifLink = "https://raw.githubusercontent.com/Mrandbad/ANDBAD-MD-V1/main/andbad/remover.gif"
               var sticker = new Sticker(gifLink, {
-                pack: 'Zokou-Md', // The pack name
+                pack: 'Encrypto27-MD', // The pack name
                 author: nomAuteurMessage, // The author name
                 type: StickerTypes.FULL, // The sticker type
                 categories: ['🤩', '🎉'], // The sticker category
@@ -377,7 +377,7 @@ zokou({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) 
                     } else {
                   await ajouterOuMettreAJourJid(dest,"oui");
                 
-              repondre("KYPHER_XMD ANTILINK SUCCESSFULLY ACTIVATED") }
+              repondre("ENCRYPTO27 MD ANTILINK SUCCESSFULLY ACTIVATED") }
      
             } else if (arg[0] === "off") {
 
@@ -387,7 +387,7 @@ zokou({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) 
                 repondre("The antilink has been successfully deactivated");
                 
               } else {
-                repondre("*KYPHER_XMD ACTIVATED ANTILINK SUCCESSFULLY*");
+                repondre("*ENCRYPTO27 MD ACTIVATED ANTILINK SUCCESSFULLY*");
               }
             } else if (arg.join('').split("/")[0] === 'action') {
                             
@@ -441,7 +441,7 @@ zokou({ nomCom: "info", categorie: 'Group' }, async (dest, zk, commandeOptions) 
       if(arg[0] === 'on') {
 
       
-       if(enetatoui ) { repondre("kypher_xmd...the antibot is already activated for this group")
+       if(enetatoui ) { repondre("Encrypto27 MD...the antibot is already activated for this group")
                     } else {
                   await atbajouterOuMettreAJourJid(dest,"oui");
                 
@@ -660,7 +660,7 @@ zokou({nomCom:"hidetag",categorie:'Group',reaction:"🎤"},async(dest,zk,command
         let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
 
         let stickerMess = new Sticker(media, {
-          pack: 'Bmw-mdtag',
+          pack: 'Encrypto27-MD-Tag',
           type: StickerTypes.CROPPED,
           categories: ["🤩", "🎉"],
           id: "12345",

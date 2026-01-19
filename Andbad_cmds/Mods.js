@@ -547,7 +547,7 @@ zokou({ nomCom: "save", categorie: "Mods" }, async (dest, zk, commandeOptions) =
           let media  = await zk.downloadAndSaveMediaMessage(msgRepondu.stickerMessage)
   
           let stickerMess = new Sticker(media, {
-            pack: 'BMW-MD-TAG',
+            pack: 'ENCRYPTO27-MD-TAG',
             type: StickerTypes.CROPPED,
             categories: ["🤩", "🎉"],
             id: "12345",

@@ -37,7 +37,7 @@ const date = moment().format('DD/MM/YYYY');
 POWERED BY ENCRYPTO27 
 ╭─────────────────
 │❒⁠⁠⁠⁠╭─────────────
-│❒⁠⁠⁠⁠│▸ *THIS ARE KYPHER GROUP LINKS* 
+│❒⁠⁠⁠⁠│▸ *THIS ARE ENCRYPTO27 GROUP LINKS* 
 │❒⁠⁠⁠⁠│▸ *CHANNELS* 
 │❒⁠⁠⁠⁠│▸ *GROUPS*
 │❒⁠⁠⁠⁠╰──────────────

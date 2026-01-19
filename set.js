@@ -12,7 +12,7 @@ module.exports = {
     NUMERO_OWNER: process.env.NUMERO_OWNER || "Ibrahim Adams",              
     AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "yes",
     AUTO_DOWNLOAD_STATUS: process.env.AUTO_DOWNLOAD_STATUS || 'no',
-    BOT: process.env.BOT_NAME || 'BMW_MD',
+    BOT: process.env.BOT_NAME || 'Encrypto27 MD',
     URL: process.env.BOT_MENU_LINKS || 'https://i.ibb.co/Q9yd9tR/IMG-20250117-WA0097.jpg',
     MODE: process.env.PUBLIC_MODE || "yes",
     PM_PERMIT: process.env.PM_PERMIT || 'yes',

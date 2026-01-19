@@ -1658,6 +1658,30 @@
         "message": {
           "conversation": "Baileys was big i assumed they were legal"
         }
+      },
+      "3BCCF257B488181507C6": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3BCCF257B488181507C6",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768839224,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "conversation": "Well I mean if they are undetectable its still pretty cool",
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "pqdhy3wb+7Jh8lXCi84nXXp04sfTXGVe7w8Y05GTUuU="
+          }
+        }
       }
     }
   },

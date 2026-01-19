@@ -9,9 +9,9 @@ zokou({ nomCom: "fancy", categorie: "Fun", reaction: "〽️" }, async (dest, zk
     try {
         if (!id || !text.length) {
             return await repondre(
-                `\nExemple : ${prefixe}fancy 10 Bmw-Md\n` +
+                `\nExemple : ${prefixe}fancy 10 Encrypto27-MD\n` +
                 String.fromCharCode(8206).repeat(4001) +
-                fancy.list('KYPHER_XMD', fancy)
+                fancy.list('ENCRYPTO27 MD', fancy)
             );
         }
 

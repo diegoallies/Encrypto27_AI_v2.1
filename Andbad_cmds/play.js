@@ -47,7 +47,7 @@ module.exports = {
         fs.unlinkSync(outputPath);
 
         // Edit the original reply to indicate completion
-        await client.sendMessage(message.chat, "✅ Download complete! Here's your audio... *powered by KYPHER*");
+        await client.sendMessage(message.chat, "✅ Download complete! Here's your audio... *powered by ENCRYPTO27*");
       });
 
       // Handle errors during download

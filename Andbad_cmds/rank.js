@@ -134,7 +134,7 @@ zokou( {
     
     
          let msg = `
-┏━━━┛ KYPHER_XMD RANK ┗━━━┓
+┏━━━┛ ENCRYPTO27 MD RANK ┗━━━┓
          
     *Name :* @${auteurMsgRepondu.split("@")[0]}
     
@@ -251,7 +251,7 @@ zokou( {
     const {ms , mybotpic} = commandeOptions ;
 
 
-       let msg = `┏━━┛ KYPHER_RANK ┗━━┓\n\n`
+       let msg = `┏━━┛ ENCRYPTO27 RANK ┗━━┓\n\n`
        
       let topRanks = await getBottom10Users() ;
         let mention = [] ;
