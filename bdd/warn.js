@@ -1,6 +1,6 @@
 const { run, get } = require('./sqlite-db');
 
-// Fonction pour créer un utilisateur avec un count de warning
+// Function to create a user with a warning count
 async function ajouterUtilisateurAvecWarnCount(jid) {
   try {
     const user = await get('SELECT warnCount FROM warn WHERE jid = ?', [jid]);
@@ -17,7 +17,7 @@ async function ajouterUtilisateurAvecWarnCount(jid) {
   }
 }
 
-// Fonction pour récupérer le warn_count par JID
+// Function to retrieve warn_count by JID
 async function getWarnCountByJID(jid) {
   try {
     const user = await get('SELECT warnCount FROM warn WHERE jid = ?', [jid]);
@@ -28,7 +28,7 @@ async function getWarnCountByJID(jid) {
   }
 }
 
-// Fonction pour réinitialiser le warn_count à 0 pour un utilisateur spécifique
+// Function to reset warn_count to 0 for a specific user
 async function resetWarnCountByJID(jid) {
   try {
     const result = await run('UPDATE warn SET warnCount = 0 WHERE jid = ?', [jid]);

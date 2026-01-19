@@ -1,6 +1,6 @@
 const { run, get } = require('./sqlite-db');
 
-// Fonction pour attribuer une valeur à une colonne spécifiée
+// Function to assign a value to a specified column
 async function attribuerUnevaleur(jid, row, valeur) {
   try {
     const event = await get('SELECT * FROM welcome WHERE group_id = ?', [jid]);
@@ -19,7 +19,7 @@ async function attribuerUnevaleur(jid, row, valeur) {
   }
 }
 
-// Fonction pour récupérer la valeur d'une colonne spécifiée
+// Function to retrieve the value of a specified column
 async function recupevents(jid, row) {
   try {
     const event = await get(`SELECT ${row} FROM welcome WHERE group_id = ?`, [jid]);

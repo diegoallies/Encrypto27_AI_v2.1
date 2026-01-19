@@ -1,6 +1,6 @@
 const { run, get, all } = require('./sqlite-db');
 
-// Function to update the 'choix' value in the 'theme' collection
+// Function to update the 'choice' value in the 'theme' collection
 async function updateThemeValue(value) {
   try {
     await run('INSERT OR REPLACE INTO theme (jid, theme) VALUES (?, ?)', ['default', value]);
@@ -10,7 +10,7 @@ async function updateThemeValue(value) {
   }
 }
 
-// Function to get the 'choix' value from the 'theme' collection
+// Function to get the 'choice' value from the 'theme' collection
 async function getThemeChoice() {
   try {
     const theme = await get('SELECT theme FROM theme WHERE jid = ?', ['default']);

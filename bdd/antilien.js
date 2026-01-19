@@ -1,6 +1,6 @@
 const { run, get } = require('./sqlite-db');
 
-// Fonction pour ajouter ou mettre à jour un JID
+// Function to add or update a JID
 const ajouterOuMettreAJourJid = async (jid, etat) => {
   try {
     await run(
@@ -13,7 +13,7 @@ const ajouterOuMettreAJourJid = async (jid, etat) => {
   }
 };
 
-// Fonction pour mettre à jour l'action d'un JID
+// Function to update a JID's action
 const mettreAJourAction = async (jid, action) => {
   try {
     await run(
@@ -26,7 +26,7 @@ const mettreAJourAction = async (jid, action) => {
   }
 };
 
-// Fonction pour vérifier si un JID a l'état 'oui'
+// Function to check if a JID has status 'yes'
 const verifierEtatJid = async (jid) => {
   try {
     const data = await get('SELECT etat FROM antilien WHERE jid = ?', [jid]);
@@ -37,7 +37,7 @@ const verifierEtatJid = async (jid) => {
   }
 };
 
-// Fonction pour récupérer l'action associée à un JID
+// Function to retrieve the action associated with a JID
 const recupererActionJid = async (jid) => {
   try {
     const data = await get('SELECT action FROM antilien WHERE jid = ?', [jid]);

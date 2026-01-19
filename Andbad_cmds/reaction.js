@@ -13,7 +13,7 @@ const sleep =  (ms) =>{
     
     } 
 
-// Fonction pour la conversion de GIF en vidéo et récupération du buffer vidéo
+// Function for converting GIF to video and retrieving video buffer
 const GIFBufferToVideoBuffer = async (image) => {
     const filename = `${Math.random().toString(36)}`;
     await fs.writeFileSync(`./${filename}.gif`, image);
