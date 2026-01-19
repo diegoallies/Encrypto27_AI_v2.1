@@ -1330,6 +1330,334 @@
             "messageSecret": "R5A75Ay21Bx2P5BHHvXUiC4Gi97sGnc78MiKru6p3u0="
           }
         }
+      },
+      "3AE71A0642B9D0846537": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3AE71A0642B9D0846537"
+        },
+        "messageTimestamp": 1768838760,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "extendedTextMessage": {
+            "text": "Yes",
+            "contextInfo": {
+              "stanzaId": "3BB52F83F48FD6125957",
+              "participant": "27714725664@s.whatsapp.net",
+              "quotedMessage": {
+                "conversation": "wdym, for whatsapp?"
+              }
+            }
+          }
+        }
+      },
+      "3BEE2D8AF19225DD393A": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3BEE2D8AF19225DD393A",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768838776,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "conversation": "oh I get you",
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "QFSHJ3MGibCtFKCUzMn6OlosxOxSNYL9YcEZKbEaOgc="
+          }
+        }
+      },
+      "3A855B2D8DB35C0DF094": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A855B2D8DB35C0DF094"
+        },
+        "messageTimestamp": 1768838844,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "imageMessage": {
+            "url": "https://mmg.whatsapp.net/o1/v/t24/f2/m269/AQMOPpy_dS2tjs7yQP-2JPIF21VTEqbsRwCGAILX9jy4nJL1oTHYs8mZ5E7zkQ3P_2yDjHtrmnRAMUsJIwT6_IMr4hU_LupDpUbCVvjj_A?ccb=9-4&oh=01_Q5Aa3gFLBr5kWxIJqL873t-LEG-cCcnCTW77jQahOXJzSegzxA&oe=6995C2C7&_nc_sid=e6ed6c&mms3=true",
+            "mimetype": "image/jpeg",
+            "caption": "Baileys handles the messages",
+            "fileSha256": "ZByhzZEUF6i9lNqwb8a/T9r/UdyVZQulpJR69G7w34s=",
+            "fileLength": "209771",
+            "height": 720,
+            "width": 1280,
+            "mediaKey": "jt2T21enwHnp36S2O5uSfY96nQObJsTmg8P2gyO5b1g=",
+            "fileEncSha256": "oR3Ih5xWm10qT0yNQDps3KR5/P7VG0pq6HCwpx1OuwE=",
+            "directPath": "/o1/v/t24/f2/m269/AQMOPpy_dS2tjs7yQP-2JPIF21VTEqbsRwCGAILX9jy4nJL1oTHYs8mZ5E7zkQ3P_2yDjHtrmnRAMUsJIwT6_IMr4hU_LupDpUbCVvjj_A?ccb=9-4&oh=01_Q5Aa3gFLBr5kWxIJqL873t-LEG-cCcnCTW77jQahOXJzSegzxA&oe=6995C2C7&_nc_sid=e6ed6c",
+            "mediaKeyTimestamp": "1768838841",
+            "jpegThumbnail": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDABsSFBcUERsXFhceHBsgKEIrKCUlKFE6PTBCYFVlZF9VXVtqeJmBanGQc1tdhbWGkJ6jq62rZ4C8ybqmx5moq6T/2wBDARweHigjKE4rK06kbl1upKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKSkpKT/wgARCABIAEgDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwT/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIQAxAAAADPXn1lgyws7Fys1gdgBWlxXPXLmLULhml53ZQg6YpS4Y9snJXSznvSjAs1IaqJWjMqsIWhUDDdBGTAYCpBZICf/8QAGREAAgMBAAAAAAAAAAAAAAAAABEBECFA/9oACAECAQE/ABCuc5P/xAAWEQADAAAAAAAAAAAAAAAAAAAAEUD/2gAIAQMBAT8AHR//xAApEAEAAwABAwMDBAMBAAAAAAABAAIRAxIhMQRBURNhcSIykdEUgaGx/9oACAEBAAE/ABve5atnHzrMsVQXp/M5eW1U610/bkv62wZS9z/c/wAttTo5LWse8rb0/vRycnQ/sE7zHzM7ZOJs+K9mW6sDMl/UOo1rL/M0azq2oe86u+/E1SGspb6WUe+e4y3qKlf1mzlR7jOtzIMr337QztC3bsQVhx8bZDeonJxcVvnfzOSjWyRrgRTTICvxsMg/BPAy/JxlXGqxa04tO7+I87050mzp1+IV7eIVXFgZ4H8wrb3JnaDUr1PCZLc9L1A4wyW5aVsZx1jyd2/064w5/wBPRWlQ+5Prta4Vr/EeW1lXprsfUXTO2Z8TDfOzq+6ks1uBSuMqmI11ggu12NtPGZ7Qv2TpCVsh4/mdTu5Oq1n+oBoPiNTuhhEE0qGTpM7GfeAGhnf5nSdn/wBnbJ/Ue3eNPTtteVfwTlrw0D6a2fcYZvgZmuR3tsP+RixfM//+AAMA/9k=",
+            "contextInfo": {
+              "pairedMediaType": "SD_IMAGE_PARENT",
+              "statusSourceType": "IMAGE"
+            },
+            "firstScanSidecar": "A8c4O2ymg3BMNg==",
+            "firstScanLength": 7540,
+            "scansSidecar": "A8c4O2ymg3BMNh8xgwvk8glL6pobuPaGYPR3of9xlTk1TEVn46x8ug==",
+            "scanLengths": [
+              7540,
+              51632,
+              54788,
+              95809
+            ],
+            "midQualityFileSha256": "noc2GSVtrwmfr8EJ5J0Q+jRAAISd7w2cgI1/jS59z/s=",
+            "imageSourceType": "USER_IMAGE"
+          }
+        }
+      },
+      "3A8E49FE926E66CE1B84": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A8E49FE926E66CE1B84"
+        },
+        "messageTimestamp": 1768838861,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "Doesnt need whatsapp business or meta approval to use"
+        }
+      },
+      "3A87D1E97598B8F9FA74": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3A87D1E97598B8F9FA74",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768838908,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "conversation": "Isn’t it against meta terms of use?",
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "MLgrtg/gyiB5Jg==",
+              "senderTimestamp": "1768818456",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "5bbiXymKNvzrA95cfXejSlC3OKZJzdnQzxhzKFo2JC8="
+          }
+        }
+      },
+      "3A1F32AE1E663978F9B8": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A1F32AE1E663978F9B8"
+        },
+        "messageTimestamp": 1768838918,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "No i dont think so"
+        }
+      },
+      "3B76741E18AB7EC6D378": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3B76741E18AB7EC6D378",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768838933,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2
+          },
+          "reactionMessage": {
+            "key": {
+              "remoteJid": "27714725664@s.whatsapp.net",
+              "fromMe": true,
+              "id": "3A1F32AE1E663978F9B8"
+            },
+            "text": "😂",
+            "senderTimestampMs": "1768838933214"
+          }
+        }
+      },
+      "3A864D2945F72970399A": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A864D2945F72970399A"
+        },
+        "messageTimestamp": 1768838981,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "That’s dependant on what you use it for"
+        }
+      },
+      "3A6FFDF62EC4015A13C2": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A6FFDF62EC4015A13C2"
+        },
+        "messageTimestamp": 1768838987,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "If its just for business its allowed"
+        }
+      },
+      "3AAF4006CCB98BCF5CB5": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3AAF4006CCB98BCF5CB5"
+        },
+        "messageTimestamp": 1768839000,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "If its used to backup deleted messages its a violation 😂😂"
+        }
+      },
+      "3BE0A903B8F8C7C1B12D": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3BE0A903B8F8C7C1B12D",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768839026,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "conversation": "doubt on the allowed for business part 😅",
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "3W2cVEcBrtAKNRBYbQY9IG6i2UI3wQbk/eDFNisbKks="
+          }
+        }
+      },
+      "3B6A2A91539615CA9AD8": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3B6A2A91539615CA9AD8",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768839144,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "conversation": "Based on my research, I can provide you with a clear picture of how Meta's WhatsApp Terms of Service relate to projects like SUBZERO-MD.\nWhat SUBZERO-MD Is\nSUBZERO-MD is a WhatsApp Multi-Device Bot built using unofficial reverse-engineered libraries (like Baileys/angularsockets) that interact with WhatsApp Web's WebSocket protocol directly, bypassing the official WhatsApp Business API.\nMeta's Terms of Service Position\nWhatsApp's Terms of Service explicitly prohibit this type of usage. You must not directly, indirectly, through automated or other means: (a) reverse engineer, alter, modify, create derivative works from, decompile, or extract code from our Services WhatsApp\nThe WhatsApp Business Terms add further restrictions: Company must not directly, indirectly, or through automated or other means: (e) reverse engineer any aspect of our Business Services or do anything that may discover source code; (g) develop or use any applications that interact with our Business Services without our prior written consent. WhatsApp",
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "NQaUJYqgG6qLd122zMuuhKi0WFX60TKzsikrut9DYMM="
+          }
+        }
+      },
+      "3B42A80B43EDA6CE313D": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": false,
+          "id": "3B42A80B43EDA6CE313D",
+          "senderLid": "169092896051271@lid"
+        },
+        "messageTimestamp": 1768839157,
+        "pushName": "Nicolas Vd Walt",
+        "broadcast": false,
+        "message": {
+          "conversation": "Key Risks\n\nAccount bans - WhatsApp actively detects and bans accounts using unofficial clients\nNo official support - Changes to WhatsApp's protocol can break functionality at any time\nSecurity concerns - Using unofficial libraries can expose you to malicious forks (recently documented cases of data-stealing packages masquerading as legitimate Baileys forks)\nTerms violation - Clear breach of WhatsApp's ToS, which could have legal implications depending on jurisdiction and use case",
+          "messageContextInfo": {
+            "deviceListMetadata": {
+              "senderKeyHash": "4oPBk3bCj8BccA==",
+              "senderTimestamp": "1766139881",
+              "recipientKeyHash": "gucdpqP5BifKuw==",
+              "recipientTimestamp": "1768833962"
+            },
+            "deviceListMetadataVersion": 2,
+            "messageSecret": "2fzt3hCqA6215kXJUQokE/WOFy5KvADH0dQC9IZyE2M="
+          }
+        }
+      },
+      "3A8388650882C8739F7B": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A8388650882C8739F7B"
+        },
+        "messageTimestamp": 1768839158,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "I saw now"
+        }
+      },
+      "3A5047E82E4F973ACC6C": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A5047E82E4F973ACC6C"
+        },
+        "messageTimestamp": 1768839188,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "😂😂😂"
+        }
+      },
+      "3A7278A6766BC3A9AD89": {
+        "key": {
+          "remoteJid": "27714725664@s.whatsapp.net",
+          "fromMe": true,
+          "id": "3A7278A6766BC3A9AD89"
+        },
+        "messageTimestamp": 1768839194,
+        "pushName": "༺€ռɕɾყρŧσ27༻",
+        "broadcast": false,
+        "status": 2,
+        "message": {
+          "conversation": "Baileys was big i assumed they were legal"
+        }
       }
     }
   },
