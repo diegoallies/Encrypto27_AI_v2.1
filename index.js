@@ -217,13 +217,6 @@ setTimeout(() => {
             };
             const presence = presenceMap[etat] || 'unavailable';
             await zk.sendPresenceUpdate(presence, origineMessage);
-            /** ** */
-            /** ***** */
-            const arg = texte ? texte.trim().split(/ +/).slice(1) : null;
-            const verifCom = texte ? texte.startsWith(prefixe) : false;
-            const com = verifCom ? texte.slice(1).trim().split(/ +/).shift().toLowerCase() : false;
-           
-         
             // Random bot picture function
             const botPicUrls = conf.URL.split(',');
             function mybotpic() {
@@ -231,11 +224,12 @@ setTimeout(() => {
                 return botPicUrls[randomIndex];
             }
             
-            // Command options for handlers
+            // Command parsing
             const arg = texte ? texte.trim().split(/ +/).slice(1) : null;
             const verifCom = texte ? texte.startsWith(prefixe) : false;
             const com = verifCom ? texte.slice(1).trim().split(/ +/).shift().toLowerCase() : false;
             
+            // Command options for handlers
             const commandeOptions = {
                 superUser,
                 dev,
@@ -421,190 +415,58 @@ setTimeout(() => {
             } 
 
 
-                 //anti-lien
-     try {
-        const yes = await verifierEtatJid(origineMessage)
-        if (texte.includes('https://') && verifGroupe &&  yes  ) {
-
-         console.log("Link detected")
-            var verifZokAdmin = verifGroupe ? admins.includes(idBot) : false;
-            
-             if(superUser || verifAdmin || !verifZokAdmin  ) { console.log('je fais rien'); return};
-                        
-                                    const key = {
-                                        remoteJid: origineMessage,
-                                        fromMe: false,
-                                        id: ms.key.id,
-                                        participant: auteurMessage
-                                    };
-                                    var txt = "lien detected, \n";
-                                   // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
-                                    const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
-                                    var sticker = new Sticker(gifLink, {
-                                        pack: 'Zoou-Md',
-                                        author: conf.OWNER_NAME,
-                                        type: StickerTypes.FULL,
-                                        categories: ['🤩', '🎉'],
-                                        id: '12345',
-                                        quality: 50,
-                                        background: '#000000'
-                                    });
-                                    await sticker.toFile("st1.webp");
-                                    // var txt = `@${auteurMsgRepondu.split("@")[0]} a été rétiré du groupe..\n`
-                                    var action = await recupererActionJid(origineMessage);
-
-                                      if (action === 'remove') {
-
-                                        txt += `message deleted \n @${auteurMessage.split("@")[0]} removed from group.`;
-
-                                    await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") });
-                                    (0, baileys_1.delay)(800);
-                                    await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
-                                    try {
-                                        await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
-                                    }
-                                    catch (e) {
-                                        console.log("antiien ") + e;
-                                    }
-                                    await zk.sendMessage(origineMessage, { delete: key });
-                                    await fs.unlink("st1.webp"); } 
-                                        
-                                       else if (action === 'delete') {
-                                        txt += `message deleted \n @${auteurMessage.split("@")[0]} avoid sending link.`;
-                                        // await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
-                                       await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
-                                       await zk.sendMessage(origineMessage, { delete: key });
-                                       await fs.unlink("st1.webp");
-
-                                    } else if(action === 'warn') {
-                                        const {getWarnCountByJID ,ajouterUtilisateurAvecWarnCount} = require('./bdd/warn') ;
-
-                            let warn = await getWarnCountByJID(auteurMessage) ; 
-                            let warnlimit = conf.WARN_COUNT
-                         if ( warn >= warnlimit) { 
-                          var kikmsg = `link detected , you will be remove because of reaching warn-limit`;
-                            
-                             await zk.sendMessage(origineMessage, { text: kikmsg , mentions: [auteurMessage] }, { quoted: ms }) ;
-
-
-                             await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
-                             await zk.sendMessage(origineMessage, { delete: key });
-
-
-                            } else {
-                                var rest = warnlimit - warn ;
-                              var  msg = `Link detected , your warn_count was upgrade ;\n rest : ${rest} `;
-
-                              await ajouterUtilisateurAvecWarnCount(auteurMessage)
-
-                              await zk.sendMessage(origineMessage, { text: msg , mentions: [auteurMessage] }, { quoted: ms }) ;
-                              await zk.sendMessage(origineMessage, { delete: key });
-
-                            }
-                                    }
-                                }
-                                
-                            }
-
-
-
-
-
-
-                            catch (e) {
-        console.log("bdd err " + e);
-    }
-    
-
-
-    /** *************************anti-bot******************************************** */
-    try {
-        const botMsg = ms.key?.id?.startsWith('BAES') && ms.key?.id?.length === 16;
-        const baileysMsg = ms.key?.id?.startsWith('BAE5') && ms.key?.id?.length === 16;
-        if (botMsg || baileysMsg) {
-
-            if (mtype === 'reactionMessage') { console.log('Je ne reagis pas au reactions') ; return} ;
-            const antibotactiver = await atbverifierEtatJid(origineMessage);
-            if(!antibotactiver) {return};
-
-            if( verifAdmin || auteurMessage === idBot  ) { console.log('je fais rien'); return};
-                        
-            const key = {
-                remoteJid: origineMessage,
-                fromMe: false,
-                id: ms.key.id,
-                participant: auteurMessage
-            };
-            var txt = "bot detected, \n";
-           // txt += `message supprimé \n @${auteurMessage.split("@")[0]} rétiré du groupe.`;
-            const gifLink = "https://raw.githubusercontent.com/djalega8000/Zokou-MD/main/media/remover.gif";
-            var sticker = new Sticker(gifLink, {
-                pack: 'Zoou-Md',
-                author: conf.OWNER_NAME,
-                type: StickerTypes.FULL,
-                categories: ['🤩', '🎉'],
-                id: '12345',
-                quality: 50,
-                background: '#000000'
-            });
-            await sticker.toFile("st1.webp");
-            // var txt = `@${auteurMsgRepondu.split("@")[0]} a été rétiré du groupe..\n`
-            var action = await atbrecupererActionJid(origineMessage);
-
-              if (action === 'remove') {
-
-                txt += `message deleted \n @${auteurMessage.split("@")[0]} removed from group.`;
-
-            await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") });
-            (0, baileys_1.delay)(800);
-            await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
+            // Anti-link handler
             try {
-                await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
-            }
-            catch (e) {
-                console.log("antibot ") + e;
-            }
-            await zk.sendMessage(origineMessage, { delete: key });
-            await fs.unlink("st1.webp"); } 
-                
-               else if (action === 'delete') {
-                txt += `message delete \n @${auteurMessage.split("@")[0]} Avoid sending link.`;
-                //await zk.sendMessage(origineMessage, { sticker: fs.readFileSync("st1.webp") }, { quoted: ms });
-               await zk.sendMessage(origineMessage, { text: txt, mentions: [auteurMessage] }, { quoted: ms });
-               await zk.sendMessage(origineMessage, { delete: key });
-               await fs.unlink("st1.webp");
-
-               } else if(action === 'warn') {
-                const {getWarnCountByJID ,ajouterUtilisateurAvecWarnCount} = require('./bdd/warn') ;
-
-    let warn = await getWarnCountByJID(auteurMessage) ; 
-    let warnlimit = conf.WARN_COUNT
- if ( warn >= warnlimit) { 
-  var kikmsg = `bot detected ;you will be remove because of reaching warn-limit`;
-    
-     await zk.sendMessage(origineMessage, { text: kikmsg , mentions: [auteurMessage] }, { quoted: ms }) ;
-
-
-     await zk.groupParticipantsUpdate(origineMessage, [auteurMessage], "remove");
-     await zk.sendMessage(origineMessage, { delete: key });
-
-
-    } else {
-        var rest = warnlimit - warn ;
-      var  msg = `bot detected , your warn_count was upgrade ;\n rest : ${rest} `;
-
-      await ajouterUtilisateurAvecWarnCount(auteurMessage)
-
-      await zk.sendMessage(origineMessage, { text: msg , mentions: [auteurMessage] }, { quoted: ms }) ;
-      await zk.sendMessage(origineMessage, { delete: key });
-
-    }
+                const isAntiLinkActive = await verifierEtatJid(origineMessage);
+                if (texte.includes('https://') && verifGroupe && isAntiLinkActive) {
+                    console.log("Link detected");
+                    const verifZokAdmin = verifGroupe ? admins.includes(idBot) : false;
+                    
+                    if (superUser || verifAdmin || !verifZokAdmin) {
+                        console.log('Skipping anti-link - user has permission');
+                        return;
+                    }
+                    
+                    const { handleAntiLinkAction } = require("./framework/security-handlers");
+                    const action = await recupererActionJid(origineMessage);
+                    await handleAntiLinkAction(zk, origineMessage, auteurMessage, ms, action, conf);
                 }
-        }
-    }
-    catch (er) {
-        console.log('.... ' + er);
-    }        
+            } catch (e) {
+                console.log("Anti-link error:", e);
+            }
+
+
+
+
+
+
+
+
+            // Anti-bot handler
+            try {
+                const botMsg = ms.key?.id?.startsWith('BAES') && ms.key?.id?.length === 16;
+                const baileysMsg = ms.key?.id?.startsWith('BAE5') && ms.key?.id?.length === 16;
+                if (botMsg || baileysMsg) {
+                    if (mtype === 'reactionMessage') {
+                        console.log('Skipping reaction messages');
+                        return;
+                    }
+                    
+                    const isAntiBotActive = await atbverifierEtatJid(origineMessage);
+                    if (!isAntiBotActive) return;
+
+                    if (verifAdmin || auteurMessage === idBot) {
+                        console.log('Skipping anti-bot - user has permission');
+                        return;
+                    }
+                    
+                    const { handleAntiBotAction } = require("./framework/security-handlers");
+                    const action = await atbrecupererActionJid(origineMessage);
+                    await handleAntiBotAction(zk, origineMessage, auteurMessage, ms, action, conf);
+                }
+            } catch (error) {
+                console.log('Anti-bot error:', error);
+            }        
              
          
             /////////////////////////

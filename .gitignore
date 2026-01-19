@@ -46,3 +46,4 @@ pm2/
 
 # Heroku files
 *.heroku/database.sqlite
+/auth
