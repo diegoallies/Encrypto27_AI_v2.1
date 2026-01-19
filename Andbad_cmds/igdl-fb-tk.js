@@ -21,7 +21,7 @@ zokou({nomCom : "instagram" , categorie : "Download"},async (dest , zk , command
         zk.sendMessage(dest,{image : {url : igvid.data.data.data[0].url},caption : "ig image downloader powered by *Bmw-Md*"})
     }
   
-  } catch (e) {repondre("erreur survenue lors du téléchargement \n " + e)}
+  } catch (e) {repondre("Error occurred during download \n " + e)}
   
 });
 
@@ -58,8 +58,8 @@ async (dest, zk, commandeOptions) => {
 
    
   } catch (error) {
-    console.error('Erreur lors du téléchargement de la vidéo :', error);
-    repondre('Erreur lors du téléchargement de la vidéo.' , error);
+    console.error('Error downloading video:', error);
+    repondre('Error downloading video.' , error);
   }
 });
 
@@ -122,7 +122,7 @@ async (dest, zk, commandeOptions) => {
 
    
   } catch (error) {
-    console.error('Erreur lors du téléchargement de la vidéo :', error);
-    repondre('Erreur lors du téléchargement de la vidéo.' , error);
+    console.error('Error downloading video:', error);
+    repondre('Error downloading video.' , error);
   }
 });

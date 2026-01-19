@@ -94,8 +94,8 @@ zokou({ nomCom: "dev", categorie: "General", reaction: "🎣" }, async (dest, zk
             await delay(2000); // 2 seconds delay
             zk.sendMessage(dest, { video: { url: lien }, caption: message }, { quoted: ms });
         } catch (e) {
-            console.log("🥵🥵 Menu erreur " + e);
-            repondre("🥵🥵 Menu erreur " + e);
+            console.log("🥵🥵 Menu error " + e);
+            repondre("🥵🥵 Menu error " + e);
         }
     } else if (lien.match(/\.(jpeg|png|jpg)$/i)) {
         try {
@@ -103,8 +103,8 @@ zokou({ nomCom: "dev", categorie: "General", reaction: "🎣" }, async (dest, zk
             await delay(2000); // 2 seconds delay
             zk.sendMessage(dest, { image: { url: lien }, caption: message }, { quoted: ms });
         } catch (e) {
-            console.log("🥵🥵 Menu erreur " + e);
-            repondre("🥵🥵 Menu erreur " + e);
+            console.log("🥵🥵 Menu error " + e);
+            repondre("🥵🥵 Menu error " + e);
         }
     } else {
         repondre(lien);

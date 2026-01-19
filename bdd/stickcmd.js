@@ -5,13 +5,13 @@ const addStickCmd = async (cmd, id) => {
   try {
     const existing = await get('SELECT cmd FROM stickcmd WHERE cmd = ?', [cmd]);
     if (existing) {
-      console.log(`La commande ${cmd} existe déjà.`);
+      console.log(`Command ${cmd} already exists.`);
       return;
     }
     await run('INSERT INTO stickcmd (cmd, id) VALUES (?, ?)', [cmd, id]);
-    console.log(`Commande ${cmd} ajoutée avec succès.`);
+    console.log(`Command ${cmd} added successfully.`);
   } catch (error) {
-    console.error("❌ Erreur lors de l'ajout du stickcmd :", error);
+    console.error("❌ Error adding stickcmd:", error);
   }
 };
 
@@ -21,7 +21,7 @@ const inStickCmd = async (id) => {
     const cmd = await get('SELECT id FROM stickcmd WHERE id = ?', [id]);
     return cmd !== null;
   } catch (error) {
-    console.error("❌ Erreur lors de la vérification du stickcmd :", error);
+    console.error("❌ Error checking stickcmd:", error);
     return false;
   }
 };
@@ -31,12 +31,12 @@ const deleteCmd = async (cmd) => {
   try {
     const result = await run('DELETE FROM stickcmd WHERE cmd = ?', [cmd]);
     if (result.changes > 0) {
-      console.log(`Commande ${cmd} supprimée avec succès.`);
+      console.log(`Command ${cmd} deleted successfully.`);
     } else {
-      console.log(`Aucune commande ${cmd} trouvée.`);
+      console.log(`No command ${cmd} found.`);
     }
   } catch (error) {
-    console.error("❌ Erreur lors de la suppression du stickcmd :", error);
+    console.error("❌ Error deleting stickcmd:", error);
   }
 };
 
@@ -46,7 +46,7 @@ const getCmdById = async (id) => {
     const cmd = await get('SELECT cmd FROM stickcmd WHERE id = ?', [id]);
     return cmd ? cmd.cmd : null;
   } catch (error) {
-    console.error("❌ Erreur lors de la récupération du stickcmd par id :", error);
+    console.error("❌ Error retrieving stickcmd by id:", error);
     return null;
   }
 };
@@ -56,7 +56,7 @@ const getAllStickCmds = async () => {
   try {
     return await all('SELECT * FROM stickcmd');
   } catch (error) {
-    console.error("❌ Erreur lors de la récupération de toutes les commandes stickcmd :", error);
+    console.error("❌ Error retrieving all stickcmd commands:", error);
     return [];
   }
 };

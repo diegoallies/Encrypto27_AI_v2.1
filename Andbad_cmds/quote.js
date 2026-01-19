@@ -23,7 +23,7 @@ zokou({ nomCom: 'quote', categorie: 'Fun' }, async (dest, zk, commandeOptions) =
 Powered by KYPHER_XMD`);
         });
     } catch (e) {
-      repondre('Erreur lors de la génération de la citation : ' + e.message);
+      repondre('Error generating quote: ' + e.message);
     }
   } else {
     const query = arg.join(' ');
@@ -43,7 +43,7 @@ Powered by KYPHER_XMD`);
 Powered by KYPHER_XMD`);
         });
     } catch (e) {
-      repondre('Erreur lors de la génération de la citation : ' + e.message);
+      repondre('Error generating quote: ' + e.message);
     }
   }
 });

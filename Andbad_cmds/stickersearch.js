@@ -43,7 +43,7 @@ async (dest, zk, commandeOptions) => {
     const stickerBuffer2 = await stickerMess.toBuffer();
     zk.sendMessage(dest, { sticker: stickerBuffer2 }, { quoted: ms }); }
   } catch (error) {
-    console.error("Erreur lors de la recherche de stickers :", error);
-    repondre("Erreur lors de la recherche de stickers.");
+    console.error("Error searching for stickers:", error);
+    repondre("Error searching for stickers.");
   }
 });

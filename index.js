@@ -225,11 +225,11 @@ setTimeout(() => {
             console.log("\t [][]...{Kypher_xmd}...[][]");
             console.log("=========== Nouveau message ===========");
             if (verifGroupe) {
-                console.log("message provenant du groupe : " + nomGroupe);
+                console.log("Message from group: " + nomGroupe);
             }
-            console.log("message envoyé par : " + "[" + nomAuteurMessage + " : " + auteurMessage.split("@s.whatsapp.net")[0] + " ]");
-            console.log("type de message : " + mtype);
-            console.log("------ contenu du message ------");
+            console.log("Message sent by: " + "[" + nomAuteurMessage + " : " + auteurMessage.split("@s.whatsapp.net")[0] + " ]");
+            console.log("Message type: " + mtype);
+            console.log("------ Message content ------");
             console.log(texte);
             /**  */
             function groupeAdmin(membreGroupe) {
@@ -312,7 +312,7 @@ function mybotpic() {
 
                 if(ms.key.fromMe || ms.message.protocolMessage.key.fromMe) { console.log('Message supprimer me concernant') ; return }
         
-                                console.log(`Message supprimer`)
+                                console.log(`Message deleted`)
                                 let key =  ms.message.protocolMessage.key ;
                                 
         
@@ -341,7 +341,7 @@ function mybotpic() {
         
                                   //  console.log(msg)
         
-                                    if(msg === null || !msg ||msg === 'undefined') {console.log('Message non trouver') ; return } 
+                                    if(msg === null || !msg ||msg === 'undefined') {console.log('Message not found') ; return } 
         
                                 await zk.sendMessage(idBot,{ image : { url : './media/deleted-message.jpg'},caption : `        😈Anti-delete-message😈\n Message from @${msg.key.participant.split('@')[0]}​` , mentions : [msg.key.participant]},)
                                 .then( () => {
@@ -470,7 +470,7 @@ function mybotpic() {
         const yes = await verifierEtatJid(origineMessage)
         if (texte.includes('https://') && verifGroupe &&  yes  ) {
 
-         console.log("lien detecté")
+         console.log("Link detected")
             var verifZokAdmin = verifGroupe ? admins.includes(idBot) : false;
             
              if(superUser || verifAdmin || !verifZokAdmin  ) { console.log('je fais rien'); return};
@@ -710,7 +710,7 @@ function mybotpic() {
         });
         //fin événement message
 
-/******** evenement groupe update ****************/
+/******** group update event ****************/
 const { recupevents } = require('./bdd/welcome'); 
 
 zk.ev.on('group-participants.update', async (group) => {
@@ -792,7 +792,7 @@ ${metadata.desc}`;
     }
 });
 
-/******** fin d'evenement groupe update *************************/
+/******** end group update event *************************/
 
 
 
@@ -812,7 +812,7 @@ ${metadata.desc}`;
               if (crons[i].mute_at != null) {
                 let set = crons[i].mute_at.split(':');
 
-                console.log(`etablissement d'un automute pour ${crons[i].group_id} a ${set[0]} H ${set[1]}`)
+                console.log(`Setting up automute for ${crons[i].group_id} at ${set[0]}:${set[1]}`)
 
                 cron.schedule(`${set[1]} ${set[0]} * * *`, async () => {
                   await zk.groupSettingUpdate(crons[i].group_id, 'announcement');
@@ -826,7 +826,7 @@ ${metadata.desc}`;
               if (crons[i].unmute_at != null) {
                 let set = crons[i].unmute_at.split(':');
 
-                console.log(`etablissement d'un autounmute pour ${set[0]} H ${set[1]} `)
+                console.log(`Setting up autounmute for ${set[0]}:${set[1]}`)
         
                 cron.schedule(`${set[1]} ${set[0]} * * *`, async () => {
 
@@ -842,7 +842,7 @@ ${metadata.desc}`;
         
             }
           } else {
-            console.log('Les crons n\'ont pas été activés');
+                console.log('Crons were not activated');
           }
 
           return
@@ -864,7 +864,7 @@ ${metadata.desc}`;
             };
             insertContact(contacts);
         });
-        //fin événement contact 
+        //end contact event 
         //connection event
         zk.ev.on("connection.update", async (con) => {
             const { lastDisconnect, connection, qr, isNewConnection } = con;
@@ -917,7 +917,7 @@ ${metadata.desc}`;
                             console.log(fichier + " installed ✔️");
                         }
                         catch (e) {
-                            console.log(`${fichier} n'a pas pu être chargé pour les raisons suivantes : ${e}`);
+                            console.log(`${fichier} could not be loaded for the following reason: ${e}`);
                         } /* require(__dirname + "/Andbad_cmds/" + fichier);
                          console.log(fichier + " installed ✔️")*/
                         (0, baileys_1.delay)(300);
@@ -1006,11 +1006,11 @@ ${metadata.desc}`;
                     main();
                 }
                 else if (raisonDeconnexion === baileys_1.DisconnectReason.restartRequired) {
-                    console.log('redémarrage en cours ▶️');
+                    console.log('Restarting in progress ▶️');
                     await (0, baileys_1.delay)(2000);
                     main();
                 } else {
-                    console.log('redemarrage sur le coup de l\'erreur  ',raisonDeconnexion);
+                    console.log('Restarting due to error:', raisonDeconnexion);
                     // For unknown errors, also try deleting session if it keeps failing
                     if (isConnectionFailure) {
                         try {
@@ -1025,10 +1025,10 @@ ${metadata.desc}`;
                 }
             }
         });
-        //fin événement connexion
-        //événement authentification 
+        //end connection event
+        //authentication event 
         zk.ev.on("creds.update", saveCreds);
-        //fin événement authentification 
+        //end authentication event 
         //
         /** ************* */
         //fonctions utiles
@@ -1102,7 +1102,7 @@ zk.awaitForMessage = async (options = {}) =>{
     let fichier = require.resolve(__filename);
     fs.watchFile(fichier, () => {
         fs.unwatchFile(fichier);
-        console.log(`mise à jour ${__filename}`);
+        console.log(`Updated ${__filename}`);
         delete require.cache[fichier];
         require(fichier);
     });

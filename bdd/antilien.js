@@ -7,9 +7,9 @@ const ajouterOuMettreAJourJid = async (jid, etat) => {
       'INSERT OR REPLACE INTO antilien (jid, etat) VALUES (?, ?)',
       [jid, etat]
     );
-    console.log(`✅ JID ${jid} ajouté/mis à jour avec succès dans 'antilien'`);
+    console.log(`✅ JID ${jid} added/updated successfully in 'antilien'`);
   } catch (error) {
-    console.error("❌ Erreur d'ajout/mise à jour du JID dans 'antilien':", error);
+    console.error("❌ Error adding/updating JID in 'antilien':", error);
   }
 };
 
@@ -20,9 +20,9 @@ const mettreAJourAction = async (jid, action) => {
       'INSERT OR REPLACE INTO antilien (jid, action) VALUES (?, ?)',
       [jid, action]
     );
-    console.log(`✅ Action mise à jour pour JID ${jid}`);
+    console.log(`✅ Action updated for JID ${jid}`);
   } catch (error) {
-    console.error("❌ Erreur de mise à jour de l'action du JID:", error);
+    console.error("❌ Error updating JID action:", error);
   }
 };
 
@@ -32,7 +32,7 @@ const verifierEtatJid = async (jid) => {
     const data = await get('SELECT etat FROM antilien WHERE jid = ?', [jid]);
     return data ? data.etat === "oui" : false;
   } catch (error) {
-    console.error("❌ Erreur lors de la vérification de l'état du JID:", error);
+    console.error("❌ Error checking JID status:", error);
     return false;
   }
 };
@@ -43,7 +43,7 @@ const recupererActionJid = async (jid) => {
     const data = await get('SELECT action FROM antilien WHERE jid = ?', [jid]);
     return data ? data.action : "supp"; // Valeur par défaut: 'supp'
   } catch (error) {
-    console.error("❌ Erreur lors de la récupération de l'action du JID:", error);
+    console.error("❌ Error retrieving JID action:", error);
     return "supp";
   }
 };

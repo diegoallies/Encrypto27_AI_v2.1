@@ -27,7 +27,7 @@ async function uploadToTelegraph(Path) {
       if (data && data[0] && data[0].src) {
           return "https://telegra.ph" + data[0].src;
       } else {
-          throw new Error("Erreur lors de la récupération du lien de la vidéo");
+          throw new Error("Error retrieving video link");
       }
   } catch (err) {
       throw new Error(String(err));
@@ -372,7 +372,7 @@ zokou({ nomCom: "url", categorie: "Conversion", reaction: "👨🏿‍💻" }, a
 
       repondre(telegraphUrl);
   } catch (error) {
-      console.error('Erreur lors de la création du lien Telegraph :', error);
+      console.error('Error creating Telegraph link:', error);
       repondre('Opps error');
   }
 });

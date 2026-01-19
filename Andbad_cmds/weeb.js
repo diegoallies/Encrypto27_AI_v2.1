@@ -122,7 +122,7 @@ async (origineMessage, zk, commandeOptions) => {
       zk.sendMessage(origineMessage,{image : {url : `./cosplay.jpg`}},{quoted :ms}) }
   
   } catch (e) {
-    repondre("je reçois malheureusement une erreur : " + e);
+    repondre("Unfortunately, I received an error: " + e);
   }
 });
 

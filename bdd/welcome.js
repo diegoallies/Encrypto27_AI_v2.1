@@ -6,16 +6,16 @@ async function attribuerUnevaleur(jid, row, valeur) {
     const event = await get('SELECT * FROM welcome WHERE group_id = ?', [jid]);
     if (event) {
       await run(`UPDATE welcome SET ${row} = ? WHERE group_id = ?`, [valeur, jid]);
-      console.log(`La colonne ${row} a été actualisée sur ${valeur} pour le jid ${jid}`);
+      console.log(`Column ${row} has been updated to ${valeur} for jid ${jid}`);
     } else {
       const defaults = { welcome: 'off', goodbye: 'off', antipromote: 'off', antidemote: 'off' };
       defaults[row] = valeur;
       await run('INSERT INTO welcome (group_id, welcome, goodbye, antipromote, antidemote) VALUES (?, ?, ?, ?, ?)',
         [jid, defaults.welcome, defaults.goodbye, defaults.antipromote, defaults.antidemote]);
-      console.log(`Nouveau jid ${jid} ajouté avec la colonne ${row} ayant la valeur ${valeur}`);
+      console.log(`New jid ${jid} added with column ${row} set to ${valeur}`);
     }
   } catch (error) {
-    console.error("Erreur lors de l'actualisation de events :", error);
+    console.error("Error updating events:", error);
   }
 }
 
@@ -29,7 +29,7 @@ async function recupevents(jid, row) {
       return 'off';
     }
   } catch (error) {
-    console.error("Erreur lors de la récupération de l'événement :", error);
+    console.error("Error retrieving event:", error);
     return 'off';
   }
 }

@@ -757,7 +757,7 @@ zokou({ nomCom: "apk", reaction: "✨", categorie: "Recherche" }, async (dest, z
     // Supprimer le fichier après envoi
     fs.unlinkSync(filePath);
   } catch (error) {
-    console.error('Erreur lors du traitement de la commande apk:', error);
+    console.error('Error processing apk command:', error);
     repondre("*Error during apk command processing*");
   }
 });

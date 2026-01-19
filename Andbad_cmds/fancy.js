@@ -23,6 +23,6 @@ zokou({ nomCom: "fancy", categorie: "Fun", reaction: "〽️" }, async (dest, zk
         }
     } catch (error) {
         console.error(error);
-        return await repondre(`_Erreur :_ ${error.message}`);
+        return await repondre(`_Error:_ ${error.message}`);
     }
 });
